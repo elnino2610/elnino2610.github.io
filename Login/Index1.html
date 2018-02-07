@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style1.css">
+</head>
+<body>
+	<div class="wrap">
+		<h1>Đăng ký thành viên</h1>
+
+		<form action="result.html" id="register">
+			<div class="ok">
+			<input type="text" id="ten" name="name" placeholder="Họ và tên"><br>
+			<span class="error"></span><br/>
+
+			<input type="text" id="email" name="email" placeholder="Email hoặc số điện thoại"><br>
+			<span class="error"></span><br/>
+
+			<input type="password" id="password" name="password" placeholder="Mật khẩu"><br>
+			<span class="error"></span><br/>
+
+			<input type="text" id="nhaplaimatkhau" placeholder="Nhập lại mật khẩu "  name=""><br/>
+			<span class="error"></span><br/>
+
+            <input type="date" id="date"  placeholder="Ngày sinh"  name=""><br/>
+            <br/>
+           
+            <input type="text" id="password"  placeholder= "Nơi ở hiện tại" name="song"><br/>
+            <span class="error"></span><br/>
+
+			
+			<input type="radio" name="gender" id="male"><label for="male"> Nam</label>
+			<input type="radio" name="gender" id="female"><label for="female"> Nữ</label>
+			<br>
+			<input type="submit"  id="đăngnhap" value="Đăng ký"  name="">
+			</div>
+		</form>
+	</div>
+	<script src="jquery-3.2.1.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>
