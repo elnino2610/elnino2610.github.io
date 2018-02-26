@@ -49,3 +49,9 @@ input {
   transform: translateY(4px);
 }
 
+.ok {
+    border: 2px solid #262626;
+    border-radius: 50px;
+    width: 70px;
+    text-align: center;
+}
