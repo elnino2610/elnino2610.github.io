@@ -506,6 +506,11 @@ footer {
 input {
 	background: #141B28;
 	color: white;
+	border: 1px solid #22293C;
+	border-radius: 15px;
+	text-align: center;
+	padding: 5px 0;
+	text-transform: uppercase;
 }
 
 input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -513,34 +518,30 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 }
 
 
-.table2 {
+.btn-primary {
 	background-color: #151925;
 	border: 2px solid #ffcb0a;
-	color: rgba(255, 203, 10, 0.6);
 	border-radius: 25px;
-	padding: 5px 30px;
 	outline: none;
 	width: 120px;
+	text-align: center;
+	font-size: 13px;
 }
 
-.table2>a {
-	color: white;
-	text-decoration: none;
-}
 
 .glyphicon-chevron-up:before {
 	display: block;
-    position: absolute;
-    bottom: 0;
-    left: 1000px;
-    z-index: 1000;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    font-size: 14px;
-    color: #ffffff;
-    text-align: center;
-    -webkit-transition: all linear 0.05s;
-    transition: all linear 0.05s;
+	position: absolute;
+	bottom: 0;
+	left: 1000px;
+	z-index: 1000;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	color: #ffffff;
+	text-align: center;
+	-webkit-transition: all linear 0.05s;
+	transition: all linear 0.05s;
 }
 /*hết*/
