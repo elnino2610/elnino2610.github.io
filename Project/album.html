@@ -8,89 +8,135 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style2.css">
-	<link rel="stylesheet" type="text/css" href="css/contact.css">
+	<link rel="stylesheet" type="text/css" href="css/about.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<header>
-		<div class="menu">
-			<img src="img/top-d-dark-bg.jpg">
-		</div>		
+
+		
 
 		<!-- Menu -->
 		<div class="menu1">
-			<nav class="navbar navbar-default navbar-fixed-top">
-				<div class="container">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="#"><img alt="Brand" src="img/SWEATFinal-02.png"></a>
-					</div>
+			<nav class="navbar navbar-inverse navbar-fixed-top" style="height: 86px;
+			background: #151925;
+			z-index: 999;">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"><img alt="Brand" src="img/SWEATFinal-02.png"></a>
+				</div>
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav" style="font-weight: bold;">
-							<li><a href="Index.html">Trang chủ <span class="sr-only">(current)</span></a></li>
-							<li><a href="about.html">Giới thiệu</a></li>
-							<li><a href="#">Kiến thức thể hình</a></li>
-							<li><a href="#">Cộng đồng</a></li>
-							<li><a href="#">Dịch vụ</a></li>
-							<li><a href="coach.html">Huấn luyện viên</a></li>
-							<li><a href="#">Album</a></li>
-							<li><a href="contact.html" style="color: #ffca05;
-							background-color: initial;">Liên hệ</a></li>
-							<li><a href="#">Đăng ký tập thử</a></li>
-						</ul>
-						<!-- Hết Menu  -->
-					</div><!-- /.navbar-collapse -->
-				</div><!-- /.container-fluid -->
-			</nav>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" style="font-weight: bold;">
+						<li><a href="Index.html">Trang chủ <span class="sr-only">(current)</span></a></li>
+						<li><a href="about.html" style="color: #ffca05;
+						background-color: initial;">Giới thiệu</a></li>
+						<li><a href="#">Kiến thức thể hình</a></li>
+						<li><a href="#">Cộng đồng</a></li>
+						<li><a href="#">Dịch vụ</a></li>
+						<li><a href="coach.html">Huấn luyện viên</a></li>
+						<li><a href="album.html">Album</a></li>
+						<li><a href="contact.html">Liên hệ</a></li>
+						<li><a href="#">Đăng ký tập thử</a></li>
+					</ul>
+					<!-- Hết Menu  -->
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+	</div>
+
+	<!-- Hông trái -->
+	<div id="icon-wrapper">
+		<div class="icon1">
+			<a href="#">
+				<img src="img/fb.png">		
+			</a>
 		</div>
 
-		<!-- Hông trái -->
-		<div id="icon-wrapper">
-			<div class="icon1">
-				<a href="#">
-					<img src="img/fb.png">		
-				</a>
-			</div>
+		<div class="icon1">
+			<a href="#">
+				<img src="img/yt.png">		
+			</a>
+		</div>
 
-			<div class="icon1">
-				<a href="#">
-					<img src="img/yt.png">		
-				</a>
-			</div>
+		<div class="icon1">
+			<a href="#">
+				<img src="img/g.png">		
+			</a>
+		</div>
 
-			<div class="icon1">
-				<a href="#">
-					<img src="img/g.png">		
-				</a>
-			</div>
-
-			<div class="icon1">
-				<a href="#">
-					<img src="img/insta.png">		
-				</a>
-			</div>
-
-		</div>	
+		<div class="icon1">
+			<a href="#">
+				<img src="img/insta.png">		
+			</a>
+		</div>
 
 	</div>	
+
+</div>	
 </header>
 
+<main class="content">
+	<div class="container">
+		<ul class="breadcrumb">
+			<li>
+				<a href="Index.html">Home</a>
+			</li>
+			<li class="active">
+				<span>Ảnh phòng tập</span>
+			</li>
+		</ul>
 
+		<h1>Ảnh phòng tập</h1>
+		
+			
+			<div class="row">
+				<div class="column">
+					<img src="img/_G0A4035.jpg" alt="Nature" onclick="openImg(this);">
+				</div>
+				<div class="column">
+					<img src="img/02.jpg" alt="Fjords" onclick="openImg(this);">
+				</div>
+				<div class="column">
+					<img src="img/03.jpg" alt="Mountains" onclick="openImg(this);">
+				</div>
+				<div class="column">
+					<img src="img/04.jpg" alt="Lights" onclick="openImg(this);">
+				</div>
+			</div>
+
+			<!-- The expanding image container -->
+			<div class="container">
+				<!-- Close the image -->
+				<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+				<!-- Expanded image -->
+				<img id="expandedImg" style="width:100%">
+
+				<!-- Image text -->
+				<div id="imgtext"></div>
+			</div>
+
+
+		
+	</div>
+</main>
 
 
 
 <!-- section 7 -->
+<hr style="color: grey; margin-top: 50px;">
 <section>
-	<hr style="color: grey; margin-top: 50px;">
+
 	<div class="container">
 
 		<div class="row" style="height: 240px;">

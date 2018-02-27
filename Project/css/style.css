@@ -1,26 +1,11 @@
 
 
 /*style header*/
-.responsive {
-	width: 100%;
-	height: auto;
-}
 
 .menu {
 	position: relative;
 }
 
-.navbar-default {
-	background-color: initial; 
-}
-
-.navbar-default .navbar-nav>li>a {
-	color: white;
-	text-transform: uppercase;
-	padding: 10px 15px;
-	left: 150px;
-	font-weight: bold;
-}
 
 .navbar {
 	min-height: 50px;
@@ -28,9 +13,12 @@
 	border: 0 solid transparent;
 }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-	color: #ffca05;
-	background-color: initial;
+.navbar-inverse .navbar-nav>li>a {
+	color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+	color: #ffcb0a;
 }
 
 .navbar-brand img{
@@ -63,49 +51,49 @@
 	margin-left: auto;
 	min-height: 220px;
 	background: #FFF;
-    border: 1px solid #DDD;
-    border-radius: 3px;
-    margin-right: 1px;
-    position: relative;
-    padding-bottom: 54px;
-    padding-top: 40px;
-    padding: 20px;
-    text-align: center !important;
+	border: 1px solid #DDD;
+	border-radius: 3px;
+	margin-right: 1px;
+	position: relative;
+	padding-bottom: 54px;
+	padding-top: 40px;
+	padding: 20px;
+	text-align: center !important;
 }
 
 .sec-10 a{
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    margin-top: -20px;
-    color: #ffcb0a;
-    font-size: 14px;
-    text-align: center;
-    border: 1px solid #DDD;
-    border-radius: 20px;
-    background: #FFF;
-    overflow: hidden;
-    padding: 0;
-    transition: all 0.2s;
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin-top: -20px;
+	color: #ffcb0a;
+	font-size: 14px;
+	text-align: center;
+	border: 1px solid #DDD;
+	border-radius: 20px;
+	background: #FFF;
+	overflow: hidden;
+	padding: 0;
+	transition: all 0.2s;
 }	
 
 .sec-10 i{
 	font-family: FontAwesome;
-    display: inline-block;
-    font-weight: normal;
-    font-style: normal;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
+	display: inline-block;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
 }
 
 .sec-10 span{
 	color: #ffcb0a;
-    font-size: 14px;
-    text-align: center;
-    line-height: 40px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 40px;
 }
-	
+
 
 /*hết secction1*/
 
@@ -247,20 +235,20 @@ ol.tm-list > li:before {
 
 .sec-40 img {
 	max-width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    border: 0;
-    vertical-align: middle;
+	height: auto;
+	box-sizing: border-box;
+	border: 0;
+	vertical-align: middle;
 
 }
 
 .sec-41 h3{
 	font-family: cocabold;
-    color: #ffffff;
-    font-size: 48px;
-    font-weight: 300;
-    line-height: 1;
-    margin-top: -10px;
+	color: #ffffff;
+	font-size: 48px;
+	font-weight: 300;
+	line-height: 1;
+	margin-top: -10px;
 
 }
 
@@ -270,7 +258,7 @@ ol.tm-list > li:before {
 /*section 5*/
 
 .sec-50 {
-	margin-bottom: 120px;
+	margin-bottom: 80px;
 }
 
 .sec-50 h3{
@@ -283,7 +271,7 @@ ol.tm-list > li:before {
 	font-family: cocabold;
 }
 
-.sec-50 p{
+.sec-51 {
 	color: #828488;
 	font-size: 22px;
 	line-height: 1.4;
@@ -299,6 +287,75 @@ ol.tm-list > li:before {
 	padding: 10px 10px;
 }
 
+
+/*Khung chính định vị, sử dụng postion:relative để cố định tất cả các thành phần bên trong*/
+.block{
+	width:250px;
+	height: 200px;
+	position: relative;
+}
+/*Khung chứa nội dung*/
+.block .block-wrapper{
+	width:250px;
+	height: 200px;
+	position: absolute;
+	top:0;
+	left:0;
+	overflow:hidden;
+}
+
+/*Mặt trước chứa hình ảnh*/
+.block .front-side{
+	position: absolute;
+	width: 250px;
+	height: 200px;
+	top: 0;
+	left: 0;
+	padding: 10px;
+	display: flex;
+	align-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	cursor:pointer;
+	-webkit-transition:all .4s ease-in-out;
+	-moz-transition:all .4s ease-in-out;
+	-o-transition:all .4s ease-in-out;
+	transition:all .4s ease-in-out;
+	z-index:2;
+}
+.block .front-side img{
+	width:100%;
+	height:auto;
+}
+
+/*Mặt sau chứa tiêu đề và mô tả*/
+.block .back-side{
+	background: #ffffff;
+	color:#fff;
+	position: absolute;
+	width:250px;
+	height: 200px;
+	top:0;
+	left:0;
+	padding: 20px;
+	z-index:1;
+	box-sizing: border-box;
+}
+
+.block .back-side h1{
+	font-size: 18px;
+	margin:0;
+}
+
+/*ĐỊnh dạng lại thẻ p cho đẹp hơn tí*/
+.block p{
+	margin:0;
+}
+/*Thay đổi giá trị top để thiết lập độ trượt của ảnh*/
+.block:hover .front-side{
+	top: 80px;
+	left: 0px;
+}
 /*hết section 5*/
 
 
@@ -403,12 +460,16 @@ ol.tm-list > li:before {
 	display: block;
 	flex-wrap: wrap;
 	padding-left: 10px;
-	margin-top: 70px;
+	margin-top: 20px;
 	padding: 0;
 	list-style: none;
 	font-weight: 300;
 	text-decoration: none;
 	font-family: cocabold ;
+}
+
+.sec-7 {
+	padding: 50px 0;
 }
 
 .sec-7 a:hover {
@@ -436,4 +497,35 @@ footer {
 	padding: 12px 0;
 	color: #fff;
 }
+
+#table0 {
+	float: left;
+	width: 100%;
+}
+
+input {
+	background: #141B28;
+	color: white;
+}
+
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: rgba(255, 203, 10, 0.6);
+}
+
+
+.table2 {
+	background-color: #151925;
+	border: 2px solid #ffcb0a;
+	color: rgba(255, 203, 10, 0.6);
+	border-radius: 25px;
+	padding: 5px 30px;
+	outline: none;
+	width: 120px;
+}
+
+.table2>a {
+	color: white;
+	text-decoration: none;
+}
+
 /*hết*/

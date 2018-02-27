@@ -42,3 +42,13 @@
 .carousel-indicators li {
 	color: #ffcb0a;
 }
+
+.content p {
+	    color: #828488;
+    font-size: 22px;
+    line-height: 1.4;
+    padding: 0 180px;
+    margin-top: 30px;
+    margin-bottom: 40px !important;
+    text-align: center !important;
+}
