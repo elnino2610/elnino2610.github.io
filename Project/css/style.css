@@ -498,25 +498,26 @@ footer {
 	color: #fff;
 }
 
-#table0 {
-	float: left;
-	width: 100%;
+.form-group {
+	color:  rgba(255, 203, 10, 0.6);
 }
 
-input {
-	background: #141B28;
-	color: white;
+.form-control {
+	background: rgba(0, 0, 0, 0);
+	font-size: 16px;
+	color: #828488;
 	border: 1px solid #22293C;
 	border-radius: 15px;
-	text-align: center;
-	padding: 5px 0;
-	text-transform: uppercase;
 }
 
-input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-	color: rgba(255, 203, 10, 0.6);
+.btn-default {
+	background-color: #151925;
+	border: 2px solid #ffcb0a;
+	color: #FFF;
+	border-radius: 25px;
+	padding: 5px 30px;
+	outline: none;
 }
-
 
 .btn-primary {
 	background-color: #151925;
@@ -528,20 +529,77 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 	font-size: 13px;
 }
 
-
-.glyphicon-chevron-up:before {
-	display: block;
-	position: absolute;
-	bottom: 0;
-	left: 1000px;
-	z-index: 1000;
-	width: 20px;
-	height: 20px;
-	line-height: 20px;
-	font-size: 14px;
-	color: #ffffff;
-	text-align: center;
-	-webkit-transition: all linear 0.05s;
-	transition: all linear 0.05s;
+#back-to-top{
+    position: fixed;
+    bottom: 80px;
+    right: 40px;
+    background-color: initial;
+ 	font-size: 16px;
+    color: #fff;
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    z-index: 99;
 }
-/*hết*/
+
+#back-to-top{
+    /*Thêm transiition để tạo hiệu ứng mượt mà*/    
+    transition: 300ms ease all;
+    -o-transition: 300ms ease all;
+    -moz-transition: 300ms ease all;
+    -webkit-transition: 300ms ease all;
+    
+    /*Mặc định sẽ ẩn đi bằng cách đẩy xuống dưới khỏi body*/
+    transform: translateY(80px);
+    -o-transform: translateY(80px);
+    -moz-transform: translateY(80px);
+    -webkit-transform: translateY(80px);
+}
+
+#back-to-top.active{
+    /*Thay đổi giá trị translateY*/
+    transform: translateY(80px);
+    -o-transform: translateY(80px);
+    -moz-transform: translateY(80px);
+    -webkit-transform: translateY(80px);
+}
+
+#back-to-top>a:hover {
+	color: black;
+}
+/*End*/
+
+
+button.click-here {
+	position: absolute;
+	z-index: 100000;
+}
+
+div.test-content{
+	position: relative;
+}
+div.text-content {
+	position: absolute;
+	font-size: 40px;
+	color: white;
+	top:50%;
+	left: 50%;
+	text-transform: uppercase;
+	display: none;
+
+}
+div.text-content.show {
+	display: block;
+	transition: 0.4s;
+	animation:showEffect 2s;
+}
+
+@keyframes showEffect {
+    0%   {transform: translateX(30%);}
+    25%  {transform: translateX(40%)}
+    50%  {transform: translateX(20%);}
+    100% {transform: translateX(50%);}
+}
+

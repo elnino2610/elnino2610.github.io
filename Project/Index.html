@@ -8,12 +8,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style2.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 </head>
 <body>
-	
+	<button class="click-here" onclick="show()" >click</button>
 	<header>
+		
 		<div class="menu">          
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
@@ -27,9 +27,12 @@
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner">
-					<div class="item active">
+					<div class="item active test-content">
 						<img src="img/1.jpg" class="responsive" style="width: 100%;">
-					</div>
+						<div class="text-content">Giới thiệu</div>
+				</div>
+				
+
 
 					<div class="item">
 						<img src="img/2.jpg"  class="responsive" style="width:100%;">
@@ -83,12 +86,12 @@
 							background-color: initial;">Trang chủ <span class="sr-only">(current)</span></a></li>
 							<li><a href="about.html" >Giới thiệu</a></li>
 							<li><a href="#">Kiến thức thể hình</a></li>
-							<li><a href="#">Cộng đồng</a></li>
-							<li><a href="#">Dịch vụ</a></li>
+							<li><a href="community.html">Cộng đồng</a></li>
+							<li><a href="service.html">Dịch vụ</a></li>
 							<li><a href="coach.html">Huấn luyện viên</a></li>
 							<li><a href="album.html">Album</a></li>
 							<li><a href="contact.html">Liên hệ</a></li>
-							<li><a href="#table0">Đăng ký tập thử</a></li>
+							<li><a href="#exampleInputPassword1">Đăng ký tập thử</a></li>
 						</ul>
 						<!-- Hết Menu  -->
 					</div><!-- /.navbar-collapse -->
@@ -219,7 +222,7 @@
 				margin: 35px 0;
 				">	
 
-				<a class="uk-button" href="#wpcf7-f211-o1" title="Đăng ký">
+				<a class="uk-button" href="#exampleInputPassword1" title="Đăng ký">
 					ĐĂNG KÝ NGAY
 				</a>
 
@@ -596,34 +599,34 @@
 				</div>
 			</div>
 			<!-- Optional: clear the XS cols if their content doesn't match in height -->
-			<div class="clearfix visible-xs-block"></div>
+				<div class="clearfix visible-xs-block"></div>
 
-			<div class="col-xs-6 col-sm-4">
-				<div class="foot1" style="margin-top: 60px;">
-					<h3>Đăng ký mua thẻ và tập thử</h3>
+				<div class="col-xs-6 col-sm-4">
+					<div class="foot1" style="margin-top: 60px;">
+						<h3>Đăng ký mua thẻ và tập thử</h3>
 
+						<form>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Họ và tên</label>
+								<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Họ và tên">
+							</div>	
 
-					<table class="table table-bordered">
-						<div id="table0">
-							<div class="table1">
-								<form action="result.html" id="register">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Địa chỉ Email</label>
+								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+							</div>
 
-									<input type="text" id="ten" name="name" placeholder="Họ và tên"><br>
-									<span class="error"></span><br/>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Số điện thoại</label>
+								<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Số điện thoại">
+							</div>
 
-									<input type="text" id="email" name="email" placeholder="Email"><br>
-									<span class="error"></span><br/>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Gói quan tâm</label>
+								<input type="text" class="form-control" id="packet" placeholder="Gói quan tâm">
+							</div>
 
-									<input type="text" id="phone" name="phone" placeholder="Số Điện Thoại"><br>
-									<span class="error"></span><br/>
-
-									<input type="text" id="packet" name="packet" placeholder="Gói Quan Tâm"><br>
-									<span class="error"></span><br/>
-								</div>
-								<br>
-								
-
-								<!-- Button trigger modal -->
+							<!-- Button trigger modal -->
 								
 								<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
 									Đăng ký
@@ -646,23 +649,20 @@
 										</div>
 									</div>
 								</div>
-								
-							</form>
+						</form>
 
-						</div>
-					</table>	
+					</div>
 				</div>
 			</div>
 		</div>
+
+		<a id="back-to-top" href="#"><span class="glyphicon glyphicon-menu-up"></span></a>
 		
-
-		<a href="#" class="glyphicon glyphicon-chevron-up"></a>
-	</div>
-
-	
-
 </footer>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+<script src="js/js.js"></script>
 </body>
 </html>
 

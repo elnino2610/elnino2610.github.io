@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Swequity</title>
+	<title>Album - Swequity</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="icon" type="image/png" href="img/SWEATFinal-02.png">
@@ -31,7 +31,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#"><img alt="Brand" src="img/SWEATFinal-02.png"></a>
+					<a class="navbar-brand" href="Index.html"><img alt="Brand" src="img/SWEATFinal-02.png"></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,12 +41,12 @@
 						<li><a href="about.html" style="color: #ffca05;
 						background-color: initial;">Giới thiệu</a></li>
 						<li><a href="#">Kiến thức thể hình</a></li>
-						<li><a href="#">Cộng đồng</a></li>
-						<li><a href="#">Dịch vụ</a></li>
+						<li><a href="community">Cộng đồng</a></li>
+						<li><a href="service.html">Dịch vụ</a></li>
 						<li><a href="coach.html">Huấn luyện viên</a></li>
 						<li><a href="album.html">Album</a></li>
 						<li><a href="contact.html">Liên hệ</a></li>
-						<li><a href="#">Đăng ký tập thử</a></li>
+						<li><a href="#exampleInputPassword1">Đăng ký tập thử</a></li>
 					</ul>
 					<!-- Hết Menu  -->
 				</div><!-- /.navbar-collapse -->
@@ -57,25 +57,25 @@
 	<!-- Hông trái -->
 	<div id="icon-wrapper">
 		<div class="icon1">
-			<a href="#">
+			<a href="https://www.facebook.com/swequityfitness">
 				<img src="img/fb.png">		
 			</a>
 		</div>
 
 		<div class="icon1">
-			<a href="#">
+			<a href="https://www.youtube.com/user/Swequityfitness">
 				<img src="img/yt.png">		
 			</a>
 		</div>
 
 		<div class="icon1">
-			<a href="#">
+			<a href="https://plus.google.com/+Swequityfitness">
 				<img src="img/g.png">		
 			</a>
 		</div>
 
 		<div class="icon1">
-			<a href="#">
+			<a href="https://www.instagram.com/swequity/">
 				<img src="img/insta.png">		
 			</a>
 		</div>
@@ -98,33 +98,33 @@
 
 		<h1>Ảnh phòng tập</h1>
 		
-			
-			<div class="row">
-				<div class="column">
-					<img src="img/_G0A4035.jpg" alt="Nature" onclick="openImg(this);">
-				</div>
-				<div class="column">
-					<img src="img/02.jpg" alt="Fjords" onclick="openImg(this);">
-				</div>
-				<div class="column">
-					<img src="img/03.jpg" alt="Mountains" onclick="openImg(this);">
-				</div>
-				<div class="column">
-					<img src="img/04.jpg" alt="Lights" onclick="openImg(this);">
-				</div>
+		
+		<div class="row">
+			<div class="column">
+				<img src="img/_G0A4035.jpg" alt="Nature" onclick="openImg(this);">
 			</div>
-
-			<!-- The expanding image container -->
-			<div class="container">
-				<!-- Close the image -->
-				<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-
-				<!-- Expanded image -->
-				<img id="expandedImg" style="width:100%">
-
-				<!-- Image text -->
-				<div id="imgtext"></div>
+			<div class="column">
+				<img src="img/02.jpg" alt="Fjords" onclick="openImg(this);">
 			</div>
+			<div class="column">
+				<img src="img/03.jpg" alt="Mountains" onclick="openImg(this);">
+			</div>
+			<div class="column">
+				<img src="img/04.jpg" alt="Lights" onclick="openImg(this);">
+			</div>
+		</div>
+
+		<!-- The expanding image container -->
+		<div class="container">
+			<!-- Close the image -->
+			<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+			<!-- Expanded image -->
+			<img id="expandedImg" style="width:100%">
+
+			<!-- Image text -->
+			<div id="imgtext"></div>
+		</div>
 
 
 		
@@ -205,39 +205,60 @@
 				<div class="foot1" style="margin-top: 60px;">
 					<h3>Đăng ký mua thẻ và tập thử</h3>
 
+					<form>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Họ và tên</label>
+							<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Họ và tên">
+						</div>	
 
-					<table class="table table-bordered">
-						<div class="table0">
-							<div class="table1">
-								<thead>
-									<tr>
-										<th>Họ và tên</th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Địa chỉ</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>Số diện thoại</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>Gói quan tâm</td>
-										<td></td>
-									</tr>
-								</tbody>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Địa chỉ Email</label>
+							<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+						</div>
 
+						<div class="form-group">
+							<label for="exampleInputPassword1">Số điện thoại</label>
+							<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Số điện thoại">
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputPassword1">Gói quan tâm</label>
+							<input type="text" class="form-control" id="packet" placeholder="Gói quan tâm">
+						</div>
+
+						<!-- Button trigger modal -->
+						
+						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+							Đăng ký
+						</button>
+
+						<!-- Modal -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										<h4 class="modal-title" id="myModalLabel">Thông báo</h4>
+									</div>
+									<div class="modal-body">
+										Đăng ký thành công
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+								</div>
 							</div>
 						</div>
-					</table>	
+					</form>
+
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<a id="back-to-top" href="#"><span class="glyphicon glyphicon-menu-up"></span></a>
+
+	<script src="js/js.js"></script>
 </footer>
 </body>
 </html>
