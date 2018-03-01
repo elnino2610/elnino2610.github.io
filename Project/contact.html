@@ -7,7 +7,7 @@
 	<link rel="icon" type="image/png" href="img/SWEATFinal-02.png">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style2.css">
 	<link rel="stylesheet" type="text/css" href="css/contact.css">
@@ -16,7 +16,10 @@
 <body>
 	<header>
 		<!-- Menu -->
-		<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: initial;">
+		<div class="menu1">
+			<nav class="navbar navbar-inverse navbar-fixed-top" style="height: 86px;
+			background: initial;
+			z-index: 999;">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -26,58 +29,70 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="Index.html"><img src="img/SWEATFinal-02.png"></a>
+					<a class="navbar-brand" href="Index.html"><img alt="Brand" src="img/SWEATFinal-02.png" class="img-responsive"></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav" style="font-weight: bold;">
-						<li><a href="Index.html">Trang chủ <span class="sr-only">(current)</span></a></li>
-						<li><a href="about.html" >Giới thiệu</a></li>
-						<li><a href="#">Kiến thức thể hình</a></li>
-						<li><a href="community.html">Cộng đồng</a></li>
-						<li><a href="service.html">Dịch vụ</a></li>
-						<li><a href="coach.html">Huấn luyện viên</a></li>
-						<li><a href="album.html">Album</a></li>
-						<li><a href="contact.html" style="color: #ffca05;
-						background-color: initial;">Liên hệ</a></li>
-						<li><a href="#exampleInputPassword1">Đăng ký tập thử</a></li>
-					</ul>
-					<!-- Hết Menu  -->
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
-		</nav>
-	</div>
+						<li><a href="Index.html" >Trang chủ <span class="sr-only">(current)</span></a></li>
+						<li><a href="about.html">Giới thiệu</a></li>
 
-	<!-- Hông trái -->
-	<div id="icon-wrapper">
-		<div class="icon1">
-			<a href="https://www.facebook.com/swequityfitness">
-				<img src="img/fb.png">		
-			</a>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Kiến thức thể hình
+								<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Tăng Cơ</a></li>
+									<li><a href="#">Giảm Cân</a></li>
+									<li><a href="#">Dinh Dưỡng</a></li>
+									<li><a href="#">Cho Người Mới Tập</a></li>
+									<li><a href="video.html">Video</a></li>
+								</ul>
+							</li>
+
+							<li><a href="community.html">Cộng đồng</a></li>
+							<li><a href="service.html">Dịch vụ</a></li>
+							<li><a href="coach.html">Huấn luyện viên</a></li>
+							<li><a href="album.html">Album</a></li>
+							<li><a href="contact.html" style="color: #ffca05;
+							background-color: initial;">Liên hệ</a></li>
+							<li><a href="#exampleInputPassword1">Đăng ký tập thử</a></li>
+						</ul>
+						<!-- Hết Menu  -->
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
 		</div>
 
-		<div class="icon1">
-			<a href="https://www.youtube.com/user/Swequityfitness">
-				<img src="img/yt.png">		
-			</a>
-		</div>
+		<!-- Hông trái -->
+		<div id="icon-wrapper">
+			<div class="icon1">
+				<a href="https://www.facebook.com/swequityfitness">
+					<img src="img/fb.png">		
+				</a>
+			</div>
 
-		<div class="icon1">
-			<a href="https://plus.google.com/+Swequityfitness">
-				<img src="img/g.png">		
-			</a>
-		</div>
+			<div class="icon1">
+				<a href="https://www.youtube.com/user/Swequityfitness">
+					<img src="img/yt.png">		
+				</a>
+			</div>
 
-		<div class="icon1">
-			<a href="https://www.instagram.com/swequity/">
-				<img src="img/insta.png">		
-			</a>
-		</div>
+			<div class="icon1">
+				<a href="https://plus.google.com/+Swequityfitness">
+					<img src="img/g.png">		
+				</a>
+			</div>
+
+			<div class="icon1">
+				<a href="https://www.instagram.com/swequity/">
+					<img src="img/insta.png">		
+				</a>
+			</div>
+
+		</div>	
 
 	</div>	
-
-</div>	
 </header>
 
 
