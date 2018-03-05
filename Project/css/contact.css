@@ -9,6 +9,7 @@
 }
 
 .menu1 {
+    position: absolute;
 	color: #ffffff;
 }
 
@@ -23,7 +24,7 @@
 .circle {
     position: absolute;
     top: 5px;
-    left: -35px;
+    left: -45px;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -37,3 +38,5 @@
     border-radius: 50%;
     font-style: normal;
     }
+
+    
