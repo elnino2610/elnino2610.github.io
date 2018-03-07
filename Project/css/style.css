@@ -53,53 +53,53 @@ body {
 .uk-dotnav {
 	display: inline-block;
 	flex-wrap: wrap;
-    margin-left: -15px;
-    margin-top: -15px;
-    padding: 0;
-    list-style: none;
-    z-index: 1;
+	margin-left: -15px;
+	margin-top: -15px;
+	padding: 0;
+	list-style: none;
+	z-index: 1;
 }
 
 .uk-position-bottom {
 	bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute !important;
+	left: 0;
+	right: 0;
+	position: absolute !important;
 }
 
 .uk-dotnav>li {
 	float: none;
-    display: inline-block;
-    padding: 0 8px;
+	display: inline-block;
+	padding: 0 8px;
 }
 
 .uk-dotnav>a {
 	flex: none;
-    padding-left: 15px;
-    margin-top: 15px;
+	padding-left: 15px;
+	margin-top: 15px;
 }
 
 .uk-dotnav > li > a {
-    width: 55px;
-    height: 55px;
-    background-size: cover !important;
-    background-repeat: no-repeat;
-    opacity: 0.7;
-    position: relative;
+	width: 55px;
+	height: 55px;
+	background-size: cover !important;
+	background-repeat: no-repeat;
+	opacity: 0.7;
+	position: relative;
 }
 
 .uk-dotnav-contrast > * > * {
-    background: rgba(255, 255, 255, 0.4);
+	background: rgba(255, 255, 255, 0.4);
 }
 
 
 .uk-dotnav > * > * {
-    display: block;
-    box-sizing: content-box;
-    border-radius: 50%;
-    text-indent: 100%;
-    overflow: hidden;
-    white-space: nowrap;
+	display: block;
+	box-sizing: content-box;
+	border-radius: 50%;
+	text-indent: 100%;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .uk-dotnav>li.uk-active {
@@ -110,15 +110,15 @@ body {
 
 
 .uk-dotnav > li > a {
-    width: 55px;
-    height: 55px;
-    background-size: cover !important;
-    background-repeat: no-repeat;
-    position: relative;
+	width: 55px;
+	height: 55px;
+	background-size: cover !important;
+	background-repeat: no-repeat;
+	position: relative;
 }
 
 .uk-dotnav-contrast > .uk-active > * {
-    background: rgba(255, 255, 255, 0.9);
+	background: rgba(255, 255, 255, 0.9);
 }
 
 li>a:hover {
@@ -164,8 +164,14 @@ ol {
 	background: #FFF;
 	overflow: hidden;
 	padding: 0;
-	transition: all 0.2s;
+	bottom: -45px;
+	text-decoration: none;
+	opacity: 0.8;
 }	
+
+div.sec-10>a:hover {
+	opacity: 1;
+}
 
 .sec-10 i{
 	font-family: FontAwesome;
@@ -269,12 +275,19 @@ ol.tm-list > li:before {
 	margin-top: -6px;
 }
 
+a.uk-button {
+	text-decoration: none;
+}
+
+.uk-button:hover {
+	background-color: white;
+}
 /*hết style section 2*/
 
 /*style section 3*/
 .sec-3 {
 	clear: both;
-	padding: 30px 0;
+	padding: 70px 0;
 	text-align: right;
 	animation: mymove 3s infinite;
 	animation-timing-function: ease-out;
@@ -338,10 +351,10 @@ ol.tm-list > li:before {
 	width: 295px;
 	height: 500px;
 	
-    height: auto;
-    box-sizing: border-box;
-    border: 0;
-    vertical-align: middle;
+	height: auto;
+	box-sizing: border-box;
+	border: 0;
+	vertical-align: middle;
 } 
 
 
@@ -459,6 +472,7 @@ ol.tm-list > li:before {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
+	width: 100%;
 }
 
 .sec-62 {
@@ -492,8 +506,8 @@ ol.tm-list > li:before {
 
 .sec-64-1 {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 300px;
+	left: 360px;
 }
 
 .sec-64 {
@@ -505,10 +519,18 @@ ol.tm-list > li:before {
 }
 
 .price {
+	opacity: 0.8;
+	color: white;
 	font-size: 60px;
 	line-height: 1;
 	margin-top: 38px;
 	font-weight: 300;
+	text-align: center;
+}
+.price-1 {
+	border: 0;
+	border-top: 1px solid #ffca05;
+	width: 40px;
 }
 
 .price h2 {
@@ -527,26 +549,29 @@ ol.tm-list > li:before {
 
 .price a {
 	color: #ffcb0a;
-	background: #151C29;
-	border: 1px solid #22293C;
-	padding: 0;
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
-	position: relative;
-	bottom: -40px;
-	z-index: 9;
-	transition: all 0.2s;
-}
-
-#buy1 i {
-
+    background: #151C29;
+    border: 1px solid #22293C;
+    padding: 5px;
+    width: 130px;
+    height: 35px;
+    position: relative;
+    bottom: -35px;
+    z-index: 9;
+    transition: all 0.2s;
+    text-decoration: none;
+    border-radius: 25px;
+	display: inline-block;
+    font-size: 20px;
 }
 
 #buy1 span {
-	
+	font-size: 20px;
+	text-align: center;
 }
 
+.price:hover {
+	opacity: 1;
+}
 /*hết section 6 */
 
 /*section 7*/
@@ -633,40 +658,40 @@ footer {
 
 
 #back-to-top{
-    position: fixed;
-    bottom: 80px;
-    right: 40px;
-    background-color: initial;
- 	font-size: 16px;
-    color: #fff;
-    display: block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    z-index: 99;
+	position: fixed;
+	bottom: 80px;
+	right: 40px;
+	background-color: initial;
+	font-size: 16px;
+	color: #fff;
+	display: block;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	z-index: 99;
 }
 
 #back-to-top{
-    /*Thêm transiition để tạo hiệu ứng mượt mà*/    
-    transition: 300ms ease all;
-    -o-transition: 300ms ease all;
-    -moz-transition: 300ms ease all;
-    -webkit-transition: 300ms ease all;
-    
-    /*Mặc định sẽ ẩn đi bằng cách đẩy xuống dưới khỏi body*/
-    transform: translateY(80px);
-    -o-transform: translateY(80px);
-    -moz-transform: translateY(80px);
-    -webkit-transform: translateY(80px);
+	/*Thêm transiition để tạo hiệu ứng mượt mà*/    
+	transition: 300ms ease all;
+	-o-transition: 300ms ease all;
+	-moz-transition: 300ms ease all;
+	-webkit-transition: 300ms ease all;
+
+	/*Mặc định sẽ ẩn đi bằng cách đẩy xuống dưới khỏi body*/
+	transform: translateY(80px);
+	-o-transform: translateY(80px);
+	-moz-transform: translateY(80px);
+	-webkit-transform: translateY(80px);
 }
 
 #back-to-top.active{
-    /*Thay đổi giá trị translateY*/
-    transform: translateY(80px);
-    -o-transform: translateY(80px);
-    -moz-transform: translateY(80px);
-    -webkit-transform: translateY(80px);
+	/*Thay đổi giá trị translateY*/
+	transform: translateY(80px);
+	-o-transform: translateY(80px);
+	-moz-transform: translateY(80px);
+	-webkit-transform: translateY(80px);
 }
 
 #back-to-top>a:hover {
@@ -706,10 +731,10 @@ div.text-content.show {
 }
 
 @keyframes showEffect {
-    0%   {transform: translateX(30%);}
-    25%  {transform: translateX(40%)}
-    50%  {transform: translateX(20%);}
-    100% {transform: translateX(50%);}
+	0%   {transform: translateX(30%);}
+	25%  {transform: translateX(40%)}
+	50%  {transform: translateX(20%);}
+	100% {transform: translateX(50%);}
 }
 
 
