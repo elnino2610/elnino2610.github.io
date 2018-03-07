@@ -1,10 +1,10 @@
 
 img {
-    max-width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    border: 0;
-    vertical-align: middle;
+	max-width: 100%;
+	height: auto;
+	box-sizing: border-box;
+	border: 0;
+	vertical-align: middle;
 }
 
 .breadcrumb {
@@ -34,15 +34,16 @@ img {
 }
 
 .container {
-    position: relative;
-    color: white;
+	position: relative;
+	color: white;
 }
 
 
 .top-left {
-    position: absolute;
-    top: 8px;
-    left: 16px;
+	position: absolute;
+	top: 8px;
+	left: 16px;
+
 }
 
 .top-left a{
@@ -52,20 +53,37 @@ img {
 }
 
 h1 {
-	    line-height: 1.4;
-    font-size: 40px;
-    text-transform: none;
-    color: black;
+	line-height: 1.4;
+	font-size: 40px;
+	text-transform: none;
+	color: black;
 }
 
 span.hover-content span {
-	    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    padding: 0 20px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	padding: 0 20px;
 }
 
 span.hover-content {
-	color: #ffffff;
-	cursor: pointer;
+	position: absolute;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    display: table;
+    opacity: 0;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    transition: opacity 500ms;
+    width: 555px;
+    height: 555px;
+    top:-8px;
 }
+
+span.hover-content:hover {
+	opacity: 1;
+}
+
+

@@ -49,7 +49,6 @@ body {
 
 /*slide*/
 
-
 .uk-dotnav {
 	display: inline-block;
 	flex-wrap: wrap;
@@ -549,19 +548,19 @@ a.uk-button {
 
 .price a {
 	color: #ffcb0a;
-    background: #151C29;
-    border: 1px solid #22293C;
-    padding: 5px;
-    width: 130px;
-    height: 35px;
-    position: relative;
-    bottom: -35px;
-    z-index: 9;
-    transition: all 0.2s;
-    text-decoration: none;
-    border-radius: 25px;
+	background: #151C29;
+	border: 1px solid #22293C;
+	padding: 5px;
+	width: 130px;
+	height: 35px;
+	position: relative;
+	bottom: -35px;
+	z-index: 9;
+	transition: all 0.2s;
+	text-decoration: none;
+	border-radius: 25px;
 	display: inline-block;
-    font-size: 20px;
+	font-size: 20px;
 }
 
 #buy1 span {
@@ -716,25 +715,34 @@ div.test-content{
 }
 div.text-content {
 	position: absolute;
-	font-size: 40px;
+	font-size: 24px;
 	color: white;
-	top:50%;
+	top:250px;
 	left: 50%;
 	text-transform: uppercase;
 	display: none;
-
+	animation-timing-function: ease;
+	text-shadow: 2px 2px #323232;
+	font-weight: bold;
 }
 div.text-content.show {
 	display: block;
 	transition: 0.4s;
-	animation:showEffect 2s;
+	animation:showEffect 2s infinite;
+}
+
+div.text-content.show>a {
+	font-size: 124px;
+	text-decoration: none;
+	color: #ffcb0a;
+	line-height: 1;
+	font-weight: bold;
+	text-align: center;
 }
 
 @keyframes showEffect {
-	0%   {transform: translateX(30%);}
-	25%  {transform: translateX(40%)}
-	50%  {transform: translateX(20%);}
-	100% {transform: translateX(50%);}
+	from {left: 0px;}
+	to {left: 300px;}
 }
 
 
