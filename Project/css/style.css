@@ -358,7 +358,7 @@ ol.tm-list > li:before {
 	font-weight: 300;
 	color: #151925;
 	text-align: center !important;
-	margin-top: 0;
+	margin-top: 60px;
 	margin-bottom: 20px;
 	font-family: cocabold;
 }
@@ -463,11 +463,9 @@ ol.tm-list > li:before {
 
 .sec-62 {
 	top: 80px;
-	left: 350px;
+	left: 860px;
 	position: absolute;
-	font-family: ;
 	color: #ffffff;
-	text-align: center !important;
 }
 
 .sec-62 h3 {
@@ -478,12 +476,24 @@ ol.tm-list > li:before {
 	font-family: cocabold;
 }
 
+.sec-63-1 {
+	position: absolute;
+	top: 180px;
+	left: 740px;
+}
+
 .sec-63 p {
 	color: #828488;
 	font-size: 22px;
 	line-height: 1.4;
 	margin-bottom: 37px !important;
 	text-align: center !important;
+}
+
+.sec-64-1 {
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .sec-64 {
