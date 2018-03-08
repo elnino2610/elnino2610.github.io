@@ -112,7 +112,7 @@
 							Tầng 10, số 1 Lương Yên<br>
 							Q. Hai Bà Trưng, Hà Nội<br>
 						ĐT: 04-3975 0030</p>
-						<a style="font-size: 16px; color: #ffca05;"> Xem trên bản đồ </a>
+						<a href="" style="font-size: 16px; color: #ffca05;"> Xem trên bản đồ </a>
 					</div>
 				</div>
 
@@ -125,17 +125,22 @@
 							Q. Ba Đình, Hà Nội<br>
 							ĐT: 04-3975 0030
 						</p>
+						<div>
+							<a  style="font-size: 16px; color: #ffca05;" id="openmaps"> Xem trên bản đồ </a>
+							
+							<p class="maps"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3724.5093802030556!2d105.863088!3d21.012295!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5cfab39c39402219!2sSwequity+Ultimate+Fitness+-+SUF!5e0!3m2!1sen!2sus!4v1520494461774" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+
+						</div>
+						
 						
 					</div>
 				</div>
-				<div id="map"><a style="font-size: 16px; color: #ffca05;" > Xem trên bản đồ </a></div>
-
+				
 			</div>
 		</div>
 	</div>			
 </div>
 
-<div id="map"></div>
 </section>
 
 
@@ -265,27 +270,11 @@
 	<a id="back-to-top" href="#"><span class="glyphicon glyphicon-menu-up"></span></a>
 	
 	
-	<script src="js/js.js"></script>
-
-	
 
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- <script>
-        function initMap() {
-            var uluru = { lat: 21.0156784, lng: 105.8451308 };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 16,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-        }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEuf8DBhwL6DRYx1fOGDMvEtD9GGJ9vYY&callback=initMap">
-    </script>
+<script src="js/js.js"></script>
+   
 </body>
 </html>

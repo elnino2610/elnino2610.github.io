@@ -17,6 +17,7 @@ body {
 
 .navbar-inverse .navbar-nav>li>a {
 	color: #ffffff;
+	padding-top: 35px;
 }
 
 .navbar-inverse .navbar-nav>li>a:hover {
@@ -172,14 +173,6 @@ div.sec-10>a:hover {
 	opacity: 1;
 }
 
-.sec-10 i{
-	font-family: FontAwesome;
-	display: inline-block;
-	font-weight: normal;
-	font-style: normal;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-}
 
 .sec-10 span{
 	color: #ffcb0a;
@@ -710,6 +703,7 @@ button.click-here {
 
 }
 
+
 div.test-content{
 	position: relative;
 }
@@ -745,6 +739,31 @@ div.text-content.show>a {
 	to {left: 300px;}
 }
 
+div.text-content-1 {
+	position: absolute;
+	font-size: 24px;
+	color: white;
+	top:320px;
+	left: 50%;
+	text-transform: uppercase;
+	display: none;
+	animation-timing-function: ease;
+	text-shadow: 2px 2px #323232;
+	font-weight: bold;
+}
 
+div.text-content-1.show {
+	display: block;
+	transition: 0.4s;
+	animation:showEffect 2s infinite;
+}
 
+div.text-content-1.show>a {
+	font-size: 124px;
+	text-decoration: none;
+	color: #ffcb0a;
+	line-height: 1;
+	font-weight: bold;
+	text-align: center;
+}
 
