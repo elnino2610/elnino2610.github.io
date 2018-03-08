@@ -32,3 +32,23 @@ $('.openmaps').click(function(){
      $('.maps').addClass('maps2');
      
 });
+
+
+// Lấy phần Modal
+      var modal = document.getElementById('myModal');
+
+      // Lấy đường dẫn của hình ảnh và gán vào trong phần Modal
+      var img = document.getElementById('myImg');
+      var modalImg = document.getElementById("img01");
+      img.onclick = function(){
+          modal.style.display = "block";
+          modalImg.src = this.src;
+      }
+
+      // lấy button span có chức năng đóng Modal
+      var span = document.getElementsByClassName("close")[0];
+
+      //Khi button được click, đóng modal
+      span.onclick = function() { 
+          modal.style.display = "none";
+      }

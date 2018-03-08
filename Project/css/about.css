@@ -75,3 +75,8 @@
     margin-top: 0px;
     padding: 0 40px;
 }
+
+#test__css img:hover {
+	transform: scale(1.05);
+	transition: all 0.2s linear;
+}
