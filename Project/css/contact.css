@@ -59,3 +59,7 @@
  .maps2 {
     visibility: visible;
  }
+
+.maps-1 {
+    visibility: hidden;
+} 
