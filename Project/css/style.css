@@ -140,7 +140,6 @@ ol {
 	margin-left: auto;
 	min-height: 220px;
 	background: #FFF;
-	border: 1px solid #DDD;
 	border-radius: 3px;
 	margin-right: 1px;
 	position: relative;
@@ -149,38 +148,6 @@ ol {
 	padding: 20px;
 	text-align: center !important;
 }
-
-.sec-10 a{
-	position: relative;
-	display: inline-block;
-	width: 70px;
-	height: 40px;
-	margin-top: -5px;
-	color: #ffcb0a;
-	font-size: 14px;
-	text-align: center;
-	border: 1px solid #DDD;
-	border-radius: 20px;
-	background: #FFF;
-	overflow: hidden;
-	padding: 0;
-	bottom: -45px;
-	text-decoration: none;
-	opacity: 0.8;
-}	
-
-div.sec-10>a:hover {
-	opacity: 1;
-}
-
-
-.sec-10 span{
-	color: #ffcb0a;
-	font-size: 14px;
-	text-align: center;
-	line-height: 40px;
-}
-
 
 /*hết secction1*/
 
@@ -503,7 +470,7 @@ a.uk-button {
 }
 
 .sec-64 {
-	min-height: 328px;
+	height: 414px;
 	border-radius: 15px;
 	background-color: rgba(2, 167, 223, 0.02);
 	border: 1px solid #22293C;
@@ -562,7 +529,7 @@ a.uk-button {
 }
 
 .price:hover {
-	opacity: 1;
+	opacity: 1.2;
 }
 /*hết section 6 */
 
