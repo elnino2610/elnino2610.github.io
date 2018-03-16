@@ -35,15 +35,21 @@ $('.openmaps').click(function(){
 
 
 // Lấy phần Modal
-      var modal = document.getElementById('myModal');
+      
 
       // Lấy đường dẫn của hình ảnh và gán vào trong phần Modal
-      var img = document.getElementById('myImg');
-      var modalImg = document.getElementById("img01");
-      img.onclick = function(){
+      var img = document.getElementsByClassName('myImg');
+
+      var modalImg = document.getElementsByClassName("img01");
+      img.forEach(function(){
+        this.click(function(){
+          var modal = this.getElementsByClassName('modal');
+          alert(modal);
           modal.style.display = "block";
-          modalImg.src = this.src;
-      }
+          modal.src = this.src;
+        })
+        
+      });
 
       // lấy button span có chức năng đóng Modal
       var span = document.getElementsByClassName("close")[0];
@@ -52,3 +58,10 @@ $('.openmaps').click(function(){
       span.onclick = function() { 
           modal.style.display = "none";
       }
+
+
+
+
+
+
+

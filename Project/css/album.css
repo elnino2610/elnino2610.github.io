@@ -33,6 +33,7 @@ img {
 	line-height: 1.4;
 	font-size: 40px;
 	text-transform: none;
+
 }
 
 .article0 {
@@ -73,13 +74,13 @@ img {
 
 
 
-#myImg {
+.myImg {
 	border-radius: 5px;
 	cursor: pointer;
 	transition: 0.3s;
 }
 
-#myImg:hover {opacity: 0.7;}
+.myImg:hover {opacity: 0.7;}
 
 /* định dạng phần nền của modal */
 .modal {

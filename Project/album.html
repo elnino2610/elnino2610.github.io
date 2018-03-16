@@ -9,8 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style2.css">
 	<link rel="stylesheet" type="text/css" href="css/album.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<header>
@@ -96,32 +94,32 @@
 			</li>
 		</ul>
 
-		<h1>Ảnh phòng tập</h1>
+		<h1 style="font-family: serif;">Ảnh phòng tập</h1>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-6 col-sm-4"><img id="myImg" src="img/10.jpg"
+				<div class="col-xs-6 col-sm-4 myImg"><img src="img/10.jpg"
 					alt="Trolltunga, Norway" >
 					<!-- The Modal -->
-					<div id="myModal" class="modal">
+					<div class="modal">
 						<span class="close">&times;</span>
-						<img class="modal-content" id="img01">
+						<img class="modal-content" class="img01">
 					</div>
 				</div>
 
-				<div class="col-xs-6 col-sm-4" id="myImg"><img src="img/10 (3).jpg" alt="Trolltunga, Norway">
+				<div class="col-xs-6 col-sm-4 myImg"><img src="img/10 (3).jpg" alt="Trolltunga, Norway">
 					<!-- The Modal -->
-					<div id="myModal" class="modal">
+					<div class="modal">
 						<span class="close">&times;</span>
-						<img class="modal-content" id="img01">
+						<img class="modal-content" class="img02">
 					</div>
 				</div>
 				<!-- Optional: clear the XS cols if their content doesn't match in height -->
 				<div class="clearfix visible-xs-block"></div>
-				<div class="col-xs-6 col-sm-4" id="myImg"><img src="img/10 (2).jpg" alt="Trolltunga, Norway">
+				<div class="col-xs-6 col-sm-4 myImg"><img src="img/10 (2).jpg" alt="Trolltunga, Norway">
 					<!-- The Modal -->
-					<div id="myModal" class="modal">
+					<div class="modal">
 						<span class="close">&times;</span>
-						<img class="modal-content" id="img01">
+						<img class="modal-content" class="img03">
 					</div>
 				</div>
 				
@@ -265,7 +263,8 @@
 		</div>
 
 		<a id="back-to-top" href="#"><span class="glyphicon glyphicon-menu-up"></span></a>
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 		<script src="js/js.js"></script>
 	</footer>
 </body>
