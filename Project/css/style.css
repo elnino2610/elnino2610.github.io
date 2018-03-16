@@ -348,78 +348,10 @@ a.uk-button {
 .sec-50 img {
 	width: 222px;
 	height: 222px;
-	padding: 10px 10px;
 }
 
 
-/*Khung chính định vị, sử dụng postion:relative để cố định tất cả các thành phần bên trong*/
-.block{
-	width:250px;
-	height: 200px;
-	position: relative;
-}
-/*Khung chứa nội dung*/
-.block .block-wrapper{
-	width:250px;
-	height: 200px;
-	position: absolute;
-	top:0;
-	left:0;
-	overflow:hidden;
-}
 
-/*Mặt trước chứa hình ảnh*/
-.block .front-side{
-	position: absolute;
-	width: 250px;
-	height: 200px;
-	top: 0;
-	left: 0;
-	padding: 10px;
-	display: flex;
-	align-content: center;
-	align-items: center;
-	box-sizing: border-box;
-	cursor:pointer;
-	-webkit-transition:all .4s ease-in-out;
-	-moz-transition:all .4s ease-in-out;
-	-o-transition:all .4s ease-in-out;
-	transition:all .4s ease-in-out;
-	z-index:2;
-}
-.block .front-side img{
-	width:100%;
-	height:auto;
-}
-
-/*Mặt sau chứa tiêu đề và mô tả*/
-.block .back-side{
-	background: #ffffff;
-	color:#fff;
-	position: absolute;
-	width:250px;
-	height: 200px;
-	top:0;
-	left:0;
-	padding: 20px;
-	z-index:1;
-	box-sizing: border-box;
-}
-
-.block .back-side h1{
-	font-size: 18px;
-	margin:0;
-}
-
-/*ĐỊnh dạng lại thẻ p cho đẹp hơn tí*/
-.block p{
-	margin:0;
-}
-/*Thay đổi giá trị top để thiết lập độ trượt của ảnh*/
-.block:hover .front-side{
-	top: 80px;
-	left: 0px;
-}
 /*hết section 5*/
 /**/
 
@@ -629,6 +561,7 @@ footer {
 	line-height: 30px;
 	text-align: center;
 	z-index: 99;
+	font-size: 24px;
 }
 
 #back-to-top{
@@ -662,12 +595,6 @@ footer {
 button.click-here {
 	position: absolute;
 	z-index: 100000;
-}
-
-#chat {
-	position: absolute;
-	right: 20px;
-
 }
 
 

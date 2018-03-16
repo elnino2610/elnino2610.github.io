@@ -52,6 +52,7 @@ h1 {
 	font-size: 40px;
 	text-transform: none;
 	color: black;
+	font-family: serif;
 }
 
 span.hover-content span {
@@ -59,6 +60,8 @@ span.hover-content span {
 	vertical-align: middle;
 	text-align: center;
 	padding: 0 20px;
+	font-size: 28px;
+	font-family: serif;
 }
 
 span.hover-content {

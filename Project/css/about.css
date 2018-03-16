@@ -29,16 +29,14 @@
 	line-height: 1.4;
 	font-size: 40px;
 	text-transform: none;
+	font-family: serif;
 }
 
 .article0 {
 	width: 750px;
-	overflow-y: auto; 
 	max-height: 500px; 
-	border-radius: 10px 10px 10px 10px; 
 	-moz-border-radius: 10px 10px 10px 10px; 
 	-webkit-border-radius: 10px 10px 10px 10px; 
-	border: 25px solid #151925; 
 	background-color: rgba(21, 25, 37, 0.8); 
 	color: #ffffff; 
 	padding: 10px; 
