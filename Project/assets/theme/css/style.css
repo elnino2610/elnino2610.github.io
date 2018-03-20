@@ -444,3 +444,10 @@ div#navbarSupportedContent.collapse.navbar-collapse{
     background-color: #ffffff;
 }
 
+a.nav-link.link.text-white.display-4 {
+  font-size: 14px;
+}
+
+nav.navbar.navbar-expand.beta-menu.navbar-dropdown.align-items-center.navbar-fixed-top.navbar-toggleable-sm {
+  background: #151925;
+}
