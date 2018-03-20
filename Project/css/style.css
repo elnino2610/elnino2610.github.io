@@ -8,6 +8,9 @@ body {
 	position: relative;
 }
 
+.navbar-inverse {
+	background-color: #151925;
+}
 
 .navbar {
 	min-height: 50px;
@@ -300,7 +303,7 @@ a.uk-button {
 .sec-42 {
 	width: 100%;
 	position: absolute;
-	top: 20%;
+	top: 30%;
 	left: 18%;
 }
 

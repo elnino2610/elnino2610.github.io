@@ -489,7 +489,7 @@ a.card-title.media-body.py-3.mbr-fonts-style.display-7:hover {
   background-color: #FFF;
   border: 1px solid rgba(213, 216, 222, 0.5);
   padding: 10px 20px;
-  display: inline-block;
+  display: -webkit-inline-box;
   margin-bottom: 20px !important;
 }
 
@@ -509,7 +509,7 @@ a.card-title.media-body.py-3.mbr-fonts-style.display-7:hover {
 
 
 nav.navbar.navbar-expand.beta-menu.navbar-dropdown.align-items-center.navbar-fixed-top.navbar-toggleable-sm {
-  background: #151925;
+  background-color: #151925;
 }
 
 a.nav-link.link.text-white.display-4 {
