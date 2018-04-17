@@ -1,0 +1,8 @@
+//- include: false
+//- demo: true
+mixin widget_category(args)
+	include cssmodule
+	+module('ul', css.module, args)
+		- var args = item
+		li
+			a(href="#")= set(args, 'text', 'overview')

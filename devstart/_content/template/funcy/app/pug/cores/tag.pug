@@ -1,0 +1,580 @@
+//- 
+//- Tag & Module
+//- Version 2.4.3
+//- Wiloke.com
+//- 
+
+-
+	var fs = require('fs');
+	var isProd = process.env.NODE_ENV === 'production';
+	var isProdMinify = process.env.NODE_ENV === 'productionMinify';
+	var isDev = process.env.NODE_ENV === 'dev';
+	var projectFolder = __dirname.replace('webpack.config', '');
+	var appConfig = require(projectFolder + '/app.config.js');
+	var readFileApp = fs.readFileSync(projectFolder + '/app.config.js', 'utf-8');
+	var toggleHtmlElement = readFileApp.match(/toggleHtmlElement.*/g).join('').replace(/.*\s|,/g, '');
+
+//- Tag default
+mixin wilTag(tag, className, args)
+	- var skin = '';
+
+	if (config.skin)
+		- skin = themes.prefixSkin + config.skin
+
+	if (args)
+		if (args.skin)
+			- skin = themes.prefixSkin + args.skin
+
+		-
+			var bemSettings = {
+				element: '__',
+				modifier: '--',
+			}
+			var classModifier = '';
+			if (args.modifier) {
+				if (typeof args.modifier === 'string') {
+					classModifier = args.modifier ? className + bemSettings.modifier + args.modifier : '';
+				} else {
+					for (i=0; i<args.modifier.length; i++) {
+						classModifier += args.modifier[i] ? className + bemSettings.modifier + args.modifier[i] + ' ' : '';
+					}
+				}
+			}
+		
+		#{tag}(
+			class= className,
+			class= check_item(skin),
+			class= setAlign(args.align),
+			class= check_item(args.addClass),
+			class= classModifier,
+			id= check_item(args.id),
+			href= check_item(args.href, tag == 'a' ? '#' : ''),
+			target= check_item(args.target),
+			type= check_item(args.type),
+			style= check_item(args.css),
+			src= check_item(args.src),
+			alt= check_item(args.alt)
+		)&attributes(args.attr)&attributes(attributes)
+			if block
+				block
+		
+		if (isDev && typeof className != 'undefined' && toggleHtmlElement == 'true')
+			if (className.indexOf('section') === -1 && className.indexOf('row') === -1 && className.indexOf('col-') === -1)
+				div.core-code-html(style="height: 0; overflow: hidden; visibility: hidden")
+					span(data-toggle-html-button=className)
+					div(data-toggle-html=className)
+						h3(data-toggle-title)= className.replace(/\s(.*?).*/g, '')
+						span(data-close-html-button=className) &times;
+						div.core-pre-wrapper
+							pre.line-numbers
+								code(class='language-markup')
+									#{tag}(
+										class= className,
+											class= check_item(skin),
+											class= setAlign(args.align),
+											class= check_item(args.addClass),
+											class= classModifier,
+											id= check_item(args.id),
+											href= check_item(args.href, tag == 'a' ? '#' : ''),
+											target= check_item(args.target),
+											type= check_item(args.type),
+											style= check_item(args.css),
+											src= check_item(args.src),
+											alt= check_item(args.alt)
+									)&attributes(args.attr)&attributes(attributes)
+										if block
+											block
+
+				span.EndCoreCodeHtml EndCoreCodeHtml
+		
+		//- if (args.guide)
+			style(type="text/css", rel="stylesheet").
+				.wil-styleguide-box{position:relative;display:block!important;width:100%;margin:30px 0 14px;color:#777;text-shadow:0 1px #fff;line-height:1.5;clear:both;padding:20px 30px;background-color:#f7f7f9;border:1px solid #e1e1e8;border-radius:4px}.wil-styleguide-box__title{margin:-20px -30px 20px;background-color:#222;color:#fff;font-size:18px;font-weight:400;padding:20px 30px}.wil-mixin-name{color:#690}.wil-mixin-key{color:#905}.wil-mixin-val{color:#000}.wil-mixin-box{padding-left:30px}
+				
+			div.wil-styleguide-box
+				-
+					var mixinName = className;
+					if (className.indexOf('--') !== -1) {
+						mixinName = className.split('--')[0];
+					}
+					if (className.indexOf(' ') !== -1) {
+						mixinName = className.split(' ')[0];
+					}
+					if (className.indexOf('__') !== -1) {
+						mixinName = className.split('__')[0];
+					}
+					if (className.indexOf(bootstrapSettings.sectionClassDefault) !== -1) {
+						mixinName = 'row'
+					}
+					if (className.indexOf('col-') !== -1) {
+						mixinName = 'col'
+					}
+
+				div.wil-styleguide-box__body
+					//- DISABLE COPY
+					//- span.wil-mixin-copy Copy
+					//- textarea.wil-style-textarea
+						|+#{mixinName}#{tag == 'a' || tag == 'input' || tag == 'button' ? "('" + tag + "', {": "({"}"breakline"
+						- delete args.guide
+						each val, key in args
+							-
+								var _val = '';
+								if (Array.isArray(val)) {
+									val.forEach(function(i) {
+										_val += typeof i == "string" ? "'" + i + "', " : i + ', ';
+									});
+									_val = '[' + _val + ']';
+									_val = _val.split(', ]')[0] + ']';
+								} else if ( (typeof val === "object") && (val !== null) ) {
+									_val = val
+								} else {
+									_val = typeof val == "string" ? "'" + val + "'" : val;
+								}
+							
+
+							if ( val instanceof Object && Array.isArray(val) == false )
+								|"tab"#{key}: {"breakline"
+								each __val, __key in val
+									|"tab""tab"#{__key}: #{typeof __val == "string" ? "'" + __val + "'" : __val},"breakline"
+								|"tab"},"breakline"
+							else if ( typeof val[0] == 'object' )
+								|"tab"#{key}: ["breakline"
+								|"tab""tab"{"breakline"
+								each __val, __key in val[0]
+									|"tab""tab""tab"#{__key}: #{typeof __val == "string" ? "'" + __val + "'" : __val},"breakline"
+								|"tab""tab"},"breakline"
+								|"tab"],"breakline"
+							else
+								|"tab"#{key}: #{_val},"breakline"
+						|})
+
+
+						
+
+					span.wil-mixin-name +#{mixinName}
+					span= tag == 'a' || tag == 'input' || tag == 'button' ? "('" + tag + "', {": "({"
+					- delete args.guide
+					each val, key in args
+						-
+							var _val = '';
+							if (Array.isArray(val)) {
+								val.forEach(function(i) {
+									_val += typeof i == "string" ? "'" + i + "', " : i + ', ';
+								});
+								_val = '[' + _val + ']';
+								_val = _val.split(', ]')[0] + ']';
+							} else if ( (typeof val === "object") && (val !== null) ) {
+								_val = val
+							} else {
+								_val = typeof val == "string" ? "'" + val + "'" : val;
+							}
+						div.wil-mixin-box
+
+							span.wil-mixin-key= key
+
+							if ( val instanceof Object && Array.isArray(val) == false )
+								span : {
+								each __val, __key in val
+									div.wil-mixin-box
+										span.wil-mixin-key= __key
+										span : 
+										span.wil-mixin-val= typeof __val == "string" ? "'" + __val + "'" : __val
+										span ,
+								span },
+							else if ( typeof val[0] == 'object' )
+								span : [
+								div.wil-mixin-box
+									span {
+									each __val, __key in val[0]
+										div.wil-mixin-box
+											span.wil-mixin-key= __key
+											span : 
+											span.wil-mixin-val= typeof __val == "string" ? "'" + __val + "'" : __val
+											span ,
+									span },
+									div ...
+								span ],
+							else
+								span : 
+								span.wil-mixin-val= _val
+								span ,
+					|})
+
+				//- pre.line-numbers
+				//- 	code.language-html
+				//- 		#{tag}(
+				//- 			class= className,
+				//- 			class= check_item(skin),
+				//- 			class= setAlign(args.align),
+				//- 			class= check_item(args.addClass),
+				//- 			class= classModifier,
+				//- 			id= check_item(args.id),
+				//- 			href= check_item(args.href, tag == 'a' ? '#' : ''),
+				//- 			type= check_item(args.type),
+				//- 			style= check_item(args.css),
+				//- 			src= check_item(args.src),
+				//- 			alt= check_item(args.alt)
+				//- 		)&attributes(args.attr)&attributes(attributes)
+				//- 			if block
+				//- 				block
+
+				//- h4(style="margin-bottom: 20px") Html
+				//- xmp(
+				//- 	style={
+				//- 		'white-space': 'pre-wrap',
+				//- 		'padding': '10px !important',
+				//- 		'margin': 0,
+				//- 		'font-family': 'inherit'
+				//- 	}
+				//- )
+				//- 	#{tag}(
+				//- 		class= className,
+				//- 		class= check_item(skin),
+				//- 		class= setAlign(args.align),
+				//- 		class= check_item(args.addClass),
+				//- 		class= classModifier,
+				//- 		id= check_item(args.id),
+				//- 		href= check_item(args.href, tag == 'a' ? '#' : ''),
+				//- 		type= check_item(args.type),
+				//- 		style= check_item(args.css),
+				//- 		src= check_item(args.src),
+				//- 		alt= check_item(args.alt)
+				//- 	)&attributes(args.attr)&attributes(attributes)
+				//- 		if block
+				//- 			block
+	else
+		#{tag}(class= check_item(skin))&attributes(attributes)
+			if block
+				block
+
+
+
+mixin tag(tag, className, args)
+	+wilTag(tag, className, args)&attributes(attributes)
+		if block
+			block
+
+mixin tagInline(tag, className, args)
+	+wilTag(tag, className, args)&attributes(attributes)
+		if block
+			block
+
+//- Tag init
+mixin initTag(tag, className, skin, modifier, args)
+	#{tag}(
+		class= className,
+		class= check_item(modifier),
+		class= check_item(args.modifierFixed),
+		class= check_item(skin),
+		class= setAlign(args.align),
+		class= check_item(args.addClass),
+		class= (typeof args.animate == 'string') ? 'wow ' + args.animate : null,
+		class= (typeof args.animate == 'object') ? 'wow ' + args.animate.name : null,
+		data-wow-duration= (typeof args.animate == 'object') ? args.animate.duration : null,
+		data-wow-delay= (typeof args.animate == 'object') ? args.animate.delay : null,
+		data-wow-offset= (typeof args.animate == 'object') ? args.animate.offset : null,
+		data-wow-iteration= (typeof args.animate == 'object') ? args.animate.iteration : null,
+		id= check_item(args.id),
+		style= check_item(args.css),
+		src= check_item(args.src),
+		href= check_item(args.href, tag == 'a' ? '#' : ''),
+		target= check_item(args.target),
+		type= check_item(args.type),
+		alt= check_item(args.alt)
+	)&attributes(args.attr)&attributes(attributes)
+		if block
+			block
+	if (isDev && typeof className != 'undefined' && toggleHtmlElement == 'true')
+		if (className.indexOf('section') === -1 && className.indexOf('row') === -1 && className.indexOf('col-') === -1)
+			div.core-code-html(style="height: 0; overflow: hidden; visibility: hidden")
+				span(data-toggle-html-button=className, data-title=className.replace(/\s(.*?).*/g, '').replace(/__.*/g, ''))
+				div(data-toggle-html=className)
+					h3(data-toggle-title)= className.replace(/\s(.*?).*/g, '').replace(/__.*/g, '')
+					span(data-close-html-button=className) &times;
+					div.core-pre-wrapper
+						pre.line-numbers.language-markup
+							code(class='language-markup')
+								#{tag}(
+									class= className,
+									class= check_item(modifier),
+									class= check_item(args.modifierFixed),
+									class= check_item(skin),
+									class= setAlign(args.align),
+									class= check_item(args.addClass),
+									class= (typeof args.animate == 'string') ? 'wow ' + args.animate : null,
+									class= (typeof args.animate == 'object') ? 'wow ' + args.animate.name : null,
+									data-wow-duration= (typeof args.animate == 'object') ? args.animate.duration : null,
+									data-wow-delay= (typeof args.animate == 'object') ? args.animate.delay : null,
+									data-wow-offset= (typeof args.animate == 'object') ? args.animate.offset : null,
+									data-wow-iteration= (typeof args.animate == 'object') ? args.animate.iteration : null,
+									id= check_item(args.id),
+									style= check_item(args.css),
+									src= check_item(args.src),
+									href= check_item(args.href, tag == 'a' ? '#' : ''),
+									target= check_item(args.target),
+									type= check_item(args.type),
+									alt= check_item(args.alt)
+								)&attributes(args.attr)&attributes(attributes)
+									if block
+										block
+
+			span.EndCoreCodeHtml EndCoreCodeHtml
+
+//- module
+mixin module(tag, className, args)
+	
+	-
+		var commentHtml = className;
+		var skin = '';
+		var items = '';
+		var modifier = '';
+		if (config.skin) {
+			skin = themes.prefixSkin + config.skin;
+		}
+
+	if (args)
+		-
+			if (args.skin) {
+				skin = themes.prefixSkin + args.skin;
+			}
+			modifier = typeof args.modifier != 'undefined' ? setModifierCssModule(args.modifier) : '';
+		
+		if (args.loop)
+			if (args.loop.children)
+				if ( isProd || isProdMinify )
+					|
+					| <!-- #{commentHtml} -->
+				+initTag(tag, className, skin, modifier, args)&attributes(attributes)
+					each value, index in args.loop.data
+						- item = value
+						- items = check_item(args.loop.items, args.loop.data.length)
+						if index >= items
+							- break
+
+						if block
+							block
+				if ( isProd || isProdMinify )
+					| <!-- End /  #{commentHtml} -->
+					|
+
+			else
+				each value, index in args.loop.data
+					- item = value
+					- items = check_item(args.loop.items, args.loop.data.length)
+					if index >= items
+						- break
+					if (args.loop.wrap)
+						if (typeof args.loop.wrap == 'string')
+							if (args.loop.wrap == 'grid-item')
+								div(class=args.loop.wrap)
+									.grid-item__inner
+										.grid-item__content-wrapper
+											if ( isProd || isProdMinify )
+												|
+												| <!-- #{commentHtml} -->
+											+initTag(tag, className, skin, modifier, args)(
+												class= check_item(setModifierCssModule(item.modifier)),
+												class= item.skin ? themes.prefixSkin + item.skin : null,
+												class= setAlign(item.align),
+												class= check_item(item.addClass),
+												class= (typeof item.animate == 'string') ? 'wow ' + item.animate : null,
+												class= (typeof item.animate == 'object') ? 'wow ' + item.animate.name : null,
+												data-wow-duration= (typeof item.animate == 'object') ? item.animate.duration : null,
+												data-wow-delay= (typeof item.animate == 'object') ? item.animate.delay : null,
+												data-wow-offset= (typeof item.animate == 'object') ? item.animate.offset : null,
+												data-wow-iteration= (typeof item.animate == 'object') ? item.animate.iteration : null,
+												id= check_item(item.id),
+												style= check_item(item.css),
+												src= check_item(item.src),
+												href= check_item(item.href, tag == 'a' ? '#' : ''),
+												target= check_item(item.target),
+												type= check_item(item.type),
+												alt= check_item(item.alt)
+											)&attributes(item.attr)&attributes(attributes)
+												if block
+													block
+											if ( isProd || isProdMinify )
+												| <!-- End / #{commentHtml} -->
+												|
+							else
+								div(class=args.loop.wrap)
+									if ( isProd || isProdMinify )
+										|
+										| <!-- #{commentHtml} -->
+									+initTag(tag, className, skin, modifier, args)(
+										class= check_item(setModifierCssModule(item.modifier)),
+										class= item.skin ? themes.prefixSkin + item.skin : null,
+										class= setAlign(item.align),
+										class= check_item(item.addClass),
+										class= (typeof item.animate == 'string') ? 'wow ' + item.animate : null,
+										class= (typeof item.animate == 'object') ? 'wow ' + item.animate.name : null,
+										data-wow-duration= (typeof item.animate == 'object') ? item.animate.duration : null,
+										data-wow-delay= (typeof item.animate == 'object') ? item.animate.delay : null,
+										data-wow-offset= (typeof item.animate == 'object') ? item.animate.offset : null,
+										data-wow-iteration= (typeof item.animate == 'object') ? item.animate.iteration : null,
+										id= check_item(item.id),
+										style= check_item(item.css),
+										src= check_item(item.src),
+										href= check_item(item.href, tag == 'a' ? '#' : ''),
+										target= check_item(item.target),
+										type= check_item(item.type),
+										alt= check_item(item.alt)
+									)&attributes(item.attr)&attributes(attributes)
+										if block
+											block
+									if ( isProd || isProdMinify )
+										| <!-- End / #{commentHtml} -->
+										|
+						if (typeof args.loop.wrap == 'object')
+							if (args.loop.wrap.addClass == 'grid-item')
+								if (Array.isArray(args.loop.wrap.layouts))
+									- var itemlayout = args.loop.wrap.layouts[index]
+									div(class=args.loop.wrap.addClass, class=itemlayout, class=item[args.loop.wrap.getValueData])
+										.grid-item__inner
+											.grid-item__content-wrapper
+												if ( isProd || isProdMinify )
+													|
+													| <!-- #{commentHtml} -->
+												+initTag(tag, className, skin, modifier, args)(
+													class= check_item(setModifierCssModule(item.modifier)),
+													class= item.skin ? themes.prefixSkin + item.skin : null,
+													class= setAlign(item.align),
+													class= check_item(item.addClass),
+													class= (typeof item.animate == 'string') ? 'wow ' + item.animate : null,
+													class= (typeof item.animate == 'object') ? 'wow ' + item.animate.name : null,
+													data-wow-duration= (typeof item.animate == 'object') ? item.animate.duration : null,
+													data-wow-delay= (typeof item.animate == 'object') ? item.animate.delay : null,
+													data-wow-offset= (typeof item.animate == 'object') ? item.animate.offset : null,
+													data-wow-iteration= (typeof item.animate == 'object') ? item.animate.iteration : null,
+													id= check_item(item.id),
+													style= check_item(item.css),
+													src= check_item(item.src),
+													href= check_item(item.href, tag == 'a' ? '#' : ''),
+													target= check_item(item.target),
+													type= check_item(item.type),
+													alt= check_item(item.alt)
+												)&attributes(item.attr)&attributes(attributes)
+													if block
+														block
+												if ( isProd || isProdMinify )
+													| <!-- End / #{commentHtml} -->
+													|
+								else
+									div(class=args.loop.wrap.addClass, class=item[args.loop.wrap.getValueData])
+										.grid-item__inner
+											.grid-item__content-wrapper
+												if ( isProd || isProdMinify )
+													|
+													| <!-- #{commentHtml} -->
+												+initTag(tag, className, skin, modifier, args)(
+													class= check_item(setModifierCssModule(item.modifier)),
+													class= item.skin ? themes.prefixSkin + item.skin : null,
+													class= setAlign(item.align),
+													class= check_item(item.addClass),
+													class= (typeof item.animate == 'string') ? 'wow ' + item.animate : null,
+													class= (typeof item.animate == 'object') ? 'wow ' + item.animate.name : null,
+													data-wow-duration= (typeof item.animate == 'object') ? item.animate.duration : null,
+													data-wow-delay= (typeof item.animate == 'object') ? item.animate.delay : null,
+													data-wow-offset= (typeof item.animate == 'object') ? item.animate.offset : null,
+													data-wow-iteration= (typeof item.animate == 'object') ? item.animate.iteration : null,
+													id= check_item(item.id),
+													style= check_item(item.css),
+													src= check_item(item.src),
+													href= check_item(item.href, tag == 'a' ? '#' : ''),
+													target= check_item(item.target),
+													type= check_item(item.type),
+													alt= check_item(item.alt)
+												)&attributes(item.attr)&attributes(attributes)
+													if block
+														block
+												if ( isProd || isProdMinify )
+													| <!-- End / #{commentHtml} -->
+													|
+							else
+								
+								div(class=args.loop.wrap.addClass, class=item[args.loop.wrap.getValueData])
+									if ( isProd || isProdMinify )
+										|
+										| <!-- #{commentHtml} -->
+									+initTag(tag, className, skin, modifier, args)(
+										class= check_item(setModifierCssModule(item.modifier)),
+										class= item.skin ? themes.prefixSkin + item.skin : null,
+										class= setAlign(item.align),
+										class= check_item(item.addClass),
+										class= (typeof item.animate == 'string') ? 'wow ' + item.animate : null,
+										class= (typeof item.animate == 'object') ? 'wow ' + item.animate.name : null,
+										data-wow-duration= (typeof item.animate == 'object') ? item.animate.duration : null,
+										data-wow-delay= (typeof item.animate == 'object') ? item.animate.delay : null,
+										data-wow-offset= (typeof item.animate == 'object') ? item.animate.offset : null,
+										data-wow-iteration= (typeof item.animate == 'object') ? item.animate.iteration : null,
+										id= check_item(item.id),
+										style= check_item(item.css),
+										src= check_item(item.src),
+										href= check_item(item.href, tag == 'a' ? '#' : ''),
+										target= check_item(item.target),
+										type= check_item(item.type),
+										alt= check_item(item.alt)
+									)&attributes(item.attr)&attributes(attributes)
+										if block
+											block
+									if ( isProd || isProdMinify )
+										| <!-- End / #{commentHtml} -->
+										|
+					else
+						if ( isProd || isProdMinify )
+							|
+							| <!-- #{commentHtml} -->
+						+initTag(tag, className, skin, modifier, args)(
+							class= check_item(setModifierCssModule(item.modifier)),
+							class= check_item(args.modifierFixed),
+							class= item.skin ? themes.prefixSkin + item.skin : null,
+							class= setAlign(item.align),
+							class= check_item(item.addClass),
+							class= (typeof item.animate == 'string') ? 'wow ' + item.animate : null,
+							class= (typeof item.animate == 'object') ? 'wow ' + item.animate.name : null,
+							data-wow-duration= (typeof item.animate == 'object') ? item.animate.duration : null,
+							data-wow-delay= (typeof item.animate == 'object') ? item.animate.delay : null,
+							data-wow-offset= (typeof item.animate == 'object') ? item.animate.offset : null,
+							data-wow-iteration= (typeof item.animate == 'object') ? item.animate.iteration : null,
+							id= check_item(item.id),
+							style= check_item(item.css),
+							src= check_item(item.src),
+							href= check_item(item.href, tag == 'a' ? '#' : ''),
+							target= check_item(item.target),
+							type= check_item(item.type),
+							alt= check_item(item.alt)
+						)&attributes(item.attr)&attributes(attributes)
+							if block
+								block
+						if ( isProd || isProdMinify )
+							| <!-- End / #{commentHtml} -->
+							|
+		else
+			if ( isProd || isProdMinify )
+				|
+				| <!-- #{commentHtml} -->
+			- item = args
+			+initTag(tag, className, skin, modifier, args)&attributes(attributes)
+				if block
+					block
+
+			if ( isProd || isProdMinify )
+				| <!-- End / #{commentHtml} -->
+				|
+	else
+		if ( isProd || isProdMinify )
+			|
+			| <!-- #{commentHtml} -->
+		#{tag}(class=className, class= check_item(skin))&attributes(attributes)
+			if block
+				block
+		if ( isProd || isProdMinify )
+			| <!-- End / #{commentHtml} -->
+			|
+
+mixin wilBlock(tag, className, args)
+	if (args)
+		- var className = typeof args.modifier == 'undefined' ? className : className + setModifier(className, args.modifier);
+	+module(tag, className, args)&attributes(attributes)
+		if block
+			block

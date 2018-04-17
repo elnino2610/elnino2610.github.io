@@ -1,0 +1,73 @@
+/* //--- post
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	margin-bottom: 30px;
+
+	transition: all .3s ease;
+	
+	&:hover {
+		    box-shadow: 0px 25px 49px 0px rgba(58, 74, 88, 0.1)
+	}
+}
+
+// media
+.media {
+	overflow: hidden;
+
+	a {
+		display: block;
+		transform: scale(1,1);
+	}
+
+	&:hover a {
+		transform: scale(1.1,1.1);
+	}
+}
+
+// body
+.body {
+	border: 1px solid $border-color;
+	padding: 20px 20px;
+}
+
+// title
+.title {
+	font-size: 20px;
+	margin-top: 0;
+	margin-bottom: 15px;
+
+	a:hover {
+		color: $theme-color
+	}
+}
+
+// text
+.text {
+	margin-bottom: 20px;
+}
+
+// meta
+.meta {
+	text-transform: capitalize;
+	font-size: 12px;
+	margin-bottom: 15px;
+
+	> span +span:before {
+		content: '-';
+		display: inline-block;
+		margin: 0 5px;
+	}
+}
+
+// readmore
+.readmore {
+	text-transform: capitalize;
+}
+
+@include media('>md') {
+	.body {
+		padding: 30px 35px;
+	}
+}

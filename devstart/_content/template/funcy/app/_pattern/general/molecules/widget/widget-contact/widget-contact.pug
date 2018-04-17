@@ -1,0 +1,15 @@
+//- demo: true
+mixin widget_contact(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- var args = item
+		p(class=css.item)
+			a(href="#", class=css.phone)!= set(args, 'phone', random(random.phone))
+
+			a(href="#", class=css.email)!= set(args, 'email', global_email)
+			
+		p(class=css.item)
+			p(class=css.address)!= set(args, 'address', random(random.address))
+
+		p(class=css.item)
+			span(class=css.timeopen)!= set(args, 'time', 'Open hours: 8.00-18.00 Mon-Fri')

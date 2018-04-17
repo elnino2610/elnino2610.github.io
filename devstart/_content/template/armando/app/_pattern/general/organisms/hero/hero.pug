@@ -1,0 +1,32 @@
+//- demo: true
+mixin hero(args)
+	include cssmodule
+	+module('div', css.module, args)(style="background-image: url('"+set(args, 'img', 'img/bg/1.jpg')+"')")
+		- var args = item
+		div(class=css.wrapper)
+			div(class="container")
+				+row
+					+col({
+						cols: [0,0,0,8]
+					})
+						
+						h1(class=css.title)
+							!= set(args, 'title', 'We are')
+							+typing({
+							  	options: {
+									typeSpeed: 60
+							  	}
+							})
+								if(args.typing)
+									each val in args.typing
+										span val
+								else 
+									span Awe7
+									span Creative
+									span Free
+						
+						p(class=css.text)!= set(args, 'text', random(random.title, 150))
+					
+
+				span(id="back-to-down")
+					i(class="pe-7s-angle-down")

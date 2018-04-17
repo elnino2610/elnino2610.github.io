@@ -1,0 +1,15 @@
+//- include: false
+//- demo: true
+mixin widget_post(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- var args = item
+		div(class=css.item)
+			div(class=css.img)
+				a(href="#")
+					img(src=set(args, 'img', 'https://unsplash.it/200'), alt="")
+
+			div(class=css.body)
+				h4(class=css.title)
+					a(href="#")!= set(args, 'title', random(random.title))
+				span(class=css.date)!= set(args, 'date', 'Friday  / 02.10')

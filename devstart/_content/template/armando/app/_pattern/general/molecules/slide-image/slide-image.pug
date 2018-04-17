@@ -1,0 +1,39 @@
+//- demo: true
+mixin slide-image(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- var args = item
+		
+		+swiper({
+			nextText: '',
+			prevText: '',
+			pagination: true,
+			options: {
+			    slidesPerView: 1,
+			    spaceBetween: 0
+			},
+			addClass: 'slide-image__front'
+		})
+			div(class="slide-item", style="background-image: url('img/about/1.jpg')")
+
+			div(class="slide-item", style="background-image: url('img/about/2.jpg')")
+
+			div(class="slide-item", style="background-image: url('img/about/3.jpg')")
+		
+
+		+swiper({
+			nextText: '',
+			prevText: '',
+			thumbnails: true,
+			options: {
+			    slidesPerView: 1,
+			    spaceBetween: 0,
+			    delay: 10000
+			},
+			addClass: 'slide-image__black'
+		})
+			div(class="slide-item", style="background-image: url('img/about/1b.jpg')")
+
+			div(class="slide-item", style="background-image: url('img/about/2b.jpg')")
+
+			div(class="slide-item", style="background-image: url('img/about/3b.jpg')")

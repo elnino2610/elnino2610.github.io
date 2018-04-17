@@ -1,0 +1,10 @@
+//- demo: true
+mixin service(args)
+	include cssmodule
+	+module('div', css.module, args)(data-img=set(args, 'img', 'https://images.pexels.com/photos/92858/pexels-photo-92858.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'))
+		- var args = item
+		div(class=css.inner)
+			div(class=css.icon)
+				i(class=set(args, 'icon', random(random.font7)))
+			h2(class=css.title)!= set(args, 'title', random(random.feature))
+			p(class=css.text)!= set(args, 'work', random(random.text, 50))

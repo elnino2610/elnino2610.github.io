@@ -1,0 +1,37 @@
+//- demo: true
+mixin footer(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- var args = item
+		div(id="back-to-top")
+			i(class="pe-7s-angle-up")
+		div(class="container")
+			div(class=css.wrapper)
+
+					
+				p(class=css.copy)!= global_copy	
+				div(class=css.social)
+					-
+					
+						var social = [
+							{
+								icon: 'fa fa-facebook'
+							},
+							{
+								icon: 'fa fa-twitter'
+							},
+							{
+								icon: 'fa fa-instagram'
+							},
+							
+							
+						]
+					
+					//- Args: icon, text
+					+socialicon({
+						loop: {
+							data: social
+						}
+					})
+				include cssmodule
+				

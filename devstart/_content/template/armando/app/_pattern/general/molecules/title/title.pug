@@ -1,0 +1,7 @@
+//- demo: true
+mixin title(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- var args = item
+		h2(class=css.title)!= set(item, 'title', 'Section title')
+			

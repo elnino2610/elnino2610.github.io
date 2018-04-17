@@ -1,0 +1,5 @@
+
+}
+appCheckForCore();
+
+})(jQuery);

@@ -1,0 +1,13 @@
+//- demo: true
+mixin general_form-sub(args)
+	include cssmodule
+
+	+module('form', css.module, args)
+		- let args = item
+
+		input(type=set(args, 'type', 'text'), class="form-control", class=set(args, 'class', ''), name=set(args, 'name', 'input'), placeholder=set(args, 'placeholder', 'placeholder'))
+
+		button(type="submit", class="btn-submit") Subscribe
+
+		
+		

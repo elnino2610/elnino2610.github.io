@@ -1,0 +1,16 @@
+//- include: false
+//- demo: true
+mixin widget_about(args)
+	include cssmodule
+	+module('div', css.element, args)
+		div(class=css.header)
+			if( args.avatar !='' )
+				div(class=css.avatar): img(src=set(item, 'img', 'http://via.placeholder.com/150x150'), alt="")
+			if (args.name !='')
+				h4(class=css.name)!= set(item, 'name', 'Wiloke')
+			if( args.meta !='')
+				span(class=css.meta)!= set(item, 'meta', 'Web developer')
+		div(class=css.body)
+			p!= set(item, 'text', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint eos enim laboriosam facere alias amet vero animi voluptates, consectetur ab!')
+			if( args.signature !='' )
+				div(class=css.signature): img(src=set(item, 'signature', 'http://via.placeholder.com/150x50'), alt="")

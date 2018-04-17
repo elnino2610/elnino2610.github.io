@@ -1,0 +1,16 @@
+/* //--- general_widget-list-02
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	content: empty;
+
+	li {
+		display: inline-block;
+
+		a {
+			padding: 5px 20px;
+			
+		}
+	}
+}

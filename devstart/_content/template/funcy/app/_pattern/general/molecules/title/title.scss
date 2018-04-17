@@ -1,0 +1,35 @@
+/* //--- title
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	margin-bottom: 40px;	
+}
+
+// subtitle
+.subtitle {
+	font-size: 16px;
+	letter-spacing: 2px;
+}
+
+// title
+.title {
+	@include pfs('font-size', (
+		320px: 30px,
+		1200px: 40px
+	))
+	text-transform: capitalize;
+	letter-spacing: 2px;
+	margin-top: 0;
+	margin-bottom: 20px;
+
+	span {
+		color: $theme-color;
+	}
+}
+
+// text
+.text {
+	font-size: 16px;
+}
+

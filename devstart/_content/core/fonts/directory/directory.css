@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'directory';
+  src:
+    url('fonts/directory.ttf?oxnny6') format('truetype'),
+    url('fonts/directory.woff?oxnny6') format('woff'),
+    url('fonts/directory.svg?oxnny6#directory') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.directory {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'directory' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.directory-business:before {
+  content: "\e90e";
+}
+.directory-technology:before {
+  content: "\e90f";
+}
+.directory-elevator:before {
+  content: "\e910";
+}
+.directory-double-bed:before {
+  content: "\e911";
+}
+.directory-food:before {
+  content: "\e912";
+}
+.directory-lantern:before {
+  content: "\e90c";
+}
+.directory-mat:before {
+  content: "\e90d";
+}
+.directory-balloons-couple:before {
+  content: "\e900";
+}
+.directory-planet:before {
+  content: "\e901";
+}
+.directory-symbol:before {
+  content: "\e902";
+}
+.directory-massages:before {
+  content: "\e903";
+}
+.directory-pool:before {
+  content: "\e904";
+}
+.directory-incense-burner:before {
+  content: "\e905";
+}
+.directory-bottle:before {
+  content: "\e906";
+}
+.directory-paper:before {
+  content: "\e907";
+}
+.directory-bathrobe:before {
+  content: "\e908";
+}
+.directory-holidays:before {
+  content: "\e909";
+}
+.directory-cart:before {
+  content: "\e90a";
+}
+.directory-balloon:before {
+  content: "\e90b";
+}

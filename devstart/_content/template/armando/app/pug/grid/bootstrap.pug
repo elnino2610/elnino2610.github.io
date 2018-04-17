@@ -1,0 +1,276 @@
+//- 
+//- Bootstrap grid 2
+//- Version 1.0.2
+//- Nguyen Long Hp
+
+-
+	var projectFolder = __dirname.replace('webpack.config', '');
+	var appConfig = require(projectFolder + '/app.config.js');
+	var activate = process.env.activate ? process.env.activate : '_blank';
+	var requireTemplateConfig = require(projectFolder + appConfig.folders.path + '/' + appConfig.folders.content + '/' + activate + '/config.js');
+
+include ../settings.pug
+
+-
+	var isProd = process.env.NODE_ENV === 'production';
+	var isProdMinify = process.env.NODE_ENV === 'productionMinify';
+	
+	function arrangement(type, offset) {
+		if (!offset) offset = '';
+		var value = '';
+		if (Array.isArray(type)) {
+			for (var i=0; i<bootstrapSettings.colArrangement.length; i++) {
+				var _value = '';
+				if ( offset.indexOf('offset') !== -1 ) {
+					_value = typeof type[i] != 'undefined' ? 'col-' + bootstrapSettings.colArrangement[i] + offset + '-' + type[i] + ' ' : ''
+				} else {
+					_value = typeof type[i] != 'undefined' && type[i] != 0 && type[i] != '' ? 'col-' + bootstrapSettings.colArrangement[i] + offset + '-' + type[i] + ' ' : ''
+				}
+				value += _value;
+			}
+		} else {
+			value = typeof type != 'undefined' ? 'col-' + bootstrapSettings.colArrangement[0] + offset + '-' + type + ' ' : '';
+		}
+		return value;
+	}
+
+	function arrangement4(type, offset) {
+		if (!offset) offset = '';
+		var value = '';
+		if (Array.isArray(type)) {
+			for (var i=0; i<bootstrapSettings.colArrangement.length; i++) {
+				var _value = '';
+				if ( offset.indexOf('offset') !== -1 ) {
+					_value = typeof type[i] != 'undefined' ? offset + '-' + bootstrapSettings.colArrangement[i] + '-' + type[i] + ' ' : '';
+				} else {
+					_value = typeof type[i] != 'undefined' && type[i] != 0 && type[i] != '' ? 'col-' + bootstrapSettings.colArrangement[i] + '-' + type[i] + ' ' : '';
+					_value = type[i] == 'x' ? 'col-' + bootstrapSettings.colArrangement[i] + ' ' : '';
+				}
+				value += _value;
+			}
+		} else {
+			value = typeof type != 'undefined' ? 'col-' + bootstrapSettings.colArrangement[0] + '-' + type + ' ' : '';
+			value = type == 'x' ? 'col ' : '';
+		}
+		return value;
+	}
+
+	function setGap(gap, el) {
+		if (!el) el = false;
+		var calGap = '';
+		if (gap == 0) {
+			calGap = el === 'row' ? 'margin-left: 0; margin-right: 0' : 'padding-left: 0; padding-right: 0';
+		} else {
+			var gapVal = el === 'row' ? -gap.toString().split(/(\d+)/)[1] : gap.toString().split(/(\d+)/)[1],
+				gapUnit = gap.toString().split(/(\d+)/)[2],
+				_gap = gapUnit === '' ? gapVal/2 + 'px' : gapVal/2 + gapUnit,
+				calGap = el === 'row' ? 'margin-left: ' + _gap + '; margin-right: ' + _gap : 'padding-left: ' + _gap + '; padding-right: ' + _gap;
+		}
+		return calGap;
+	}
+
+mixin bootstraptag(tag, skin, args)
+	#{tag}(
+		class= check_item(skin),
+		class= setAlign(args.align),
+		class= check_item(args.addClass),
+		class= (typeof args.animate == 'string') ? 'wow ' + args.animate : null,
+		class= (typeof args.animate == 'object') ? 'wow ' + args.animate.name : null,
+		data-wow-duration= (typeof args.animate == 'object') ? args.animate.duration : null,
+		data-wow-delay= (typeof args.animate == 'object') ? args.animate.delay : null,
+		data-wow-offset= (typeof args.animate == 'object') ? args.animate.offset : null,
+		data-wow-iteration= (typeof args.animate == 'object') ? args.animate.iteration : null,
+		id= check_item(args.id),
+		style= check_item(args.css)
+	)&attributes(args.attr)&attributes(attributes)
+		if block
+			block
+
+mixin section(args)
+	if ( isProd || isProdMinify )
+		|
+		| <!-- Section -->
+	-
+		var skin = '';
+		if (config.skin) {
+			skin = themes.prefixSkin + config.skin;
+		}
+	if (args)
+		-
+			if (args.skin) {
+				skin = themes.prefixSkin + args.skin;
+			}
+		//- section(
+		//- 	class=bootstrapSettings.sectionClassDefault,
+		//- 	class= args.skin ? themes.prefixSkin + args.skin : null,
+		//- 	class= setAlign(args.align),
+		//- 	class= check_item(args.addClass),
+		//- 	class= (typeof args.animate == 'string') ? 'wow ' + args.animate : null,
+		//- 	class= (typeof args.animate == 'object') ? 'wow ' + args.animate.name : null,
+		//- 	data-wow-duration= (typeof args.animate == 'object') ? args.animate.duration : null,
+		//- 	data-wow-delay= (typeof args.animate == 'object') ? args.animate.delay : null,
+		//- 	data-wow-offset= (typeof args.animate == 'object') ? args.animate.offset : null,
+		//- 	data-wow-iteration= (typeof args.animate == 'object') ? args.animate.iteration : null,
+		//- 	id= check_item(args.id),
+		//- 	style= check_item(args.css)
+		//- )&attributes(args.attr)&attributes(attributes)
+		//- +module('section', bootstrapSettings.sectionClassDefault, args)&attributes(args.attr)&attributes(attributes)
+		+initTag('section', bootstrapSettings.sectionClassDefault, skin, '', args)&attributes(args.attr)&attributes(attributes)
+			if (args.container == false)
+				if (args.overlay == true)
+					div(class=bootstrapSettings.overlay)
+				if (typeof args.overlay == 'object')
+					div(class=bootstrapSettings.overlay, style=args.overlay)
+				if block
+					block
+
+			else if (typeof args.container == 'string')
+				if (args.overlay == true)
+					div(class=bootstrapSettings.overlay)
+				if (typeof args.overlay == 'object')
+					div(class=bootstrapSettings.overlay, style=args.overlay)
+				div(
+					class=args.container,
+					style=args.containerCss ? args.containerCss : null
+				)
+					if block
+						block
+
+			else if (args.overlay == true)
+				div(class=bootstrapSettings.overlay)
+				div(class=bootstrapSettings.containerClassDefault)
+					if block
+						block
+
+			else if (typeof args.overlay == 'object')
+				div(class=bootstrapSettings.overlay, style=args.overlay)
+				div(class=bootstrapSettings.containerClassDefault)
+					if block
+						block
+			else
+				div(class=bootstrapSettings.containerClassDefault)
+					if block
+						block
+
+	else
+		section(class=bootstrapSettings.sectionClassDefault)
+			div(class=bootstrapSettings.containerClassDefault)
+				if block
+					block
+	if ( isProd || isProdMinify )
+		| <!-- End / Section -->
+		|
+
+mixin container(args)
+	-
+		if (config.skin) {
+			skin = themes.prefixSkin + config.skin;
+		}
+	if (args)
+		-
+			if (args.skin) {
+				skin = themes.prefixSkin + args.skin;
+			}
+		//- div(
+		//- 	class=bootstrapSettings.containerClassDefault,
+		//- 	class= setAlign(args.align),
+		//- 	class= check_item(args.addClass),
+		//- 	class= (typeof args.animate == 'string') ? 'wow ' + args.animate : null,
+		//- 	class= (typeof args.animate == 'object') ? 'wow ' + args.animate.name : null,
+		//- 	data-wow-duration= (typeof args.animate == 'object') ? args.animate.duration : null,
+		//- 	data-wow-delay= (typeof args.animate == 'object') ? args.animate.delay : null,
+		//- 	data-wow-offset= (typeof args.animate == 'object') ? args.animate.offset : null,
+		//- 	data-wow-iteration= (typeof args.animate == 'object') ? args.animate.iteration : null,
+		//- 	id= check_item(args.id),
+		//- 	style= check_item(args.css)
+		//- )&attributes(args.attr)&attributes(attributes)
+		//- +module('div', bootstrapSettings.containerClassDefault, args)&attributes(args.attr)&attributes(attributes)
+		+initTag('div', bootstrapSettings.containerClassDefault, skin, '', args)&attributes(args.attr)&attributes(attributes)
+			if block
+				block
+	else
+		div(class=bootstrapSettings.containerClassDefault)
+			if block
+				block
+
+mixin row(args)
+	-
+		var skin = '';
+		if (config.skin) {
+			skin = themes.prefixSkin + config.skin;
+		}
+	if (args)
+		-
+			if (args.skin) {
+				skin = themes.prefixSkin + args.skin;
+			}
+		-
+			var gap = (typeof args.gap !== 'undefined') ? setGap(args.gap, 'row') : null;
+		//- div(
+		//- 	class=bootstrapSettings.rowClass,
+		//- 	class= setAlign(args.align),
+		//- 	class= check_item(args.addClass),
+		//- 	class= (typeof args.animate == 'string') ? 'wow ' + args.animate : null,
+		//- 	class= (typeof args.animate == 'object') ? 'wow ' + args.animate.name : null,
+		//- 	data-wow-duration= (typeof args.animate == 'object') ? args.animate.duration : null,
+		//- 	data-wow-delay= (typeof args.animate == 'object') ? args.animate.delay : null,
+		//- 	data-wow-offset= (typeof args.animate == 'object') ? args.animate.offset : null,
+		//- 	data-wow-iteration= (typeof args.animate == 'object') ? args.animate.iteration : null,
+		//- 	id= check_item(args.id),
+		//- 	style= gap
+		//- )&attributes(args.attr)&attributes(attributes)
+		+initTag('div', bootstrapSettings.rowClass, skin, '', args)(
+			style=gap
+		)&attributes(args.attr)&attributes(attributes)
+			if block
+				block
+	else
+		div(class=bootstrapSettings.rowClass)
+			if block
+				block
+
+mixin col(args)
+	-
+		var skin = '';
+		if (config.skin) {
+			skin = themes.prefixSkin + config.skin;
+		}
+	if (args)
+		-
+			if (args.skin) {
+				skin = themes.prefixSkin + args.skin;
+			}
+		-
+			var gap = typeof args.gap != 'undefined' ? setGap(args.gap) : null;
+			var bsversion = typeof requireTemplateConfig.bootstrapVersion != 'undefined' ? requireTemplateConfig.bootstrapVersion : 3;
+
+		//- div(
+		//- 	class=arrangement(args.cols) + arrangement(args.offsets, '-offset'),
+		//- 	class= setAlign(args.align),
+		//- 	class= check_item(args.addClass),
+		//- 	class= (typeof args.animate == 'string') ? 'wow ' + args.animate : null,
+		//- 	class= (typeof args.animate == 'object') ? 'wow ' + args.animate.name : null,
+		//- 	data-wow-duration= (typeof args.animate == 'object') ? args.animate.duration : null,
+		//- 	data-wow-delay= (typeof args.animate == 'object') ? args.animate.delay : null,
+		//- 	data-wow-offset= (typeof args.animate == 'object') ? args.animate.offset : null,
+		//- 	data-wow-iteration= (typeof args.animate == 'object') ? args.animate.iteration : null,
+		//- 	id= check_item(args.id),
+		//- 	style= gap
+		//- )&attributes(args.attr)&attributes(attributes)
+		//- +module('div', arrangement(args.cols) + arrangement(args.offsets, '-offset'), args)(
+		if (bsversion == 3)
+			+initTag('div', arrangement(args.cols) + arrangement(args.offsets, '-offset'), skin, '', args)(
+				style=gap
+			)&attributes(args.attr)&attributes(attributes)
+				if block
+					block
+		if (bsversion == 4)
+			+initTag('div', arrangement4(args.cols) + arrangement4(args.offsets, 'offset'), skin, '', args)(
+				style=gap
+			)&attributes(args.attr)&attributes(attributes)
+				if block
+					block
+	else
+		div(class='col-' + bootstrapSettings.colArrangement[0] + '-12')
+			if block
+				block

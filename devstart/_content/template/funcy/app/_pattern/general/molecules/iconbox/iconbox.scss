@@ -1,0 +1,39 @@
+/* //--- general_iconbox
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+// icon
+.icon {
+    display: inline-block;
+	font-size: 50px;
+	line-height: 1;
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: -webkit-linear-gradient(180deg, #20d497 0%, #744fff 100%);
+    color: transparent;
+    margin-bottom: 10px;
+}
+
+// title
+.title {
+	font-size: 20px;
+	text-transform: capitalize;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+// text
+.text {
+	
+}
+
+:global(.md-skin-dark) {
+	.title {
+		color: #fff;
+	}
+}

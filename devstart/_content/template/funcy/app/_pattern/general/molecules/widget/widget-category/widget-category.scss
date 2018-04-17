@@ -1,0 +1,28 @@
+/* //--- widget_category
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	li {
+		a {
+			display: block;
+			font-size: 14px;
+			font-weight: bold;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			color: $color-gray-1;
+			padding: 12px 0;
+			border-bottom: 1px dashed $color-gray-1;
+
+			&:hover {
+				color: $success;
+				border-color: $success;
+			}
+		}
+
+		&:last-child a {
+			border-bottom: 0;
+		}
+	}
+}
+

@@ -1,0 +1,13 @@
+//- demo: true
+mixin typing(args)
+	+module('div', 'typing__module', args)(data-options=set(args, 'options'))
+		- var args = item
+		div(class='typed-strings')
+			if block
+				block
+			else
+				p Welcome to our website
+				p Welcome to CSS Pro
+				p= random(random.text, 10)
+				p= random(random.text, 10)
+		span(class='typed')

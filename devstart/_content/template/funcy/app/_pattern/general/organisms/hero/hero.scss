@@ -1,0 +1,64 @@
+/* //--- hero
+--------------------------------------------------------------------------------*/
+/* //--- hero
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	position: relative;
+}
+
+// wrapper
+.wrapper {
+	text-align: center;
+
+	:global(.md-btn) {
+		margin: 5px 10px;
+	}
+}
+
+
+// title
+.title {
+	@include pfs('font-size', (
+		320px: 30px,
+		1200px: 50px
+	))
+	text-transform: capitalize;
+	color: #fff;
+	margin-top: 0;
+	margin-bottom: 25px;
+}
+
+// item
+.item {
+	position: relative;
+	width: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 9;
+	padding: 150px 0;
+}
+
+@include media('>md') {
+	.item {
+		height: 800px;
+	}
+}
+
+
+@include media('>lg') {
+	.module {
+		padding: 0;
+	}
+
+	.wrapper {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+
+		transform: translateY(-50%);
+	}
+}

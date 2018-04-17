@@ -1,0 +1,8 @@
+//- demo: true
+mixin widget(args)
+	+module('section', 'widget', args)
+		- var args = item
+		if (args.title != null)
+			h3.widget-title= set(args, 'title')
+		if block
+			block

@@ -1,0 +1,13 @@
+//- demo: true
+mixin form_item(args)
+	include cssmodule
+	+module('div', 'form-item', args)
+		- var args = item
+		if (args.label)
+			label(class="form__label")!= set(args, 'label', 'Label')
+				if(args.important!= '')
+					span *
+		if block
+			block
+		else
+			input(type=set(args, 'type', 'text'), class="form-control", class=set(args, 'class', ''), name=set(args, 'name', 'input'), placeholder=set(args, 'placeholder', 'placeholder'))

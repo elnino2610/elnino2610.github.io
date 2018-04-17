@@ -1,0 +1,9 @@
+//- include: false
+//- demo: true
+mixin widget_quote(args)
+	include cssmodule
+	+module('div', css.module, args)
+		h3(class=css.name)
+			i(class="fa fa-quote-left")
+			= set(args, 'name', random(random.people.name))
+		p(class=css.text)!= set(args, 'text', "“  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s “")

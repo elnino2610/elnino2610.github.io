@@ -1,0 +1,225 @@
+extends pug/layout
+
+//- Config
+block config
+	-
+		config.title = 'Home'
+		//- config.skin = 'dark'
+
+//- afterLink
+block afterLink
+//- Header
+block header
+	//- Args: logo
+	+header_01({
+		addClass: 'header--fixed'
+	})
+
+//- Footer
+block footer
+	//- Args: logo
+	+footer({
+		
+	})
+
+//- Content
+block content
+	//- Args: img, title, text
+	+hero({
+		id: 'id-1'
+	})
+
+	+section({
+		id: 'id-2',
+		addClass: 'bg-gray'
+	})
+		+row
+			+col({
+				cols: [0,0,0,5]
+			})
+				+slide-image({
+	
+				})
+
+			+col({
+				cols: [0,0,0,6],
+				offsets: [0,0,0,1]
+			})
+				//- Args: subtitle, title, text
+				+title({
+					title: "Hello from Armando"
+				})
+
+				p.fz-16= random(random.text, 100)
+
+				p.fz-16= random(random.text, 300)
+		
+		+swiper({
+			nextText: '',
+			prevText: '',
+			addClass: 'mt-50',
+			options: {
+			    slidesPerView: 3,
+			    spaceBetween: 30,
+			    autoplay: 2000,
+			    breakpoints: {
+					991: {
+						slidesPerView: 2,
+					},
+					640: {
+						slidesPerView: 1,
+					}
+      			}
+			},
+		})
+			- var i = 0;
+			while i < 9
+				- i ++;
+				//- Args: icon, title, text
+				+service({
+					
+				})
+
+	+section({
+		id: 'id-3'
+	})
+		+row
+			+col({
+				cols: [0,0,0,8]
+			})
+				//- Args: subtitle, title, text
+				+title({
+					title: 'portfolio',
+				})
+
+		+grid_css({
+			modifier: 'grid',
+			cols: [1, 2, 2, 3],
+			gap: 30,
+			filter: [
+				{
+					itemfilter: '*',
+					text: 'All'
+				},
+				{
+					itemfilter: 'cat1',
+					text: 'Web design'
+				},
+				{
+					itemfilter: 'cat2',
+					text: 'Applications'
+				},
+				{
+					itemfilter: 'cat3',
+					text: 'Development'
+				}
+			]
+		})
+			
+			//- Args: sliderRandom, img, sale, new, hot, name, curency, price
+			+portfolio({
+				loop: {
+					data: dataimage,
+					wrap: {
+					addClass: 'grid-item',
+					getValueData: 'category',
+					layouts: ['normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal']
+					},
+					items: 9
+				}
+			})
+
+	+section({
+		id: 'id-4',
+		addClass: 'bg-gray'
+	})
+		+row
+			+col
+				//- Args: subtitle, title, text
+				+title({
+					title: 'Our blog',
+				})
+
+		+row
+			- var i = 0;
+			while i < 3
+				- i ++;
+				+col({
+					cols: [0,0,0,4]
+				})
+					//- Args: title, text, date
+					+post({
+						imgsrc: 'img/blog/' + i + '.jpg'
+					})
+
+	+section({
+		id: 'id-5'
+	})
+
+		+row
+			+col({
+				cols: [0,0,0,4]
+			})
+				//- Args: subtitle, title, text
+				+title({
+					title: 'Get in touch',
+					text: ''
+				})
+
+				div(class="mb-40")
+					//- Args: icon, title, text
+					+contact({
+						title: 'address',
+						text: random(random.address)
+					})
+
+					//- Args: icon, title, text
+					+contact({
+						title: 'email',
+						text: '<a href="">'+global_email+'</a>'
+					})
+
+					//- Args: icon, title, text
+					+contact({
+						title: 'phone',
+						text: random(random.phone)
+					})
+
+
+			+col({
+				cols: [0,0,0,7],
+				offsets: [0,0,0,1]
+			})
+				//- Args: subtitle, title, text
+				+title({
+					title: 'Or drop a message',
+					text: ''
+				})
+				div(class="form-wrapper")
+					//- Args: label, type, class, name, placeholder
+					+form_item({
+						addClass: 'form-item--half',
+						label: 'email,',
+						placeholder: ''
+					})
+
+					//- Args: label, type, class, name, placeholder
+					+form_item({
+						addClass: 'form-item--half',
+						label: 'Name,',
+						placeholder: ''
+					})
+
+					//- Args: label, type, class, name, placeholder
+					+form_item({
+						label: 'message'
+					})
+						textarea(class="form-control")
+
+					//- Args: label, type, class, name, placeholder
+					+form_item({
+					})
+						+md_btn('a', {
+							addClass: 'btn-custom',
+							text: 'Send message'
+						})

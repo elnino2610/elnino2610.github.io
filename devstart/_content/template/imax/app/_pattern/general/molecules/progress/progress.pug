@@ -1,0 +1,10 @@
+//- demo: true
+mixin progress(args)
+	include cssmodule
+	+module('div', 'progress', args)
+		- var args = item
+		if(args.title!='')
+			h5(class="progress__title")= set(args, 'title', 'Title')
+		div(class="progress__wrap")
+			div(class="progress__bar", data-progress-percent=set(args, 'percent', random(80, 95)), data-timing=set(args, 'timing', 'ease') , data-duration=set(args, 'duration', '1000'), data-delay=set(args, 'delay', '500'))
+			span(class="progress__number")!= set(args, 'percent', random(80, 95))+'%'

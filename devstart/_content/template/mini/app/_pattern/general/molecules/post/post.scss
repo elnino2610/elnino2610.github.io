@@ -1,0 +1,45 @@
+/* //--- post
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+
+}
+
+// media
+.media {
+	content: empty;
+}
+
+// body
+.body {
+	padding: 20px 0;
+}
+
+// title
+.title {
+	font-size: 20px;
+	margin: 10px 0 15px;
+
+	a:hover {
+		color: $theme-color
+	}
+}
+
+// text
+.text {
+	margin-bottom: 20px;
+}
+
+// meta
+.meta {
+	text-transform: capitalize;
+	font-size: 12px;
+	margin-bottom: 15px;
+
+	> span +span:before {
+		content: '-';
+		display: inline-block;
+		margin: 0 5px;
+	}
+}

@@ -1,0 +1,84 @@
+/* //--- socialicon
+--------------------------------------------------------------------------------*/
+@mixin socialicon($name, $color) {
+    &:global(.si-#{$name}) {
+		color: $color;
+	}
+
+	&:global(.si-#{$name}-bg) {
+		.icon {
+			color: #fff;
+			background-color: $color;
+			&:hover {
+				background-color: darken($color, 10%)
+			}
+		}
+	}
+}
+// module
+.module {
+	display: inline-block;
+	margin: 5px 10px;
+	transition: all .3s ease;
+	color: #333;
+
+	// @include socialicon('facebook', #3B5998);
+	// @include socialicon('twitter', #00ACEE);
+	// @include socialicon('google-plus', #DD4B39);
+	// @include socialicon('pinterest', #C8232C);
+	// @include socialicon('vimeo', #86C9EF);
+	// @include socialicon('youtube', #C4302B);
+	// @include socialicon('yahoo', #720E9E);
+	// @include socialicon('google', #DD4B39);
+	// @include socialicon('linkedin', #0E76A8);
+	// @include socialicon('dribbble', #EA4C89);
+	// @include socialicon('delicious', #205CC0);
+	// @include socialicon('paypal', #00588B);
+	// @include socialicon('android', #A4C639);
+	// @include socialicon('foursquare', #25A0CA);
+	// @include socialicon('stumbleupon', #F74425);
+	// @include socialicon('digg', #191919);
+	// @include socialicon('reddit', #C6C6C6);
+	// @include socialicon('spotify', #81B71A);
+	// @include socialicon('blogger', #FC4F08);
+	// @include socialicon('cc', #688527);
+	// @include socialicon('evernote', #5BA525);
+	// @include socialicon('flickr', #FF0084);
+	// @include socialicon('vk', #2B587A);
+	// @include socialicon('skype', #00AFF0);
+	// @include socialicon('podcast', #E4B21B);
+	// @include socialicon('dropbox', #3D9AE8);
+	// @include socialicon('github', #171515);
+	// @include socialicon('bitbucket', #0E4984);
+	// @include socialicon('soundcloud', #F70);
+	// @include socialicon('tumblr', #34526F);
+	// @include socialicon('wordpress', #1E8CBE);
+	// @include socialicon('drupal', #27537A);
+	// @include socialicon('yelp', #C41200);
+	// @include socialicon('scribd', #666);
+	// @include socialicon('stripe', #008CDD);
+	// @include socialicon('print', #111);
+	// @include socialicon('acrobat', #D3222A);
+	// @include socialicon('stackoverflow', #EF8236);
+	// @include socialicon('instagram', #3F729B);
+	// @include socialicon('quora', #A82400);
+	// @include socialicon('openid', #E16309);
+	// @include socialicon('amazon', #E47911);
+	// @include socialicon('steam', #111);
+	// @include socialicon('rss', #EE802F);
+}
+
+// icon
+.icon {
+    content: empty;
+}
+
+// text
+.text {
+	margin-left: 6px;
+}
+
+// item
+.item {
+	
+}

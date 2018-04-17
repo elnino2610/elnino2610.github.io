@@ -1,0 +1,8 @@
+//- include: false
+//- demo: true
+mixin widget_archives(args)
+	include cssmodule
+	+module('ul', css.module, args)
+		- var args = item
+		li
+			a(href="#")= set(item, 'text', random(random.text, 40))

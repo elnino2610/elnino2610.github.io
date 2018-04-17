@@ -1,0 +1,211 @@
+@mixin absFull($zIndex) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: $zIndex;
+    @content;
+}
+
+@mixin absAlign($vertical: 50%, $horizontal: 50%) {
+    @if ($horizontal == 'left') {
+        $horizontal: 0;
+    } @else if ($horizontal == 'center') {
+        $horizontal: 50%;
+    } @else if ($horizontal == 'right') {
+        $horizontal: 100%;
+    }
+    @if ($vertical == 'top') {
+        $vertical: 0;
+    } @else if ($vertical == 'center') {
+        $vertical: 50%;
+    } @else if ($vertical == 'bottom') {
+        $vertical: 100%;
+    }
+    top: $vertical;
+    left: $horizontal;
+    transform: translate($horizontal * (-1), $vertical * (-1));
+}
+
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+    @content;
+}
+
+@mixin placeholder {
+	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+	@each $placeholder in $placeholders {
+		&:#{$placeholder}-placeholder {
+			@content;
+		}
+	}
+}
+
+@mixin clearfix {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+@mixin text-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+	@content;
+}
+
+@mixin list-style($value: none) {
+	list-style: $value;
+	@if ($value == 'none') {
+		margin: 0;
+		padding: 0;
+	}
+	@content;
+}
+
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+	top: $top;
+	left: $left;
+	right: $right;
+	bottom: $bottom;
+	position: $position;
+}
+
+@mixin absolute($args...) {
+	@include position(absolute, $args...);
+}
+
+@mixin relative($args...) {
+	@include position(relative, $args...);
+}
+
+@mixin fixed($args...) {
+	@include position(fixed, $args...);
+}
+
+
+@mixin vertical-align($position: relative) {
+	top: 50%;
+	position: $position;
+	transform: translateY(-50%);
+}
+
+@mixin center($width: null, $height: null) {
+	top: 50%;
+	left: 50%;
+	position: absolute;
+
+	@if not $width and not $height {
+		transform: translate(-50%, -50%);
+	} @else if $width and $height {
+		width: $width;
+		height: $height;
+		margin-top: -($width / 2);
+		margin-left:-($height / 2);
+	} @else if not $height {
+		margin-left: -($width / 2);
+		transform: translateY(-50%);
+		width: $width;
+	} @else {
+		margin-top: -($height / 2);
+		transform: translateX(-50%);
+		height: $height;
+	}
+}
+
+@mixin placeholder {
+
+	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+
+	@each $placeholder in $placeholders {
+
+		&:#{$placeholder}-placeholder {
+
+	  		@content;
+
+		}
+	}
+}
+
+// Mixin button bootstrap
+@mixin button-variant($color, $background, $border) {
+	color: $color;
+	background-color: $background;
+	border-color: $border;
+
+	&:global(.btn-outline) {
+		color: darken($background, 10%);
+		background-color: transparent;
+		border-color: $background;
+	}
+
+	&:global(.btn-white) {
+		color: white;
+		background-color: transparent;
+		border-color: white;
+	}
+
+	&:global(:focus),
+	&:global(.focus) {
+		color: $color;
+		background-color: darken($background, 10%);
+		border-color: $border;
+	}
+
+	&:global(:hover), 
+	&:global(.hover) {
+		color: $color;
+		background-color: lighten($background, 5%);
+		border-color: $border;
+	}
+
+	&:global(:active),
+	&:global(.active),
+	:global(.open) > &:global(.dropdown-toggle) {
+		color: $color;
+		background-color: darken($background, 10%);
+		border-color: $border;
+
+		&:global(:hover),
+		&:global(:focus),
+		&:global(.focus) {
+			color: $color;
+			background-color: darken($background, 17%);
+			border-color: $border;
+		}
+	}
+
+	&:global(:active),
+	&:global(.active),
+	:global(.open) > &:global(.dropdown-toggle) {
+		background-image: none;
+	}
+
+	&:global(.disabled),
+	&:global([disabled]),
+	fieldset[disabled] & {
+		&:global(:hover),
+		&:global(:focus),
+		&:global(.focus) {
+			background-color: $background;
+			border-color: $border;
+		}
+	}
+
+	:global(.badge) {
+		color: $background;
+		background-color: $color;
+	}
+}
+
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+	padding: $padding-vertical $padding-horizontal;
+	font-size: $font-size;
+	line-height: $line-height;
+	border-radius: $border-radius;
+}

@@ -1,0 +1,37 @@
+/* //--- grid-css
+--------------------------------------------------------------------------------*/
+
+:global {
+	@include md-grid('.grid-css', (
+		optionsData: true,
+		background-color: transparent
+	));
+	
+	.filter {
+		margin: 0 -10px 30px;
+
+		li {
+			display: inline-block;
+
+			&:global(.current) a {
+				color: $theme-color;
+			}
+		}
+
+		a {
+			display: block;
+			position: relative;
+			font-size: 14px;
+			font-weight: 500;
+			text-transform: capitalize;
+			color: $color-body;
+			padding: 5px 10px;
+		}
+	}
+
+	@include media('<sm') {
+		.filter {
+			text-align: center;
+		}
+	}
+}

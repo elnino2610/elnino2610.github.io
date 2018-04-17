@@ -1,0 +1,60 @@
+
+mixin grid_css(args)
+	if (args)
+
+		- var cols = args.cols ? args.cols : ''
+		- xs = typeof cols[0] != 'undefined' ? cols[0] : ''
+		- sm = typeof cols[1] != 'undefined' ? cols[1] : ''
+		- md = typeof cols[2] != 'undefined' ? cols[2] : ''
+		- lg = typeof cols[3] != 'undefined' ? cols[3] : ''
+
+
+		+tag('div', 'grid-css', args)(
+			data-col-lg=lg,
+			data-col-md=md,
+			data-col-sm=sm,
+			data-col-xs=xs,
+			data-ratio=args.ratio ? args.ratio : null,
+			data-gap=typeof args.gap !='undefined' ? args.gap : '30',
+		)
+			if args.filter
+				.filter(class=args.filterClass ? args.filterClass : null, class=args.filterAlign ? 'md-text-'+args.filterAlign : null)
+					ul.filter__list
+						each item in args.filter
+							- filter = item.itemfilter == '*' ? item.itemfilter : '.' + item.itemfilter;
+							li: a(href="#", data-filter=filter)!= item.text
+						
+			.grid__inner
+				.grid-sizer
+				if block
+					block
+				else
+					p No content provided
+					
+mixin itemInner(args)
+	.grid-item__inner
+		.grid-item__content-wrapper
+			block
+
+mixin item(args)
+	if (args)
+		+mdBlock('div', 'grid-item', args)(
+			class=args.size ? args.size : null,
+			class=args.category ? args.category : null
+		)
+			+itemInner
+				if block
+					block
+		
+	else
+		div&attributes(attributes).grid-item
+			+itemInner
+				if block
+					block
+
+mixin mdBlock(tag, className, args)
+	if (args)
+		- var className = typeof args.modifier == 'undefined' ? className : className + setModifier(className, args.modifier);
+	+module(tag, className, args)&attributes(attributes)
+		if block
+			block

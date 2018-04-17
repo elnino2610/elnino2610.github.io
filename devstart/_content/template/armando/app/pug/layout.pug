@@ -1,0 +1,166 @@
+//- Get name file css & js vendors
+-
+	fs = require('fs');
+	var glob = require('glob');
+	var projectFolder = __dirname.replace('webpack.config', '');
+	var appConfig = require(projectFolder + '/app.config.js');
+	var activate = process.env.activate ? process.env.activate : '_blank';
+	var requireTemplateConfig = require(projectFolder + appConfig.folders.path + '/' + appConfig.folders.content + '/' + activate + '/config.js');
+	var fontsFolder = appConfig.folders.path + '/' + appConfig.folders.core + '/fonts';
+	var isProd = process.env.NODE_ENV === 'production';
+	var isProdMinify = process.env.NODE_ENV === 'productionMinify';
+	var isDev = process.env.NODE_ENV === 'dev';
+	var readFileApp = fs.readFileSync(projectFolder + '/app.config.js', 'utf-8');
+	var toggleHtmlElement = readFileApp.match(/toggleHtmlElement.*/g).join('').replace(/.*\s|,/g, '');
+	var readTemplateConfig = fs.readFileSync(projectFolder + appConfig.folders.path + '/' + appConfig.folders.content + '/' + activate + '/config.js', 'utf-8');
+	var googleFont = readTemplateConfig.match(/googleFont.*/g).join('').replace(/.*\s/g, '').replace(/'/g, '').slice(0, -1);
+
+
+
+//- core include
+include cores/splitValueCss.pug
+include split_value_css.pug
+include data-random.pug
+include cores/functions.pug
+include cores/directoryTree.pug
+include template_config
+
+include cores/menu.pug
+include cores/tag.pug
+include cores/comment.pug
+include grid/bootstrap.pug
+
+//- Pattern include
+include includes/includes.pug
+
+include flag.pug
+
+
+block config
+
+doctype html
+html
+
+	head
+		title= config.title
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+		meta(name="format-detection", content="telephone=no")
+		meta(name="apple-mobile-web-app-capable", content="yes")
+		// Fonts
+		each folder in requireTemplateConfig.fonts
+			each fileCss in fs.readdirSync(appConfig.folders.path + '/' + appConfig.folders.core + '/fonts/' + folder)
+				if (fileCss.indexOf('.css') !== -1)
+					-
+						let hrefFont = '';
+						if (isDev) {
+							hrefFont = appConfig.folders.path + '/' + appConfig.folders.core + '/fonts/' + folder + '/' + fileCss
+						} else {
+							hrefFont = 'assets/fonts/' + folder + '/' + fileCss
+						}
+					link(rel="stylesheet" type="text/css" href=hrefFont)
+
+		// Vendors
+		if ( isProdMinify )
+			link(rel="stylesheet" type="text/css" href="assets/vendors/vendors.css")
+		else if ( isProd )
+			each fileName in requireTemplateConfig.vendors
+				-
+					include_css = '';
+				if (fileName.indexOf('.css') !== -1)
+					- include_css +=fileName
+					link(rel="stylesheet" type="text/css" href="assets/vendors/" + include_css)
+		else
+			each fileName in requireTemplateConfig.vendors
+				-
+					include_css = '';
+				if (fileName.indexOf('.css') !== -1)
+					- include_css +=fileName
+					link(rel="stylesheet" type="text/css" href="_content/core/vendors/" + include_css)
+		
+
+		if (isDev && toggleHtmlElement == 'true')
+			style(type="text/css")
+				include assets/prism-themes/palenight.css
+				include assets/style.css
+		
+		block beforeLink
+
+		// App & fonts
+		link(rel="stylesheet", type="text/css", href=googleFont)
+		if (!isDev)
+			each link in config.styles
+				link(rel="stylesheet", type="text/css", id="app-stylesheet" href=link)
+
+		block afterLink
+
+		//- html5 for ie9
+		.
+			<!--[if lt IE 9]>
+				<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<![endif]-->
+	//- Spacing
+	|
+	|
+	//- Body
+	- var themeSkin = typeof config.skin !== 'undefined' && config.skin !== '' ? ' ' + themes.prefixSkin + config.skin : ''
+	body(class=config.bodyClass + themeSkin)
+
+		block beforePage
+
+		div#root.page-wrap
+
+			block header
+
+			// Content
+			div.wil-content
+				block content
+			// End / Content
+
+			block footer
+		
+		block afterPage
+
+		if (isDev)
+			div.start-script-flag
+
+		//- Script
+		// Vendors
+		if ( isProdMinify )
+			script(type="text/javascript" src='assets/vendors/vendors.js')
+
+		else if ( isProd )
+
+			each fileName in requireTemplateConfig.vendors
+				-
+					include_js = '';
+				if (fileName.indexOf('.js') !== -1)
+					- include_js +=fileName
+					script(type="text/javascript" src='assets/vendors/' + include_js)
+
+		else
+			each fileName in requireTemplateConfig.vendors
+				-
+					include_js = '';
+				if (fileName.indexOf('.js') !== -1)
+					- include_js +=fileName
+					script(type="text/javascript" src='_content/core/vendors/' + include_js)
+		block script
+
+		//- Toggle HTML element
+		if (isDev && toggleHtmlElement == 'true')
+			script(type="text/javascript")
+				include assets/prism.js
+				include assets/beautify-html.js
+				include assets/script.js
+		// App
+		if ( isProd || isProdMinify )
+			each src in config.scripts
+				script(type="text/javascript", src=src)
+			
+		//- HMR
+		if (isDev)
+			script(type="text/javascript", src="bundle.js")
+			script(type="text/javascript", src="/socket.io/socket.io.js")
+			script(type="text/javascript", src="socket-io-client.js")
+			script(type="text/javascript", class="script-app-hmr", src="hmr-javascript.js")

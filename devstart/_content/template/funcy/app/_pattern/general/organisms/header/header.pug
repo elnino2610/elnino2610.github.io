@@ -1,0 +1,34 @@
+//- demo: true
+mixin header(args)
+	include cssmodule
+	+module('header', css.module, args)
+		- var args = item
+		div(class=css.inner)
+			div(class=css.left)
+				div(class=css.logo)
+					a(href="index.html"): img(src=set(args, 'logo', 'http://odailynews.com/creative-agency/img/logo.png'), alt="")
+						
+
+			div(class=css.right)
+				+menu('.page-nav', {
+						menuClass: 'page-menu',
+						data: data,
+						submenu: {
+							class: 'sub-menu',
+							parentClass: 'menu-item-has-children'
+						}
+					})
+						div(class="navbar-toggle")
+							span
+							span
+							span
+				
+				include cssmodule
+				span(class=css.iconsearch)
+					i(class="fa fa-search")
+
+		div(class=css.search)
+			input(class=css.search_input, type="input", placeholder="Search")
+
+			span(class=css.search_close)
+				i(class="fa fa-close")

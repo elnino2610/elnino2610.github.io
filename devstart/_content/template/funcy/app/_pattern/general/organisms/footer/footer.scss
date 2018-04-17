@@ -1,0 +1,79 @@
+/* //--- footer
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	color: #b5aec4;
+
+	a {
+		color: #b5aec4;
+
+		&:hover {
+			color: $theme-color;
+		}
+	}
+
+	:global(.widget-title) {
+		color: #ffff;
+	}
+
+	:global(.widget-list-02) {
+		text-align: center;
+
+		a {
+			font-size: 12px;
+		}
+
+		@include media('>sm') {
+			text-align: right;
+
+			li {
+
+				a {
+					padding-left: 40px;
+				}
+			}
+		}
+	}
+}
+
+// content
+.content {
+	background: #131627;
+    overflow: hidden;
+    padding: 40px 0px 0px;
+}
+
+// copyright
+.copyright {
+	text-align: center;
+}
+
+
+// info
+.info {
+	background-color: #04081d;
+	padding: 15px 0;
+}
+
+// socail
+.socail {
+	margin-top: 20px;
+
+	a {
+		margin-right: 30px;
+	}
+}
+
+
+@include media('>sm') {
+	.content {
+		padding: 80px 0px 40px;
+	}
+
+	.copyright {
+		text-align: left;
+		margin-bottom: 0;
+	}
+
+}

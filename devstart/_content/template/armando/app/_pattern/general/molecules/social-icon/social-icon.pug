@@ -1,0 +1,9 @@
+//- demo: true
+mixin socialicon(args)
+	include cssmodule
+	+module('a', css.module, args)
+		- var args = item
+		//- a(href="#", class=css.item)
+		i(class=css.icon,class=set(args, 'icon', 'fa fa-facebook'))
+		if (args.text)
+			span(class=css.text)= set(args, 'text', 'Facebook')

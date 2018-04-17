@@ -1,0 +1,6 @@
+//- demo: true
+mixin about_image(args)
+	include cssmodule
+	+module('div', css.module, args)
+		div(class=css.img)
+			img(src=set(args, 'img', 'https://images.pexels.com/photos/423364/pexels-photo-423364.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'))

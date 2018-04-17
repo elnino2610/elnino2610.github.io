@@ -1,0 +1,54 @@
+/* //--- title
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	margin-bottom: 40px;
+}
+
+// title
+.title {
+	font-size: 25px;
+    font-weight: 200;
+    text-transform: capitalize;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Raleway', sans-serif;
+    span{
+    	font-weight: 700;
+		display: inline-block;
+		text-decoration: none;
+		color: inherit;
+    }
+}
+
+
+// modifier special
+.special {
+	text-align: left;
+	content: empty;
+	.title{
+	    position: relative;
+	    border-left: 1px solid #cecdcd;
+	    font-size: 38px;
+	    padding-left: 15px;
+	    font-weight: 200;
+	    letter-spacing: 2px;
+		span{
+			padding-bottom: 5px;
+			font-weight: 700;
+			display: inline-block;
+    		text-decoration: none;
+   			color: inherit;
+		}
+		&:after{
+		    content: '';
+		    width: 1px;
+		    height: 35px;
+		    background: #F24259;
+		    position: absolute;
+		    left: -1px;
+		    bottom: 0;
+		}
+	}
+}

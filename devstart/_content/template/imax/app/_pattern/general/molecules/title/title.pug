@@ -1,0 +1,18 @@
+//- demo: true
+mixin title(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- let args = item
+		if (has(args.modifier, 'special'))
+			h4(class=css.title)!= set(item, 'title', ' We are <span>awesome</span> agency')
+		else
+			h2(class=css.title)!= set(item, 'title', 'random')
+
+
+
+
+
+
+	
+	
+		

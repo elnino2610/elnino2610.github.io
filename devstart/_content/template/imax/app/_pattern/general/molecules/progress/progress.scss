@@ -1,0 +1,47 @@
+/* //--- progress
+--------------------------------------------------------------------------------*/
+
+// module
+:global {
+	.progress {
+		margin-bottom: 30px;
+	}
+
+	.progress__title {
+		text-align: left;
+		font-size: 14px;
+	}
+
+	.progress__wrap {
+		position: relative;
+	    width: 100%;
+	    height: 1px;
+	    background-color: #eee;
+	    box-shadow: 0 0 0;
+	}
+
+	.progress__bar {
+		position: absolute;
+	    background-color: #F24259;
+	    left: 0;
+	    top: 0;
+	    bottom: 0;
+	    width: 0;
+	    transition: width 1s ease;
+	}
+
+	.progress__number {
+		display: inline-block;
+		position: absolute;
+		right: 0;
+		top: -30px;
+		height: 20px;
+		font-size: 14px;
+		color: $color-dark;
+	}
+	.awe-skin-dark {
+		.progress__wrap {
+			background-color: #fff
+		}
+	}
+}

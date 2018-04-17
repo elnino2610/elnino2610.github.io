@@ -1,0 +1,70 @@
+-
+	var fs = require('fs');
+	var mkdirp = require('mkdirp');
+	var getDirName = require('path').dirname;
+	var appConfig = require(__dirname.replace('webpack.config', '') + '/app.config.js');
+	var activate = process.env.activate ? process.env.activate : '_blank';
+	var isProd = process.env.NODE_ENV === 'production';
+	var isProdMinify = process.env.NODE_ENV === 'productionMinify';
+	function splitValueCss(settings) {
+		if (isProd || isProdMinify) {
+			let _path = __dirname.replace('webpack.config', '').replace(/\\/g, '/') + appConfig.folders.path + '/';
+			let fileAppCss = _path + appConfig.folders.content + '/' + activate + '/' + appConfig.output.path + '/assets/css/' + settings.fileCss;
+			if (fs.existsSync(fileAppCss) == true) {
+				fs.readFile(fileAppCss, 'utf-8', (err, data) => {
+					if (err) throw err;
+
+					let filter = data.match(new RegExp('(.*\\{|\\}|.*\\,\n|.*' + settings.value + '(;|\\s*.*;|))', 'g')).join('');
+					let test = {};
+					for (let key in settings) {
+
+						if (typeof settings[key] == 'object') {
+
+							for (let file in settings[key]) {
+
+								let fileContents = 
+									filter.replace(
+										new RegExp(settings.value, 'g'), settings[key][file]
+									).replace(
+										/[^\};\{\/]+\{\}/g, '').replace(/[^\};\{\/]+\{\}/g, ''
+									).replace(
+										/;;+/g, ';').replace(/(\s*\{\s*)/g, '{'
+									).replace(
+										/(\s*\}\s*)/g, '}').replace(/(\s*;\s*)/g, ';'
+									).replace(
+										/(\s*\:\s*)/g, ':'
+									).replace(
+										/(\s*\,\s*)/g, ','
+									).replace(
+										/(\n*)/g, ''
+									).replace(
+										/(\s+)/g, ' '
+									);
+									//- .replace(
+									//- 	/}/g, '}\n'
+									//- ).replace(
+									//- 	/}\n\}/g, '}}'
+									//- );
+								//- let fileContentsFirst = fileContents.match(/(::.*selection|@media|.*;.*;).*}/g).join('');
+								//- let fileContentsSecond = fileContents.replace(/(::.*selection|@media|.*;.*;).*}/g, '');
+								let _folder = _path + appConfig.folders.content + '/' + activate + '/' + appConfig.output.path + '/assets/css/' + key + '/';
+								mkdirp(
+									_folder, 
+									function (err) {
+										if (err) throw err;
+									}
+								);
+								fs.writeFileSync(
+									_folder + file + '.css',
+									fileContents
+								);
+
+							}
+
+						}
+
+					}
+				});
+			}
+		}
+	}

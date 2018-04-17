@@ -1,0 +1,286 @@
+extends pug/layout
+
+//- Config
+block config
+	-
+		config.title = 'Home'
+		//- config.skin = 'dark'
+
+//- afterLink
+block afterLink
+
+//- Header
+block header
+	//- Args: logo
+	+header({
+		addClass: 'header--fixed'
+	})
+
+//- Footer
+block footer
+	//- Args:
+	+footer({
+		
+	})
+
+//- Content
+block content
+	//- Args: title
+	+hero({
+		
+	})
+
+	+section({
+		css: {
+			'background-color': "#f7f7f7",
+			'padding-top': '0'
+		}
+	})
+		
+		div(class="featured-wrap")
+			//- Args: title, text
+			+general_featured({
+				
+			})
+
+			//- Args: title, text
+			+general_featured({
+				icon: 'fa fa-clock-o'
+			})
+
+			//- Args: title, text
+			+general_featured({
+				icon: 'fa fa-diamond'
+			})
+
+		+row
+			+col({
+				cols: [0,0,0,6],
+				animate: {
+					name: 'bounceInLeft',
+					duration: '0.8s',
+					delay: '0.6s',
+					offset: '20',
+				}
+			})
+				//- Args: subtitle, title, text
+				+title({
+					title: 'We Are A Creative Digital Agency Focused on Growing Brands Online',
+					text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.<br><br>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.<br>'
+				})
+
+					+md_btn('a', {
+						modifier: 'gradient-outline',
+						text: 'read more',
+						css: {
+							'color': '#000'
+						}
+					})
+
+			+col({
+				cols: [0,0,0,5],
+				offsets: [0,0,0,1],
+				animate: {
+					name: 'bounceInRight',
+					duration: '0.8s',
+					delay: '1s',
+					offset: '20',
+				}
+			})
+				img(src="http://odailynews.com/creative-agency/img/feature-right.jpg", alt="")
+
+
+	//- Args: img
+	+section_half({
+		container: true,
+		colImage: [0,4,6],
+		colContent: [0,7,5],
+		img: 'http://odailynews.com/creative-agency/img/indus-laptop.png',
+		useImg: false,
+		modifier: 'image-left'
+	})
+		//- Args: subtitle, title, text
+		+title({
+			title: 'We Serve All Industries',
+			animate: {
+				name: 'bounceInUp',
+				duration: '0.8s',
+				delay: '0.6s',
+			}
+		})
+
+		//- Args: title, percent, timing, duration, delay, title
+		+progress({
+			title: 'Website Design',
+			animate: {
+				name: 'bounceInUp',
+				duration: '0.8s',
+				delay: '0.8s',
+			}		
+		})
+
+		//- Args: title, percent, timing, duration, delay, title
+		+progress({
+			title: 'Brand Strategy',
+			animate: {
+				name: 'bounceInUp',
+				duration: '0.8s',
+				delay: '1s',
+			}
+		})
+
+		//- Args: title, percent, timing, duration, delay, title
+		+progress({
+			title: 'Digital Marketing',
+			animate: {
+				name: 'bounceInUp',
+				duration: '0.8s',
+				delay: '1.2s',
+			}
+		})
+
+		//- Args: title, percent, timing, duration, delay, title
+		+progress({
+			title: 'Website Development',
+			animate: {
+				name: 'bounceInUp',
+				duration: '0.8s',
+				delay: '1.4s',
+			}
+		})
+
+
+	+section({
+		css: {
+			'background-image': 'url(http://odailynews.com/creative-agency/img/service-bg.jpg)'
+		},
+		overlay: true,
+		skin: 'dark',
+		addClass: 'bg-fixed'
+	})
+		+row
+			+col({
+				cols: [0,0,0,8],
+				offsets: [0,0,0,2]
+			})
+				//- Args: subtitle, title, text
+				+title({
+					align: 'center',
+					title: 'Our Services'
+				})
+		
+		+row
+			+col({
+				cols: [0,0,4,4]
+			})
+				//- Args: title, text
+				+general_iconbox({
+					animate: {
+						name: 'bounceInLeft',
+						duration: '1s',
+						delay: '0.6s',
+					}
+				})
+
+			
+			+col({
+				cols: [0,0,4,4]
+			})
+				//- Args: title, text
+				+general_iconbox({
+					animate: {
+						name: 'bounceInDown',
+						duration: '1s',
+						delay: '1s',
+					}
+				})
+
+			+col({
+				cols: [0,0,4,4]
+			})
+				//- Args: title, text
+				+general_iconbox({
+					animate: {
+						name: 'bounceInRight',
+						duration: '1s',
+						delay: '0.8s',
+					}
+				})
+
+	+section
+		div(class="testimonial-slide")
+			+swiper({
+				nextText: '<i class="pe-7s-angle-right"></i>',
+				prevText: '<i class="pe-7s-angle-left"></i>',
+				pagination: true,
+				animate: {
+					name: 'bounceInLeft',
+					duration: '0.8s',
+					delay: '1.4s',
+				}
+			})
+				- var i = 0;
+				while i < 4
+					- i ++
+					//- Args: avatar, text, name, position
+					+testimonial({
+
+					})
+
+	+section({
+		align: 'center',
+		css: {
+			'background-image': 'url(http://odailynews.com/creative-agency/img/project-bg.jpg)'
+		},
+		overlay: true,
+		skin: 'dark'
+	})
+		+row
+			+col({
+				cols: [0,0,0,10],
+				offsets: [0,0,0,1],
+				animate: {
+					name: 'bounceInUp',
+					duration: '0.8s',
+					delay: '1.4s',
+				}
+			})
+				//- Args: subtitle, title, text, subtitle
+				+title({
+					title: 'Ready To Discuss Your Project?'
+				})
+				
+				+md_btn('a', {
+					modifier: 'gradient-outline',
+					text: 'work with us',
+				})
+
+	+section({
+
+	})
+		+row
+			+col({
+				cols: [0,0,0,8],
+				offsets: [0,0,0,2]
+			})
+				//- Args: subtitle, title, text, subtitle
+				+title({
+					title: 'Latest News',
+					align: 'center'
+				})
+
+		+row
+			- var i = 0;
+			while i < 3
+				- i ++;
+				+col({
+					cols: [0,0,4,4]
+				})
+					//- Args: imgsrc, title, date, text
+					+post({
+						animate: {
+							name: 'flipInY',
+							duration: '.6s',
+							delay: '0.8s',
+						}
+					})

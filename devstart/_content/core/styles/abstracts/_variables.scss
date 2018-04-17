@@ -1,0 +1,130 @@
+// Fonts
+$font-primary: 			'Open sans', sans-serif !default;
+$font-secondary: 		'Montserrat', sans-serif !default;
+$font-tertiary: 		'Lekton', sans-serif !default;
+
+$body-font: 			$font-primary !default;;
+$heading-font:			$font-secondary !default;;
+$secondary-font:		$font-tertiary !default;;
+
+// Font awesome
+$font-awesome: 			'FontAwesome' !default;
+$font-icon:				$font-awesome !default;
+
+// Font size
+$font-size-base:		14px !default;
+$font-size-h1:			36px !default;
+$font-size-h2:			30px !default;
+$font-size-h3:			24px !default;
+$font-size-h4:			18px !default;
+$font-size-h5:			$font-size-base !default;
+$font-size-h6:			12px !default;
+
+// Color
+$theme-color:			#1ABC9C !default;
+$success:				#3C763D !default;
+$info:					#31708F !default;
+$warning:				#8A6D3B !default;
+$danger:				#A94442 !default;
+
+$color-primary:			#426efc !default;
+$color-secondary:		#ff7171 !default;
+$color-tertiary:		#55df6f !default;
+$color-dark:			#121113 !default;
+$color-light:			#fff !default;
+$color-light-2:			#a2a2a2 !default;
+$color-body:			#787878 !default;
+$bg-body:				#f3f3f3 !default;
+$color-gray-1:			#e5e5e5 !default;
+$color-gray-2:			#f7fafb !default;
+$color-gray-3:			#646464 !default;
+
+$border-color:			#2f353b !default;
+$color-danger:			#eb5d68 !default;
+$color-warning:         red !default; // Just temp fix.
+
+
+// Font weight
+$font-light:			300 !default;
+$font-normal:			400 !default;
+$font-bold:				700 !default;
+
+// cubic berzier
+$cubic-1: cubic-bezier(0.77, 0, 0.175, 1);
+$cubic-2: cubic-bezier(0.85, 0, 0.15, 1);
+
+// Breakpoints
+$breakpoints: (
+  'tn': 320px,
+  'xs': 480px,
+  'sm': 768px,
+  'md': 992px,
+  'lg': 1200px
+) !default;
+
+
+// Border
+$border-radius-base:        4px !default;
+$border-radius-large:       6px !default;
+$border-radius-small:       3px !default;
+
+
+$link-color:            $color-primary !default;
+
+$link-hover-color:      darken($link-color, 15%) !default;
+//** Link hover decoration.
+$link-hover-decoration: underline !default;
+
+$btn-font-size:			  $font-size-base !default;
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+//  Buttons
+$btn-font-weight:                normal !default;
+
+$btn-default-color:              #333 !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border:             #ccc !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $color-primary !default;
+$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $success !default;
+$btn-success-border:             darken($btn-success-bg, 5%) !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $info !default;
+$btn-info-border:                darken($btn-info-bg, 5%) !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $warning !default;
+$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $danger !default;
+$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+
+$btn-link-disabled-color:        $color-light !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius-base:         $border-radius-base !default;
+$btn-border-radius-large:        $border-radius-large !default;
+$btn-border-radius-small:        $border-radius-small !default;
+
+$padding-base-vertical:     6px !default;
+$padding-base-horizontal:   12px !default;
+
+$padding-large-vertical:    10px !default;
+$padding-large-horizontal:  16px !default;
+
+$padding-small-vertical:    5px !default;
+$padding-small-horizontal:  10px !default;
+
+$padding-xs-vertical:       1px !default;
+$padding-xs-horizontal:     5px !default;
+
+$line-height-base:        1.428571429 !default; // 20/14
+$line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
+$line-height-small:         1.5 !default;

@@ -1,0 +1,188 @@
+//- demo: true
+mixin footer(args)
+	include cssmodule
+	+module('footer', css.module, args)
+		div(class=css.content)
+			div(class="container")
+				
+				+row
+					+col({
+						cols: [0,6,6,3]
+					})
+						+widget({
+							title: 'Our Newsletter'
+						})
+
+							p Subscribe to our mailing list to get the updates to your email inbox.
+
+							//- Args: type, class, name, placeholder
+							+general_form-sub({
+								modifier: 'style-02',
+								placeholder: 'E-mail'
+							})
+
+							include cssmodule
+							div(class=css.socail)
+								-
+									var dataSocial = [
+										{
+											icon: 'fa fa-facebook'
+
+										},
+										{
+											icon: 'fa fa-twitter'
+
+										},
+										{
+											icon: 'fa fa-flickr'
+
+										},
+										{
+											icon: 'fa fa-instagram'
+
+										},
+										{
+											icon: 'fa fa-google'
+
+										},
+									]
+
+								//- Args: icon, text, text
+								+socialicon({
+									loop: {
+										data: dataSocial
+									}
+								})
+
+
+
+					+col({
+						cols: [0,6,6,3]
+					})
+						+widget({
+							title: 'Twitter Feed'
+						})
+							+swiper({
+								nextText: '',
+								prevText: '',
+							})
+								//- Args:
+								+general_widget-twitter({
+									
+								})
+
+								//- Args:
+								+general_widget-twitter({
+									
+								})
+
+								//- Args:
+								+general_widget-twitter({
+									
+								})
+
+
+					+col({
+						cols: [0,6,6,3]
+					})
+						-
+							var widget_list1 = [
+								{
+									text : 'Agency'
+								},
+								{
+									text: 'Studio'
+								},
+								{
+									text: 'Studio'
+								},
+								{
+									text: 'Blogs'
+								},
+								{
+									text: 'Shop'
+								},
+							]
+
+							var widget_list2 = [
+								{
+									text: 'Home'
+								},
+								{
+									text : 'About'
+								},
+								{
+									text: 'Services'
+								},
+								{
+									text: 'Work'
+								},
+								{
+									text: 'Privacy'
+								},
+							]
+					
+						+widget({
+							title: 'Contact Us'
+						})
+							//- Args: text
+							+widget_list_01({
+								loop: {
+									data: widget_list1,
+									children: true
+								}
+							})
+
+							//- Args: text
+							+widget_list_01({
+								loop: {
+									data: widget_list2,
+									children: true
+								}
+							})
+					
+					+col({
+						cols: [0,6,6,3]
+					})
+						+widget({
+							title: 'Link Categories'
+						})
+							//- Args: text, textBtn
+							+widget_contact({
+								
+							})
+
+		include cssmodule
+		div(class=css.info)
+			div(class="container")
+				+row
+					+col({
+						cols: [0,5,5,6]
+					})
+						p(class=css.copyright)!= global_copy
+
+					+col({
+						cols: [0,7,7,6]
+					})
+						-
+							var datamenu = [
+								{
+									text: 'Disclaimer'
+								},
+								{
+									text: 'Privacy'
+								},
+								{
+									text: 'Advertisement'
+								},
+								{
+									text: 'Contact us'
+								}
+							]
+						//- Args:
+						+general_widget-list-02({
+							loop: {
+								data: datamenu,
+								children: true
+							}
+						})

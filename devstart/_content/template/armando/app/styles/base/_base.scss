@@ -1,0 +1,107 @@
+:global {
+	a {
+		color: $theme-color;
+	}
+
+	a:hover {
+		text-decoration: none;
+		color: $theme-color;
+	}
+	a:focus {
+		text-decoration: none;
+	}
+
+	::-moz-selection {
+		color: $color-light;
+		background-color: $color-dark;
+	}
+
+	::selection {
+		color: $color-light;
+		background-color: $color-dark;
+	}
+
+	.awe-section {
+		@include pfs('padding-top, padding-bottom', (
+			320px: 50px,
+			1200px: 150px
+		));
+	}
+	
+	hr {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		border-color: $border-color;
+	}
+
+	.page-wrap {
+		position: relative;
+	}
+}
+
+
+/* //--- button
+--------------------------------------------------------------------------------*/
+
+// setting default
+// MODIFIER ALL:
+// STYLE: primary, dark, success, info, warning, danger, link
+// SIZE: xs, sm, md, lg
+// SHAPE: square, round, pill
+// Support pseudo elements, pseudo classes, sass extend
+// $path: require('path');
+:global {
+	@include md-btn('.md-btn', (
+		font-family: $font-secondary,
+		letter-spacing: 1px,
+		text-transform: capitalize,
+		padding: 9px 12px,
+		border: 2px solid $border-color,
+		background-color: transparent,
+		line-height: 1,
+		modifier: (
+			primary: (
+				background-color: $theme-color
+			),
+		),
+		hover: (
+			background-color: $color-dark,
+			border-color: $color-dark
+		)
+	));
+}
+
+/* //--- form-item
+--------------------------------------------------------------------------------*/
+
+:global {
+
+	@include md-form-item('input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="color"]),select2, textarea, select, product__number:not([type="text"])', (
+		height: 40px,
+		line-height: 38px,
+		font-size: 16px,
+		border: 1px solid $border-color,
+		border-radius: 0,
+		width: 100%,
+		padding: 0 15px,
+		placeholder: (
+			font-family: $font-secondary,
+			text-transform: capitalize,
+			color: $color-dark,
+		),
+		focus: (
+			border-color: $theme-color,
+			placeholder: (
+				color: $color-dark
+			)
+		)
+	));
+
+	textarea {
+		line-height: 1.3;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		min-height: 80px;
+		resize: none;
+	}
+}

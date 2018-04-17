@@ -1,0 +1,190 @@
+/* //--- base
+--------------------------------------------------------------------------------*/
+
+:global {
+	a,
+	input,
+	button,
+	textarea {
+		&[disabled] {
+			cursor: not-allowed !important;
+			opacity: .5 !important;
+		}
+		&:focus {
+			outline: none;
+		}
+	}
+	p {
+		margin-top: 0;
+		margin-bottom: 10px;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+		border: 0;
+	}
+	
+	.page-wrap {
+		overflow: hidden;
+	}
+
+	.awe-section {
+		position: relative;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		z-index: 9;
+		@include pfs('padding-top, padding-bottom', (
+			320px: 50px,
+			1200px: 110px
+		))
+	}
+
+	.awe-text-left,
+	.text-left {
+		text-align: left !important;
+	}
+
+	.awe-text-center,
+	.text-center {
+		text-align: center !important;
+	}
+
+	.awe-text-right,
+	.text-right {
+		text-align: right !important;
+	}
+
+	.awe-text-underline {
+		text-decoration: underline !important;
+	}
+
+	.awe-round {
+		border-radius: 5px !important;
+	}
+
+	.awe-pill {
+		border-radius: 50% !important;
+	}
+
+	.awe-tb {
+		display: table;
+		width: 100%;
+		height: 100%;
+	}
+	.awe-tb__cell {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.awe-overlay,
+	[data-gradient-bg] > canvas {
+		@include absFull(-1);
+	}
+
+	.awe-overlay {
+		background-color: rgba(#000, .4);
+	}
+
+	.bg-fixed {
+		background-attachment: fixed;
+	}
+
+	.awe-bg-cover {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+	}
+
+	.full {
+		width: 100%;
+		height: 100vh;
+	}
+
+	.embed-responsive {
+		position: relative;
+		display: block;
+		height: 0;
+		padding: 0;
+		overflow: hidden;
+		&.embed-responsive-4by3 {
+			padding-bottom: 75%;
+		}
+		&.embed-responsive-16by9 {
+			padding-bottom: 56.25%;
+		}
+		.embed-responsive-item,
+		iframe,
+		embed,
+		object {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+	}
+
+
+}
+
+/* table Responsive */
+:global {
+	.table-responsive-01 {
+		width: 100%;
+		overflow-y: hidden;
+		overflow-x: auto; 
+
+		table {
+			> thead,
+			> tbody,
+			>tfoot {
+				> tr > th,
+				> tr > td {
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+
+	.table-responsive-02 {
+		@include media('<md') {
+			table, thead, tbody, th, td, tr { 
+				display: block; 
+			}
+			
+			thead {
+				border-top: 1px solid #e8e8e8 !important;
+				border-bottom: none !important;
+				
+				tr { 
+					position: absolute;
+					top: -9999px;
+					left: -9999px;
+				}
+			}
+			
+			tr { 
+				padding: 15px 0;
+				border-left: 1px solid #e8e8e8; 
+				border-right: 1px solid #e8e8e8; 
+			}
+			
+			td { 
+				position: relative;
+				padding: 15px 10px 15px 30% !important; 
+			}
+			
+			td:before { 
+				content: attr(data-th);
+				position: absolute;
+				top: 15px;
+				left: 20px;
+				width: 25%; 
+				padding-right: 10px;
+			}
+		}
+	}
+}

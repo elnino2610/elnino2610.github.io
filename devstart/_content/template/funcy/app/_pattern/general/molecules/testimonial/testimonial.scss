@@ -1,0 +1,81 @@
+/* //--- testimonial
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	
+}
+
+// inner
+.inner {
+	content: empty;
+	text-align: center;
+}
+
+// avatar
+.avatar {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+// content
+.content {
+	padding: 30px 0;
+}
+
+// icon
+.icon {
+	display: inline-block;
+	font-size: 40px;
+	line-height: 1;
+	color: #fbfbfb;
+	margin-bottom: 20px;
+}
+
+// text
+.text {
+	font-size: 18px;
+	margin-bottom: 15px;
+	color: #51545f;
+}
+
+// info
+.info {
+	content: empty;
+}
+
+// name
+.name {
+	display: inline-block;
+	font-size: 16px;
+	text-transform: capitalize;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+// position
+.position {
+	margin-left: 10px;
+	&:before {
+		content: '-';
+		margin-right: 5px;
+	}
+}
+
+@include media('>md') {
+	.inner {
+	    display: flex;
+	    align-items: flex-start;
+	    align-items: center;
+	    text-align: left;
+	}
+
+	// content
+	.content {
+		padding: 40px 0 40px 60px;
+		flex: 1;
+	}
+}

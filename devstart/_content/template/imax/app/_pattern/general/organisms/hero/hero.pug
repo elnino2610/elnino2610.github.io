@@ -1,0 +1,36 @@
+//- demo: true
+mixin hero(args)
+	include cssmodule
+	+module('div', css.module, args)(style="background-image: url('"+set(args, 'img', 'img/bg/bg.jpg')+"')")
+		- var args = item
+		.overlay
+		div(class=css.wrapper)
+
+			div(class="container")
+				+row
+					+col({
+						cols: [0,0,0,8],
+						offsets: [0,0,0,2]
+					})
+						h3(class=css.title_1) We Are Creative
+						h1(class=css.title)
+							!= set(args, 'title', 'The way of ')
+							+typing({
+							  	options: {
+									typeSpeed: 60
+							  	}
+							})
+								if(args.typing)
+									each val in args.typing
+										span val
+								else 
+									span Succes
+									span Grow up
+									span Dream
+						
+						p(class=css.text)!= set(args, 'text','A single place to share, curate and discover visual that tells a story.')
+							
+					
+
+				span(id="back-to-down")
+					i(class="pe-7s-angle-down")

@@ -1,0 +1,58 @@
+// Import variable global
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500');
+// Font family
+$font-primary: 'Poppins', sans-serif;
+$font-secondary: $font-primary;
+$font-tertiary: $font-primary;
+
+$body-font: 			$font-primary;
+$heading-font:			$font-secondary;
+$secondary-font:		$font-tertiary;
+
+// Font awesome
+$font-awesome: 			'FontAwesome';
+$font-icon:				$font-awesome;
+
+// Font size
+$font-size-base:		14px;
+$font-size-h1:			60px;
+$font-size-h2:			48px;
+$font-size-h3:			30px;
+$font-size-h4:			24px;
+$font-size-h5:			16px;
+$font-size-h6:			14px;
+
+// Color
+$theme-color:			#19c2c9;
+$success:				#42b72a;
+$info:					#9c27b0;
+$warning:				#fecc2f;
+$danger:				$theme-color;
+
+$color-primary:			$theme-color;
+$color-secondary:		#ff7171;
+$color-tertiary:		#D2995F;
+$color-dark:			#333;
+$color-light:			#FFFFFF;
+$color-body:			#748182;
+$bg-body:				$color-light;
+$color-gray-1:			#262626;
+$color-gray-2:			#8E8E8E;
+$color-gray-3:			#B6B6B6;
+$color-gray-4:          #F1F0ED;
+
+$border-color:			#dfdfdf;
+
+
+// Font weight
+$font-light:			300;
+$font-normal:			400;
+$font-bold:				700;
+
+// Breakpoints
+$breakpoints: (
+  'xs': 480px,
+  'sm': 768px,
+  'md': 992px,
+  'lg': 1200px
+);

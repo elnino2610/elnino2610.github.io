@@ -1,0 +1,17 @@
+//- demo: true
+mixin layout(args)
+	include cssmodule
+	+module('section','section pp-scrollable', args)(data-anchor=args.id)
+		- var args = item
+		div(class="section-wrapper")
+			if(args.overlay)
+				div(class="awe-overlay")
+			span(class=css.heading)!= set(args, 'pagetitle', 'page title')
+
+			if(args.container!= '')
+				div(class="container")
+					if block
+						block
+			else
+				if block
+						block

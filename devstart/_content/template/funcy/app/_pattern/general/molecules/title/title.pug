@@ -1,0 +1,13 @@
+//- demo: true
+mixin title(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- var args = item
+		if(args.subtitle)
+			p(class=css.subtitle)!= set(args, 'subtitle', 'Sub title')
+		h2(class=css.title)!= set(item, 'title', 'Section title')
+		p(class=css.text)!= set(args, 'text', random(random.text, 150))
+
+		if block
+			block
+			

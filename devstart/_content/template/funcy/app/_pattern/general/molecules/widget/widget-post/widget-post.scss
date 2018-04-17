@@ -1,0 +1,52 @@
+/* //--- widget_post
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	content: empty;
+}
+
+// item
+.item {
+	padding: 20px 0;
+	overflow: hidden;
+
+	&:not(:last-child) {
+		border-bottom: 1px dashed #ccc;
+	}
+}
+
+// img
+.img {
+	width: 80px;
+    float: left;
+    margin-right: 10px;
+}
+
+// body
+.body {
+	overflow: hidden;
+}
+
+// title
+.title {
+	display: block;
+    font-size: 16px;
+    text-transform: capitalize;
+	margin-top: 0;
+	margin-bottom: 0;
+
+    &:hover {
+    	color: $theme-color;
+    }
+}
+
+// date
+.date {
+	font-size: 12px;
+	text-transform: capitalize;
+	color: $success;
+}
+
+
+

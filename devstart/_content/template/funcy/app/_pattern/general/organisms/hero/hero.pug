@@ -1,0 +1,42 @@
+//- demo: true
+mixin hero(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- var args = item
+		+swiper({
+			nextText: '',
+			prevText: '',
+			options: {
+				effect: 'coverflow',
+				autoplay: 4000,
+				delay: 3000
+			}
+		})
+			div(class=css.item, style="background-image: url(https://picsum.photos/1000/600)")
+				div(class="awe-overlay")
+				div(class=css.wrapper)
+					div(class="container")
+						h1(class=css.title)!= set(args, 'title', random(random.title))
+
+						+md_btn('a', {
+							modifier: 'gradient-outline',
+							text: 'modifer block',
+						})
+
+						+md_btn('a', {
+							modifier: 'gradient-outline',
+							text: 'modifer block',
+						})
+
+			div(class=css.item, style="background-image: url(https://picsum.photos/1000/600)")
+				div(class="awe-overlay")
+				div(class=css.wrapper)
+					div(class="container")
+						h1(class=css.title)!= set(args, 'title', random(random.title))
+
+			div(class=css.item, style="background-image: url(https://picsum.photos/1000/600)")
+				div(class="awe-overlay")
+				div(class=css.wrapper)
+					div(class="container")
+						h1(class=css.title)!= set(args, 'title', random(random.title))
+									

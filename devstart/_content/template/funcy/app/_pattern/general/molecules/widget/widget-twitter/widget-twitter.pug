@@ -1,0 +1,18 @@
+//- demo: true
+mixin general_widget-twitter(args)
+	include cssmodule
+
+	+module('div', css.module, args)
+		- let args = item
+		
+		div(class=css.content)
+			span(class=css.icon)
+				i(class="fa fa-twitter")
+
+			p(class=css.text)!= set(args, 'text', random(random.text, 150))
+
+			a(href="#" class=css.link)!= set(args, 'link', 'http://megadrupal.com')
+
+		div(class=css.info)
+			span(class=css.date)!= set(args, 'date', random(random.date))
+		

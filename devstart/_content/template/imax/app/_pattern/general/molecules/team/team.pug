@@ -1,0 +1,36 @@
+//- demo: true
+mixin team(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- var args = item
+		div(class=css.avatar, style="background-image: url('"+set(args, 'img', 'https://images.unsplash.com/photo-1505860421472-7d74e0b4d98a?auto=format&fit=crop&w=634&q=80')+"')")
+			img(src=set(args, 'img', 'https://images.unsplash.com/photo-1505860421472-7d74e0b4d98a?auto=format&fit=crop&w=634&q=80'))
+
+		div(class=css.body)
+			div(class="md-tb")
+				div(class="md-tb__cell")
+					h3(class=css.name)!=set(args, 'name', random(random.people.name))
+					div(class=css.divider)
+					span(class=css.work)!= set(args, 'work', random(random.work))
+					div(class=css.social)
+						- 
+							var social = [
+								{
+									icon: 'fa fa-facebook'
+								},
+								{
+									icon: 'fa fa-twitter'
+								},
+								{
+									icon: 'fa fa-google-plus'
+								},
+							]
+						
+						//- Args: icon, text
+						+socialicon({
+							loop: {
+								data: social
+							}
+						})
+					include cssmodule
+					p(class=css.text)!= set(args, 'text', random(random.text, 40))

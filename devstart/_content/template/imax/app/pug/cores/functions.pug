@@ -1,0 +1,150 @@
+-
+	
+	fs = require('fs');
+	
+	function setAlign(value) {
+		if (!value) value = '';
+		var align;
+		if (value === 'left') {
+			align = textAlign.left
+		}
+		if (value === 'right') {
+			align = textAlign.right
+		}
+		if (value === 'center') {
+			align = textAlign.center
+		}
+		return align;
+	}
+	function unquote(str, quoteChar) {
+		if (str[0] === quoteChar && str[str.length - 1] === quoteChar)
+			return str.slice(1, str.length - 1);
+		else return str;
+	}
+
+	function random(min, max = null) {
+		var _random = '';
+		if (Array.isArray(min)) {
+			if (max == null) {
+				_random = min[Math.floor(Math.random()*min.length)];
+				//- min = min.splice(_random === '' ? 0 : min.indexOf(_random), 1);
+			} else {
+				_random = min[Math.floor(Math.random()*min.length)].slice(0, max);
+			}
+			
+		} else {
+			_random = Math.floor(Math.random() * (max - min)) + min;
+		}
+		return _random;
+	}
+
+	function rand(min, max = null) {
+		var _random = '';
+		if (Array.isArray(min)) {
+			var _min = min;
+			if (max === null) {
+				_random = _min[Math.floor(Math.random()*_min.length)];
+				_min = _min.splice(_random === '' ? 0 : _min.indexOf(_random), 1);
+			} else {
+				_random = _min[Math.floor(Math.random()*_min.length)].slice(0, max);
+				_min = min;
+			}
+		} else {
+			_random = Math.floor(Math.random() * (max - min)) + min;
+		}
+		return _random;
+	}
+
+	function check(val, df) {
+		if (!df) df = null;
+		return typeof val !== 'undefined' ? val : df;
+	}
+
+	function check_item(val, df) {
+		if (!df) df = null;
+		return typeof val !== 'undefined' ? val : df;
+	}
+
+	//- function set(val, df) {
+	//- 	if (!df) df = null;
+	//- 	return args ? unquote(val, "'") : df;
+	//- }
+	function set(args, key, keyDefault) {
+		//- var _keyDefault = keyDefault;
+		//- if (Array.isArray(keyDefault)) {
+		//- 	//- var keyDefaultRandom = random(0, keyDefault.length);
+		//- 	//- for (var i=0; i<keyDefault.length; i++) {
+		//- 	//- 	if (keyDefaultRandom == i) {
+		//- 	//- 		_keyDefault = keyDefault[i];
+		//- 	//- 	}
+		//- 	//- }
+		//- 	_keyDefault = keyDefault[Math.floor(Math.random()*keyDefault.length)];
+		//- }
+		return (args && typeof args[key] !== 'undefined') ? args[key] : (keyDefault ? keyDefault : null);
+	}
+	
+
+	function setModifier(block, modifier) {
+		if (Array.isArray(modifier)) {
+			var value = '';
+			for (var i=0; i<modifier.length; i++) {
+				value += bemSettings.modifier + modifier[i] + ' ' + block;
+				value = value.substring(0, value.length - block.length);
+			}
+		} else {
+			value = ' ' + bemSettings.modifier + modifier;
+		}
+		return value;
+	}
+
+	function setModifierCssModule(modifier) {
+		if (Array.isArray(modifier)) {
+			var value = '';
+			for (var i=0; i<modifier.length; i++) {
+				value += css[modifier[i]] + ' ';
+			}
+		} else {
+			value = css[modifier];
+		}
+		return value;
+	}
+
+
+	function cssmodule(file) {
+		var fileContent = fs.readFileSync('./css_modules/' + file + '.json', 'utf-8', function(err, data) {
+			if (err) throw err;
+		});
+		return JSON.parse(fileContent);
+	}
+
+	function remove_duplicates(arr) {
+		var obj = {};
+		var ret_arr = [];
+		for (var i = 0; i < arr.length; i++) {
+			obj[arr[i]] = true;
+		}
+		for (var key in obj) {
+			ret_arr.push(key);
+		}
+		return ret_arr;
+	}
+
+	function has(items, hasStr) {
+		var itemStr = '';
+		var result = items == hasStr;
+		if (Array.isArray(items)) {
+			items.forEach((item) => {
+				itemStr += item;
+			});
+			result = itemStr.indexOf(hasStr) !== -1;
+		}
+		return result;
+	}
+
+	function encode(string) {
+		return new Buffer(string).toString('base64');
+	}
+	function decode(string) {
+		return new Buffer(string + '=', 'base64').toString('ascii');
+	}
+

@@ -1,0 +1,40 @@
+/* //--- general_form-sub
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	display: flex;
+	align-items: stretch;
+
+	:global {
+		.form-control {
+			flex: 1 1 auto
+		}
+
+		.btn-submit {
+			background-image: linear-gradient(to right, #744fff 0%, #21d397 51%, #744fff 100%);
+			border: 0;
+			color: #fff;
+			background-size: 200% auto;
+			white-space: nowrap;
+
+			transition: all .3s ease;
+
+			&:hover {
+				background-position: right center,
+			}
+		}
+	}
+}
+
+// modifier style-02
+.style-02 {
+	border-radius: 5px;
+	overflow: hidden;
+
+	:global {
+		.form-control {
+			height: 40px !important;
+		}
+	}
+}

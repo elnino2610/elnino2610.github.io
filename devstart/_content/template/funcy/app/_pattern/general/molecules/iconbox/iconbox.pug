@@ -1,0 +1,13 @@
+//- demo: true
+mixin general_iconbox(args)
+	include cssmodule
+
+	+module('div', css.module, args)
+		- let args = item
+		
+		div(class=css.icon)
+			i(class=random(random.font7))
+
+		h3(class=css.title)!= set(args, 'title', random(random.portfolio.categories))
+
+		p(class=css.text)!= set(args, 'text', random(random.text, 150))

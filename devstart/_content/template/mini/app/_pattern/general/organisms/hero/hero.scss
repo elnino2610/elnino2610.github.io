@@ -1,0 +1,87 @@
+/* //--- hero
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	position: relative;
+	background-color: #eee;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 150px 0 100px;
+}
+
+// wrapper
+.wrapper {
+	:global {
+		#back-to-down {
+			display: inline-block;
+			@include pfs('font-size', (
+				320px: 40px,
+				1200px: 70px
+			));
+			@include pfs('margin-top', (
+				320px: 30px,
+				1200px: 70px
+			));
+			line-height: 1;
+			color: #fff;
+			animation: bounce 2s infinite;
+			cursor: pointer;
+		}
+	}
+}
+
+// title
+.title {
+	@include pfs('font-size', (
+		320px: 40px,
+		1200px: 80px
+	))
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	margin-top: 0;
+	margin-bottom: 25px;
+
+	:global {
+		.typing__module {
+			display: inline-block;
+		}
+	}
+}
+
+// text
+.text {
+	font-size: 20px;
+	color: #fff;
+}
+
+@keyframes :global(bounce) {
+	0%, 100% 
+	{
+		transform: translateY(0);
+	}
+	
+	50% 
+	{
+		transform: translateY(-20px);
+	}
+}
+
+@include media('>lg') {
+	.module {
+		height: 100vh;
+		padding: 0;
+	}
+
+	.wrapper {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+
+		transform: translateY(-50%);
+	}
+}
+

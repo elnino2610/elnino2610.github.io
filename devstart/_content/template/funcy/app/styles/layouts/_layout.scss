@@ -1,0 +1,28 @@
+/* //--- Layout
+--------------------------------------------------------------------------------*/
+
+
+:global {
+	.main-content,
+	.sidebar-left,
+	.sidebar-right {
+		margin-bottom: 40px;
+	}
+
+
+	.sidebar-left,
+	.sidebar-right {
+
+		.form-item--button {
+			.select2-container--default .select2-selection--single .select2-selection__arrow {
+				width: 25px;
+				border-left: 0;
+			}
+
+			.md-btn {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		}
+	}
+}

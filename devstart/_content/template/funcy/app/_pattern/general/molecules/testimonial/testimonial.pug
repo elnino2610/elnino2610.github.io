@@ -1,0 +1,18 @@
+//- demo: true
+mixin testimonial(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- var args = item
+		div(class=css.inner)
+			div(class=css.avatar)
+				img(src=set(args, 'avatar', random(random.people.avatar)))
+			
+			div(class=css.content)
+				span(class=css.icon)
+					i(class="fa fa-quote-left")
+						
+				div(class=css.text)!= set(args, 'text', random(random.text, 500))
+
+				div(class=css.info)
+					h3(class=css.name)!= set(args, 'name', random(random.people.name))
+					span(class=css.position)!= set(args, 'position', random(random.work))

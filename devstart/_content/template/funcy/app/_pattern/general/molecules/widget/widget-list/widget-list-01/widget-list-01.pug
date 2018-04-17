@@ -1,0 +1,8 @@
+//- demo: true
+mixin widget_list_01(args)
+	include cssmodule
+	+module('ul', css.module, args)
+		li
+			a(href="#")
+				i(class="fa fa-angle-double-right")
+				!= set(item, 'text', random(random.text, 10))

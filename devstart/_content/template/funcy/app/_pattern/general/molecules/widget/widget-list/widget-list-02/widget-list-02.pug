@@ -1,0 +1,11 @@
+//- demo: true
+mixin general_widget-list-02(args)
+	include cssmodule
+
+	+module('ul', css.module, args)
+		- let args = item
+		li
+			a(href="#")!= set(item, 'text', random(random.text, 10))
+
+		
+		

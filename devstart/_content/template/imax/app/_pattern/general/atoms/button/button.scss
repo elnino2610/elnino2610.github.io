@@ -1,0 +1,24 @@
+/* //--- button
+--------------------------------------------------------------------------------*/
+
+:global {
+	.btn {
+		text-transform: uppercase;
+	}
+
+	.btn-custom {
+		position: relative;
+		padding-right: 50px;
+
+		&:after {
+			content: '\f178';
+			font-family: 'fontAwesome';
+			position: absolute;
+			top: 50%;
+			right: 12px;
+
+			transform: translateY(-50%);
+
+		}
+	}
+}

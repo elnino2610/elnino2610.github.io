@@ -1,0 +1,74 @@
+//- Comment pug
+//- Version: 1.0
+//- Author: Nguyen Long
+
+mixin comment_li(data, args)
+	- var classList = args.classList ? args.classList : 'comment'
+	li(class=classList)
+		.comment_container
+			if args.woocommerce
+				img(src=data.img, alt="", class="avatar")
+			else
+				div.comment-avatar
+					a
+						img(src=data.img, alt="", class="avatar")
+			.comment-text
+				if args.woocommerce
+					.star-rating
+						span(width="80%")
+							strong 4
+							| out of 5
+							
+					p.meta
+						strong.woocommerce-review__author= data.author
+						span.woocommerce-review__dash –
+						time.woocommerce-review__published-date= data.date
+						
+					.description
+						p= data.text
+				else
+					.comment-meta
+						span.author= data.author
+						span.date= data.date
+
+					.comment-description
+						p= data.text
+
+					.comment-footer
+						if args.reply
+							a(href="#", class="comment-reply")!= args.reply
+						if args.edit
+							a(href="#", class="comment-edit")!= args.edit
+						if args.del
+							a(href="#", class="comment-del")!= args.del
+				
+
+		if (data.children)
+			- var childrenClass = 'children'
+			+comment_ol_child(childrenClass, data.children, args)
+
+mixin comment_ol_child(el, data, args)
+	-
+		var _el = el;
+		if (el.indexOf('.') > -1) {
+			_el = el.split('.')[1];
+		}
+	ol(class=_el)
+		each val, index in data
+			+comment_li(val, args)
+			if index >= data.length
+				- break
+
+mixin comment_ol(data, args)
+	+module('ol', 'commentlist', args)
+		each val, index in data
+			+comment_li(val, args)
+			if index >= data.length
+				- break
+
+mixin wil-comment(args)
+	+comment_ol(args.data, args)
+
+
+mixin commentlist(args)
+	+comment_ol(args.data, args)

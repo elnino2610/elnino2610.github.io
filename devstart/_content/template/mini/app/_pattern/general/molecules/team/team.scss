@@ -1,0 +1,131 @@
+/* //--- team
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	position: relative;
+
+	&:after {
+		content: '';
+		display: block;
+		padding-top: 100%;
+	}
+
+	&:hover {
+		.body {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.name,
+		.divider,
+		.work,
+		.social,
+		.text {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+	}
+}
+
+// avatar
+.avatar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #eee;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: -1;
+
+	img {
+		display: none !important;
+	}
+}
+
+// body
+.body {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: #fff;
+	z-index: 9;
+	padding: 20px;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		opacity: .4;
+		z-index: -1;
+	}
+}
+
+.name,
+.divider,
+.work,
+.social,
+.text {
+	transform: translate(0, 10px);
+	transition: all .3s ease;
+	opacity: 0;
+}
+
+// name
+.name {
+	font-size: 18px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #fff;
+	margin-top: 0;
+	margin-bottom: 10px;
+	transition-delay: .1s;
+}
+
+// divider
+.divider {
+	display: inline-block;
+	width: 50px;
+	height: 2px;
+	background-color: $theme-color;
+	margin-bottom: 10px;
+	transition-delay: .2s;
+}
+
+// work
+.work {
+	display: block;
+	font-size: 18px;
+	font-style: italic;
+	text-transform: capitalize;
+	margin-bottom: 5px;
+	transition-delay: .3s;
+}
+
+// social
+.social {
+	margin: 0 -10px 5px;
+	transition-delay: .4s;
+}
+
+// text
+.text {
+	font-size: 16px;
+	font-weight: 300;
+	transition-delay: .5s;
+}
+
+

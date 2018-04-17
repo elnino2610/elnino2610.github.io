@@ -1,0 +1,30 @@
+/* //--- widget_post
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	list-style: disc;
+	color: $success;
+	padding-left: 18px;
+	
+	li {
+		a {
+			display: block;
+			font-size: 14px;
+			font-weight: bold;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			color: $color-gray-1;
+			padding: 6px 0;
+
+			&:hover {
+				color: $success;
+			}
+		}
+
+		&:last-child a {
+			border-bottom: 0;
+		}
+	}
+}
+

@@ -1,0 +1,69 @@
+/* //--- layout
+--------------------------------------------------------------------------------*/
+
+:global {
+	.section {
+		background-color: #272727;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		&::-webkit-scrollbar-track 	{
+			-webkit-box-shadow: inset 0 0 3px transparent;
+			background-color: transparent;
+		}
+
+	 	&::-webkit-scrollbar {
+			width: 6px;
+			background-color: transparent;
+		}
+
+	 	&::-webkit-scrollbar-thumb{
+			background-color: $theme-color;
+		}
+	}
+
+	.section-table {
+		display: table;
+		table-layout: fixed;
+
+		.section-wrapper {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+
+	.section-wrapper {
+		position: relative;
+		padding: 100px 0;
+	}
+
+	.no-padding {
+		.section-wrapper {
+			padding: 0;
+		}
+	}
+}
+
+.heading {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 30px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	z-index: 9;
+
+	transform: rotate(-90deg) translateY(-50%);
+}
+
+.wrapper {
+	position: relative;
+}
+
+@include media('>md') {
+	.heading {
+		display: block;
+	}
+}

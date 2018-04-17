@@ -1,0 +1,12 @@
+/* //--- button
+--------------------------------------------------------------------------------*/
+
+:global {
+	.btn {
+		text-transform: uppercase;
+	}
+
+	.btn-gradient {
+		background-image: linear-gradient(to right, #744fff 0%, #21d397 51%, #744fff 100%)
+	}
+}

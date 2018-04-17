@@ -1,0 +1,12 @@
+//- demo: true
+mixin general_featured(args)
+	include cssmodule
+
+	+module('div', css.module, args)
+		- let args = item
+		h4(class=css.title)
+			i(class=set(args, 'icon', 'fa fa-thumbs-o-up'))
+			!= set(args, 'title', random(random.feature))
+		p(class=css.text)!= set(args, 'text', random(random.text, 100))
+		
+		

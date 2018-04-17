@@ -1,0 +1,43 @@
+mixin section_half(args)
+	include cssmodule
+	+module('section', css.module, args)(class=bootstrapSettings.sectionClassDefault)
+		-
+			var args = item,
+				userImgWrap = ''
+			if (args.useImg)
+				userImgWrap = ' section-half__imgwrap'
+		+col({
+			cols: set(args, 'colImage', [0,4,6,0]),
+			addClass: css.content + userImgWrap
+		})
+			if args.useImg
+				div(class=css.image)
+					img(src=set(args, 'img', 'http://via.placeholder.com/800x600') alt="")
+			else
+				div(class=css.bg style=`background-image: url('${ set(args, 'img', 'http://via.placeholder.com/800x600') }')`)
+					img(src=set(args, 'img', 'http://via.placeholder.com/800x600') alt="")
+		//- Container
+		if args.container
+			div(class="container")
+				+row
+					+col({
+						cols: set(args, 'colContent', [0,7,5,0]),
+					})
+						if block
+							block
+						else
+							h4 Block content
+							p= random(random.text, 300)
+
+		//- Fluid (no container)
+		else
+			div(class="container-fluid")
+				+row
+					+col({
+						cols: set(args, 'colContent', [0,7,5,0]),
+					})
+						if block
+							block
+						else
+							h4 Block content
+							p= random(random.text, 300)

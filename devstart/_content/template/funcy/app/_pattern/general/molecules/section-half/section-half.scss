@@ -1,0 +1,86 @@
+/* //--- Section half
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	position: relative;
+
+	:global(> .container),
+	:global(> .container-fluid),
+	> div[class*='col-']:not(.content) {
+		padding-top: 7em;
+		padding-bottom: 7em;
+		float: none;
+		overflow: hidden;
+	}
+}
+
+.content {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 2;
+	padding: 0;
+	right: 0;
+}
+.image,
+.bg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-size: cover !important;
+	background-position: 50% 50% !important;
+	z-index: 0;
+	transition: opacity .3s linear;
+}
+.bg img {
+	display: none;
+}
+
+.image img {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+// modifier image-left
+.image-left {
+	div[class*='col-']:first-child {
+		float: left;
+		right: auto;
+	}
+	div[class*='col-']:first-child:not([class*='pull']):not([class*='push']) {
+		left: 0;
+	}
+	div[class*='col-']:last-child {
+		float: right;
+		left: auto;
+	}
+	div[class*='col-']:last-child:not([class*='pull']):not([class*='push']) {
+		right: 0;
+	}
+	.image img {
+		right: 0;
+	}
+}
+
+
+@include media('<sm') {
+	.module {
+		padding: 0;
+	}
+	.content {
+		position: relative;
+		min-height: 18em;
+		float: none !important
+	}
+	.imgwrap {
+		display: none
+	}
+	// .image img {
+	// 	position: static;
+	// 	transform: translateY(0);
+	// }
+}

@@ -1,0 +1,10 @@
+
+mixin md_btn(tag, args)
+	if (tag == 'a')
+		+tag(tag, 'md-btn', args)!= set(args, 'text', 'button')
+
+	else if (tag == 'button')
+		+tag(tag, 'md-btn', args)!= set(args, 'text', 'button')
+
+	else if (tag == 'input')
+		+tag(tag, 'md-btn', args)(value=set(args, 'text', 'button'))

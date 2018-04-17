@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'hotel';
+  src:  url('fonts/hotel.eot?h06ptw');
+  src:  url('fonts/hotel.eot?h06ptw#iefix') format('embedded-opentype'),
+    url('fonts/hotel.ttf?h06ptw') format('truetype'),
+    url('fonts/hotel.woff?h06ptw') format('woff'),
+    url('fonts/hotel.svg?h06ptw#hotel') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hotel {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'hotel' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hotel-microwave-oven:before {
+  content: "\e900";
+}
+.hotel-monitor:before {
+  content: "\e901";
+}
+.hotel-music:before {
+  content: "\e902";
+}
+.hotel-no-smoking:before {
+  content: "\e903";
+}
+.hotel-parking:before {
+  content: "\e904";
+}
+.hotel-play-button:before {
+  content: "\e905";
+}
+.hotel-router:before {
+  content: "\e906";
+}
+.hotel-signal:before {
+  content: "\e907";
+}
+.hotel-steak:before {
+  content: "\e908";
+}
+.hotel-stones:before {
+  content: "\e909";
+}
+.hotel-weightlifting:before {
+  content: "\e90a";
+}
+.hotel-air-conditioner:before {
+  content: "\e90b";
+}
+.hotel-concierge:before {
+  content: "\e90c";
+}

@@ -1,0 +1,16 @@
+/* //--- widget
+--------------------------------------------------------------------------------*/
+
+:global {
+	.widget {
+		margin-bottom: 40px;
+		overflow: hidden;
+	}
+	.widget-title {
+		font-size: 16px;
+		color: #000;
+		text-transform: capitalize;
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+}

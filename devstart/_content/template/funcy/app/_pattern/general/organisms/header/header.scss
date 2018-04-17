@@ -1,0 +1,231 @@
+/* //--- header
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	position: relative;
+	padding: 20px 15px;
+	transition: all .3s ease;
+
+	&:global(.header--fixed) {
+		position: fixed;
+		width: 100%;
+		z-index: 99;
+		border-bottom: 1px solid #626571
+	}
+
+	&:global(.header--bg) {
+		background-color: rgba(0, 0, 0, 0.5);
+		border-bottom: 0;
+	}
+}
+
+// inner
+.inner {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-right: 50px;
+}
+
+// left
+.left {
+	content: empty;
+}
+
+// logo
+.logo {
+	content: empty;
+}
+
+// right
+.right {
+	content: emptyp;
+}
+
+// iconsearch
+.iconsearch {
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+	margin-left: 30px;		
+}
+
+// search
+.search {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	z-index: 999;
+
+	display: flex;
+    align-items: center;
+
+    transform: translateY(-100%);
+    transition: all .3s ease;
+
+    &:global(.active) {
+    	transform: translateY(0);
+    }
+}
+
+// search_input
+.search_input {
+	background-color: transparent !important;
+	font-size: 25px !important;
+	padding-right: 40px !important;
+
+	@include placeholder {
+		font-size: 30px !important;
+	}
+}
+
+// search_close
+.search_close {
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	font-size: 20px;
+	color: #9c9c9c;
+	cursor: pointer;
+
+	transform: translateY(-50%);
+
+	&:hover {
+		color: $danger;
+	}
+}
+
+:global {
+	@include wilMenu('.page-nav', (
+		menuClass: 'page-menu',
+		theme: 'style3',
+		breakpoint: 1200,
+		css: (
+			font-family: $font-secondary,
+			font-size: 14px,
+			font-weight: 500,
+			color: #fff,
+			text-transform: capitalize,
+			padding: 30px 20px,
+			hover: (
+				color: $theme-color
+			),
+			current: (
+				color: $theme-color
+			)
+		),
+		menuMobile: (
+			toggleClass: 'active',
+			classButtonToggle: 'page-toggle-menu',
+			theme: 'style2',
+			width: 250,
+			css: (
+				font-size: 16px,
+				text-transform: capitalize,
+				color: #fff,
+				hover: (
+					color: #fff
+				),
+				current: (
+					color: #fff
+				),
+				toggle: (
+					color:#fff
+				)
+			),
+		),
+		responsiveByJavascript: (
+			enable: false
+		)
+	));
+
+	.page-nav {
+		display: inline-block;
+		vertical-align: middle;
+
+		li.current a {
+			color: $color-primary;
+		}
+	}
+
+	.page-menu.active ~ .navbar-toggle span {
+		&:nth-child(1) {
+			top: 10px;
+			transform: rotate(-45deg);
+		}
+
+		&:nth-child(2) {
+			opacity: 0;
+			left: -40px;
+		}
+
+		&:nth-child(3) {
+			top: 10px;
+			transform: rotate(45deg);
+		}
+	}
+
+	.navbar-toggle {
+	    position: absolute;
+	    right: 0;
+	    top: 50%;
+
+		width: 25px;
+	    height: 23px;
+	    overflow: hidden;
+
+	    transform: translateY(-50%);
+	    transition: .5s ease-in-out;
+	    cursor: pointer;
+
+	    span {
+		    position: absolute;
+	    	display: block;
+		    height: 3px;
+		    width: 100%;
+		    background-image: -webkit-linear-gradient(180deg, #20d497 0%, #744fff 100%);
+		    border-radius: 9px;
+		    opacity: 1;
+		    left: 0;
+		    transform: rotate(0deg);
+		    transition: .25s ease-in-out;
+
+		    &:nth-child(1) {
+		    	top: 0px;
+		    }
+
+		    &:nth-child(2) {
+		    	top: 10px;
+		    }
+
+		    &:nth-child(3) {
+		    	top: 20px;
+		    }
+	    }
+	}
+}
+
+@include media('>lg') {
+	.module {
+		padding: 0 50px;
+	}
+
+	.search {
+		padding: 0 50px;
+	}
+
+	.inner {
+		padding-right: 0;
+	}
+
+	:global {
+		.navbar-toggle {
+			display: none;
+		}
+	}
+}

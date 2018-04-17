@@ -1,0 +1,27 @@
+//- demo: true
+mixin header_01(args)
+	include cssmodule
+	+module('header', css.module, args)
+		div(class="container")
+			div(class=css.inner)
+				- var args = item
+				div(class=css.logo)
+					a(href="index.html"): p MINIMO
+				
+
+				div(class=css.menu)
+					include cssmodule
+					
+					+menu('.onepage-nav', {
+						menuClass: 'onepage-menu',
+						data: data,
+						submenu: {
+							class: 'sub-menu',
+							parentClass: 'menu-item-has-children'
+						}
+					})
+						div(class="navbar-toggle")
+							span
+							span
+							span
+					
