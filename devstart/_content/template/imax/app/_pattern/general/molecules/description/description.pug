@@ -1,0 +1,11 @@
+//- demo: true
+mixin general_description(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- let args = item
+		if (has(args.modifier, 'super'))
+			h4(class=css.title)!= set(item, 'title', ' <span>Our</span> Services')
+		else
+			h2(class=css.title)!= set(item, 'title', 'random')
+		
+		

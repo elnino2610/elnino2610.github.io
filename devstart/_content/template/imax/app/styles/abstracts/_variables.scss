@@ -1,5 +1,9 @@
 // Import variable global
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500');
+@font-face {
+    font-family: IcoFont;
+    src: url(font/icofont.woff);
+}
 // Font family
 $font-primary: 'Poppins', sans-serif;
 $font-secondary: $font-primary;

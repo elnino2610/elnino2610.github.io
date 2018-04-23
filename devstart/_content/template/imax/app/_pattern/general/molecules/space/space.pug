@@ -1,0 +1,28 @@
+//- demo: true
+mixin general_space(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- let args = item
+		if (has(args.modifier, 'icon'))
+			div(class=css.media)
+				i(class=set(args, 'icon', 'icofont icofont-quote-left'))
+			div(class=css.body)
+				h2(class=css.title)
+				div(class=css.meta)
+					span(class="author")
+						p!= set(args, 'people', random(random.people.name))
+				h5(class=css.text)!= set(args, 'text', random(random.text))
+					h6(class=css.text_1)!= set(args, 'text_1', random(random.text))
+
+		else	
+			div(class=css.media)
+				a(href="#")
+					img(src=set(args, 'imgsrc', 'img/blog/2.png'), alt="")
+				a(href="#")(class=css.badge) <span>06</span><br><span>Aug</span>
+			div(class=css.body)
+				h2(class=css.title)
+				div(class=css.meta)
+					span(class="author")
+						a(href="#")!= set(args, 'people', random(random.people.name))
+				p(class=css.text)!= set(args, 'text', random(random.text, 130))
+					

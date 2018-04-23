@@ -1,0 +1,11 @@
+//- demo: true
+mixin general_pills(args)
+	include cssmodule
+
+	+module('div', css.module, args)
+		- let args = item
+		ul.tabs
+			li
+				a(href=set(args, 'id', 'tab1'))
+					i(class=set(args, 'icon', 'icofont icofont-laptop-alt'))
+						h6(class=css.text)!= set(args, 'text', 'aaaa')

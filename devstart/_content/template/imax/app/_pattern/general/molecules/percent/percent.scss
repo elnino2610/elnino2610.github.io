@@ -1,0 +1,72 @@
+/* //--- general_percent
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	
+}
+
+// media
+.media {
+	
+}
+
+// badge
+.badge {
+	
+}
+
+// body
+.body {
+	
+}
+
+// title
+.title {	
+	p{
+		font-size: 25px;	
+		font-weight: 600;
+		font-family: 'Raleway', sans-serif;
+		margin-bottom: 30px;
+	}
+	&:after{
+		    content: '';
+		    background: #eee;
+		    width: 70%;
+		    height: 1px;
+		    position: absolute;
+		    left: 15%;
+		}
+}
+
+// price
+.price {
+	display: inline-block;
+	position: relative;
+	padding-right: 10px;
+    font-size: 50px;
+    font-weight: 800;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.2;
+	span{
+		font-size: 14px;
+    	position: absolute;
+    	top: 5px;
+    	right: 0;
+	}
+}
+
+// text
+	.text {
+	font-size: 13px;
+    color: #777;
+    &:after{
+		    content: '';
+		    background: #eee;
+		    width: 70%;
+		    height: 1px;
+		    position: absolute;
+		    left: 15%;
+		    top: 200px;
+		}
+}

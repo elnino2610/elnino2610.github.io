@@ -9,7 +9,21 @@ mixin portfolio(args)
 				img(src=set(args, 'img', 'https://images.pexels.com/photos/450059/pexels-photo-450059.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'))
 
 				div(class=css.icon)
-					i(class="fa fa-play")
+					i(class="icofont icofont-image")
+			
+			div(class=css.ovl)
+			div(class=css.captions)
+				h6 Crearive Design
+				p Work description here
+			i(class="fa fa-play")
 		else
 			a(href=set(args, 'href', '#'),class=css.bg , style="background-image: url('"+set(args, 'img', 'https://images.pexels.com/photos/450059/pexels-photo-450059.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb')+"')" data-effect=set(args, 'effect', 'mfp-zoom-in'))
 				img(src=set(args, 'img', 'https://images.pexels.com/photos/450059/pexels-photo-450059.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'))
+
+			div(class=css.ovl)
+			div(class=css.captions)
+				h6 Crearive Design
+				p Work description here
+			i(class="icofont icofont-image")
+
+

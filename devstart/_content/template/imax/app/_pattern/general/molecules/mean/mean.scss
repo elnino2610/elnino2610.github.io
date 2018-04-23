@@ -1,0 +1,64 @@
+/* //--- general_mean
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	text-align: left;
+	padding-right: 30px;
+}
+
+// media
+.media {
+	
+}
+
+// body
+.body {
+	
+}
+
+// title
+.title {
+	
+}
+
+// meta
+.meta {
+	p {
+		color: #bbb;
+		font-size: 14px;
+	    line-height: 1.6;
+	    word-spacing: 1px;
+	    margin: 0;
+		}
+	&:after{
+		content: '';
+	    width: 1px;
+	    height: 100%;
+	    background: #F24259;
+	    position: absolute;
+	    right: 1px;
+	    top: 0;
+	    opacity: .7;
+	}	
+}
+
+// text
+.text {
+	
+}
+
+// text_1
+.text_1 {
+	
+}
+
+// price
+.price {
+	padding-left: 30px;
+	color: #fff;
+	font-size: 16px;
+	font-style: italic;
+	word-spacing: 1px;	
+	line-height: 1.6;		
+}

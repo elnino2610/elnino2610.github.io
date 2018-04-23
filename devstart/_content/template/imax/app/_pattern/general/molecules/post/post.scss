@@ -3,7 +3,8 @@
 
 // module
 .module {
-
+	background: #fff;
+	margin-bottom: 30px;
 }
 
 // media
@@ -23,7 +24,7 @@
 
 // body
 .body {
-	padding: 20px 0;
+	padding: 40px 5px;
 }
 
 // title
@@ -58,5 +59,59 @@
 		content: '-';
 		display: inline-block;
 		margin: 0 5px;
+	}
+}
+// badge
+.badge {
+	content: empty;
+	display: inline-block;
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    background: #111;
+    color: #fff;
+    padding: 0 15px;
+    text-align: center;
+    span{
+    	display: inline-block;
+   		text-decoration: none;
+    	color: inherit;
+    	padding: -5px;
+    }
+}
+
+
+// modifier icon
+.icon {
+	padding: 30px 15px;
+	content: empty;
+	.body{
+		padding: 0;
+	}
+	.media{
+		i{
+			color: #F24259;
+			font-size: 50px;
+			margin-bottom: 15px;
+
+		}
+	}
+	.meta{
+		.author{
+			overflow: hidden;
+    		display: block;
+    		margin-bottom: 15px;
+    		p{
+    			margin: 0;
+    		}
+		}
+	}
+	.text{
+		margin: 0;
+			font-size: 14px;
+   			color: #666;
+    		line-height: 1.6;
+    		word-spacing: 1px;
+    		margin: 0;
 	}
 }

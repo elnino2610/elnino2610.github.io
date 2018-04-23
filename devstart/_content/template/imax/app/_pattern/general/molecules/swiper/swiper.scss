@@ -1,3 +1,23 @@
 /* //--- swiper
 --------------------------------------------------------------------------------*/
 
+:global{
+	.swiper-pagination-bullets{
+		text-align: right !important;
+		span{
+			padding-right: 10px !important;
+			margin-top: 15px !important;
+			background-color:  #fff;
+			opacity:1;
+			margin-bottom: 70px !important;
+		}
+		span:hover{
+			background-color:  #F24259 !important;
+		}
+		
+		
+	}
+	.swiper-pagination-bullet-active{
+		background-color: #F24259 !important;
+	}
+}

@@ -1,0 +1,13 @@
+//- demo: true
+mixin general_partner(args)
+	include cssmodule
+
+	+module('div', css.module, args)
+		- let args = item
+			div(class=css.media)
+				a(href="#")
+					img(src=set(args, 'imgsrc', 'img/images/1.png'))
+		
+
+
+		

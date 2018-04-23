@@ -1,0 +1,9 @@
+//- demo: true
+mixin general_video(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- let args = item
+			a(class='css.vid' href='https://player.vimeo.com/video/127203262?autoplay=1&loop=1&autopause=0"color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>')
+				i(class='icofont icofont-ui-play')
+				span(class='small-text')!=set(args,'text','Watch Our Story')
+		

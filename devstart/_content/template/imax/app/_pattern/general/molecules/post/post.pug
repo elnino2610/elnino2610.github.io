@@ -2,19 +2,27 @@
 mixin post(args)
 	include cssmodule
 	+module('div', css.module, args)
-		- var args = item
-		div(class=css.media)
-			a(href="#")
-				img(src=set(args, 'imgsrc', 'https://picsum.photos/800/500'), alt="")
+		- let args = item		
+		if (has(args.modifier, 'icon'))
+			div(class=css.media)
+				i(class=set(args, 'icon', 'icofont icofont-brand-copy'))
+			div(class=css.body)
+				h2(class=css.title)
+					a(href="#")!= set(args, 'title', random(random.title, 150))
+				div(class=css.meta)
+					span(class="author")
+						p!= set(args, 'people', random(random.people.name))
+				p(class=css.text)!= set(args, 'text', random(random.text, 130))
 
-		div(class=css.body)
-			h2(class=css.title)
-				a(href="#")!= set(args, 'title', random(random.title, 150))
-
-
-			div(class=css.meta)
-				span(class="author")
-					a(href="#")!= set(args, 'people', random(random.people.name))
-				
-
-			p(class=css.text)!= set(args, 'text', random(random.text, 130))
+		else
+			div(class=css.media)
+				a(href="#")
+					img(src=set(args, 'imgsrc', 'img/blog/2.png'), alt="")
+				a(href="#")(class=css.badge) <span>06</span><br><span>Aug</span>
+			div(class=css.body)
+				h2(class=css.title)
+					a(href="#")!= set(args, 'title', random(random.title, 150))
+				div(class=css.meta)
+					span(class="author")
+						a(href="#")!= set(args, 'people', random(random.people.name))
+				p(class=css.text)!= set(args, 'text', random(random.text, 130))

@@ -1,0 +1,79 @@
+//- demo: true
+mixin general_tabs(args)
+	include cssmodule
+
+	+module('div', css.module, args)
+		- let args = item
+		div(class="tab_container")
+				div(id="tab1", class='tab_content')
+					+col({
+						cols: [0,0,0,6],
+					})
+						//- Args: subtitle, title, text
+						+general_mean({
+							modifier: 'paragraph',
+							text: 'We’re full service which means we’ve got you covered on design and content right through to digital. You’ll form a lasting relationship with us, collaboration is central to everything we do. We’ll push you out of your comfort zone from time-to-time, but this is where you’ll shine. Bottom line is we want you to succeed at Faculty.',
+						})
+					
+					+col({
+						cols: [0,0,0,6],
+					})
+						//- Args: subtitle, title, text
+						+general_mean({
+							price: 'We’re full service which means we’ve got you covered on design and content right through to digital. You’ll form a lasting relationship with us, collaboration is central to everything we do. We’ll push you out of your comfort zone from time-to-time, but this is where you’ll shine.',
+						})
+
+				div(id="tab2", class='tab_content')
+					+col({
+						cols: [0,0,0,6],
+					})
+						//- Args: subtitle, title, text
+						+general_mean({
+							modifier: 'paragraph',
+							text: 'We’re full service which means we’ve got you covered on design and content right through to digital. You’ll form a lasting relationship with us, collaboration is central to everything we do. We’ll push you out of your comfort zone from time-to-time, but this is where you’ll shine. Bottom line is we want you to succeed at Faculty.',
+						})
+					
+					+col({
+						cols: [0,0,0,6],
+					})
+						//- Args: subtitle, title, text
+						+general_mean({
+							price: 'We’re full service which means we’ve got you covered on design and content right through to digital. You’ll form a lasting relationship with us, collaboration is central to everything we do. We’ll push you out of your comfort zone from time-to-time, but this is where you’ll shine.',
+						})
+
+				div(id="tab3", class='tab_content')
+					+col({
+						cols: [0,0,0,6],
+					})
+						//- Args: subtitle, title, text
+						+general_mean({
+							modifier: 'paragraph',
+							text: 'We’re full service which means we’ve got you covered on design and content right through to digital. You’ll form a lasting relationship with us, collaboration is central to everything we do. We’ll push you out of your comfort zone from time-to-time, but this is where you’ll shine. Bottom line is we want you to succeed at Faculty.',
+						})
+					
+					+col({
+						cols: [0,0,0,6],
+					})
+						//- Args: subtitle, title, text
+						+general_mean({
+							price: 'We’re full service which means we’ve got you covered on design and content right through to digital. You’ll form a lasting relationship with us, collaboration is central to everything we do. We’ll push you out of your comfort zone from time-to-time, but this is where you’ll shine.',
+						})
+				
+				div(id="tab4", class='tab_content')
+					+col({
+						cols: [0,0,0,6],
+					})
+						//- Args: subtitle, title, text
+						+general_mean({
+							modifier: 'paragraph',
+							text: 'We’re full service which means we’ve got you covered on design and content right through to digital. You’ll form a lasting relationship with us, collaboration is central to everything we do. We’ll push you out of your comfort zone from time-to-time, but this is where you’ll shine. Bottom line is we want you to succeed at Faculty.',
+						})
+					
+					+col({
+						cols: [0,0,0,6],
+					})
+						//- Args: subtitle, title, text
+						+general_mean({
+							price: 'We’re full service which means we’ve got you covered on design and content right through to digital. You’ll form a lasting relationship with us, collaboration is central to everything we do. We’ll push you out of your comfort zone from time-to-time, but this is where you’ll shine.',
+						})
+						

@@ -75,6 +75,21 @@ function work() {
 }
 work();
 
+// pill
+
+
+  $('.tab_content').hide();
+  $('.tab_content:first').show();
+  $('.tabs li:first').addClass('active');
+  $('.tabs li').click(function(event) {
+    $('.tabs li').removeClass('active');
+    $(this).addClass('active');
+    $('.tab_content').hide();
+
+    var selectTab = $(this).find('a').attr("href");
+
+    $(selectTab).fadeIn();
+  });
 $('.portfolio').magnificPopup({
     delegate: 'a',
     type: 'image',
@@ -185,6 +200,7 @@ $('.swiper__module').each(function() {
 		optData = eval('(' + self.attr('data-options') + ')'),
 		optDefault = {
 			paginationClickable: true,
+
 			pagination: self.find('.swiper-pagination-custom'),
 			nextButton: self.find('.swiper-button-next-custom'),
 			prevButton: self.find('.swiper-button-prev-custom'),
@@ -259,13 +275,19 @@ var wh = $(window).height(),
 $(window).scroll(function() {
 	var scrollTop = $(window).scrollTop();
 
-	if(scrollTop >=  half) {
+	if(scrollTop >=  100) {
 		$('header').addClass('is-scroll');
+        $('.header__logo').find('img').attr("src","img/logo.png");
 	}else {
 		$('header').removeClass('is-scroll');
+        $('.header__logo').find('img').attr("src","img/logo-light.png");
+
 	}
 
 });
+
+
+
 
 $('.onepage-nav').dropdownMenu({
     menuClass: 'onepage-menu',

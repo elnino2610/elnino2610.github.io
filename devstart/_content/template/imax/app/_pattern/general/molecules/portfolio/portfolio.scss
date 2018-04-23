@@ -68,3 +68,60 @@
 	}
 }
 
+
+// ovl
+.ovl {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: all .3s;
+	background-color: #fff;
+	opacity: 0;
+}
+
+// captions
+.captions {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	vertical-align: top;
+	h6{
+		font-weight: 600;
+		position: relative;
+		margin-bottom: 5px;
+		z-index: 0;
+	}
+	p{
+		font-size: 14px;
+		color: #666;
+		line-height: 1.6;
+		word-spacing: 1px;
+		margin: 0;
+	}
+}
+
+.module{
+	&:hover .ovl{
+		position: absolute;
+    	top: 5px;
+    	left: 5px;
+    	right: 5px;
+    	bottom: 5px;
+    	background: rgba(255, 255, 255, 0.95);
+    	color: #35424C;
+    	opacity: .9;
+    	transition: all .5s;
+    	z-index: 2;
+	}
+}
+
+.icofont.icofont-image{
+	font-size: 30px;
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+}

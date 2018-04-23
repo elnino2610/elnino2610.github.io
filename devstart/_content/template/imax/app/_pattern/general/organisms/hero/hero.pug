@@ -17,7 +17,7 @@ mixin hero(args)
 							!= set(args, 'title', 'The way of ')
 							+typing({
 							  	options: {
-									typeSpeed: 60
+									typeSpeed: 200,
 							  	}
 							})
 								if(args.typing)
@@ -29,8 +29,15 @@ mixin hero(args)
 									span Dream
 						
 						p(class=css.text)!= set(args, 'text','A single place to share, curate and discover visual that tells a story.')
+
+						a(id= 'order' href='#')(class=css.purchase)=set(args,'title', '')
+								span Learn more
+								
+						a(id= 'order' href='#')(class=css.purchase_1)=set(args,'title', '')
+								span Get started	 
 							
 					
 
 				span(id="back-to-down")
-					i(class="pe-7s-angle-down")
+					div(class=css.ovl)
+						i(class="fas pe-7s-angle-down")

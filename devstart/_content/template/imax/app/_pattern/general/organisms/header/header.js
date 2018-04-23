@@ -10,13 +10,19 @@ var wh = $(window).height(),
 $(window).scroll(function() {
 	var scrollTop = $(window).scrollTop();
 
-	if(scrollTop >=  half) {
+	if(scrollTop >=  100) {
 		$('header').addClass('is-scroll');
+        $('.header__logo').find('img').attr("src","img/logo.png");
 	}else {
 		$('header').removeClass('is-scroll');
+        $('.header__logo').find('img').attr("src","img/logo-light.png");
+
 	}
 
 });
+
+
+
 
 $('.onepage-nav').dropdownMenu({
     menuClass: 'onepage-menu',

@@ -7,6 +7,7 @@ $('.swiper__module').each(function() {
 		optData = eval('(' + self.attr('data-options') + ')'),
 		optDefault = {
 			paginationClickable: true,
+
 			pagination: self.find('.swiper-pagination-custom'),
 			nextButton: self.find('.swiper-button-next-custom'),
 			prevButton: self.find('.swiper-button-prev-custom'),

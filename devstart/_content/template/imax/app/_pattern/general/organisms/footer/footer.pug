@@ -4,26 +4,26 @@ mixin footer(args)
 	+module('div', css.module, args)
 		- var args = item
 		div(class=css.logo)
-					a(href="index.html"): img(src=set(args, 'logo', 'img/logo.png'), alt="")
+					a(href="index.html"): img(src=set(args, 'logo', 'img/logo-light.png'), alt="")
 		div(class="container")
 			div(class=css.wrapper)
 				div(class=css.social)
 					-
 						var social = [
 							{
-								icon: 'fa fa-facebook'
+								icon: 'icofont icofont-social-facebook'
 							},
 							{
-								icon: 'fa fa-twitter'
+								icon: 'icofont icofont-social-twitter'
 							},
 							{
-								icon: 'fa fa-instagram'
+								icon: 'icofont icofont-social-instagram'
 							},
 							{
-								icon: 'fa fa-linkedin'
+								icon: 'icofont icofont-brand-linkedin'
 							},
 							{
-								icon: 'fa fa-behance'
+								icon: 'icofont icofont-social-behance'
 							},
 						]
 					

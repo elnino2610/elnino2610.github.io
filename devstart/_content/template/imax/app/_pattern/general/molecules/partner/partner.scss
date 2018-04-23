@@ -1,0 +1,23 @@
+/* //--- general_partner
+--------------------------------------------------------------------------------*/
+
+// module
+.module {
+	
+}
+
+// media
+.media {
+
+	img{
+		opacity: 0.5;
+		width: 100%;
+	}
+	a{
+		display: inline-block;
+		padding: 15px;
+	}
+	a:hover img{
+		opacity: 1;
+	}
+}

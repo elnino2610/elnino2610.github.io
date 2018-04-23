@@ -32,10 +32,27 @@
 		.form-item--half {
 			width: 50%;
 			float: left;
+
 		}
 
 		.form-item-btn-right {
 			text-align: right;
 		}
+	}
+
+	.form-control{
+		width: 100%;
+		padding: 10px !important;
+		border: 0;
+		background: #f7f7f7;
+		border-radius: 5px !important;
+	}
+}
+
+
+input {
+	&::placeholder {
+		color: #878988 !important;
+		font-size: 14px;
 	}
 }

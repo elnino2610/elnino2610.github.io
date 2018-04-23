@@ -12,7 +12,6 @@ block afterLink
 block header
 	//- Args: logo
 	+header_01({
-		
 		addClass: 'header--fixed'
 	})
 
@@ -28,23 +27,21 @@ block content
 	//- Args: img, title, text
 	+hero({
 		id: 'id-1',
-
 	})
+	
 
 	+section({
 		id: 'id-2',
-		addClass: 'bg-gray'
 	})
 
 		+title({
 					title: "We Are <span>Awesome</span> Agency"
 				})
 
-		p(class="fz-16 mb-40")= "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+		p.fz-16.mb-40= "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 
 
 		+row
-
 			+col({
 				cols: [0,0,0,7]
 			})
@@ -52,7 +49,11 @@ block content
 					modifier: 'special',
 					title: " Our <br> <span>Mission</span>"
 				})
-				p.fz-17= "We’re full service which means we’ve got you covered on design and content right through to digital. You’ll form a lasting relationship with us, collaboration is central to everything we do. We’ll push you out of your comfort zone from time-to-time, but this is where you’ll shine. Bottom line is we want you to succeed at Faculty We’re full service which means we’ve got you covered on design and content right through to digital."
+				p.fz-17="We’re full service which means we’ve got you covered on design and content right through to digital. You’ll form a lasting relationship with us, collaboration is central to everything we do. We’ll push you out of your comfort zone from time-to-time, but this is where you’ll shine. Bottom line is we want you to succeed at Faculty We’re full service which means we’ve got you covered on design and content right through to digital."
+				//- Args:
+				+general_video({
+	
+				})
 
 
 			+col({
@@ -61,23 +62,90 @@ block content
 				
 			})
 				//- Args: subtitle, progress, text
-
 				+progress({
 					title: "Branding"
 				})
+				//- Args: subtitle, progress, text
 				+progress({
 					title: "Web Design"
 				})
+				//- Args: subtitle, progress, text
 				+progress({
 					title: "Graphic Design"
 				})
+				//- Args: subtitle, progress, text
 				+progress({
 					title: "Development"
 				})
 
-				
 		
-		
+	+section({
+		id: 'id-aaaaa',
+		addClass: 'bg-gray my-custom'
+	})
+		+row
+			+col({
+				cols: [0,0,0,4],
+			})
+				+post({
+					modifier: 'icon',
+					icon: 'icofont icofont-brand-copy',
+					addClass: 'border',
+					title: '',
+					imgsrc: '',
+					people: 'Branding',
+					text: 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever'
+				})
+
+			+col({
+				cols: [0,0,0,4],
+			})
+				+post({
+					modifier: 'icon',
+					icon: 'icofont icofont-chart-pie-alt',
+					addClass: 'border',
+					title: '',
+					imgsrc: '',
+					people: 'Development',
+					text: 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever'
+				})
+
+			+col({
+				cols: [0,0,0,4],
+			})
+				+post({
+					modifier: 'icon',
+					icon: 'icofont icofont-chart-histogram-alt',
+					addClass: 'border',
+					title: '',
+					imgsrc: '',
+					people: 'Marketing',
+					text: 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever'
+				})
+
+	+section({
+		css: {
+			'background-image': 'url(img/1.jpg)'
+		},
+		overlay: true,
+		skin: 'dark',
+		addClass: 'bg-fixed pd0'
+	})
+		//- .overlay
+		+row
+			+col({
+				cols: [0,0,0,6],
+				offsets: [0,0,0,6]
+			})
+				//- Args: subtitle, title, text
+				+general_space({
+					modifier: 'icon',
+					icon: 'icofont icofont-quote-left',
+					people: "People should pursue what they're passionate about. That will make them happier than pretty much anything else.",
+					text:'elon musk',
+					text_1: 'CEO, and lead designer of SpaceX',
+
+				})
 
 	+section({
 		id: 'id-3'
@@ -130,8 +198,356 @@ block content
 			})
 
 	+section({
+		css: {
+			'background-image': 'url(img/2.jpg)'
+		},
+		overlay: true,
+		skin: 'dark',
+		addClass: 'bg-fixed pd0'
+
+	})
+		//- .overlay
+		+row
+			+col({
+				cols: [0,0,6,3],
+			})
+
+				//- Args: icon, people, text, text_1, imgsrc
+				+general_client({
+					modifier: 'icon',
+					icon: 'icofont icofont-users-alt-3',
+					text:'368',
+					text_1: 'Happy Clients',
+				})
+
+			+col({
+				cols: [0,0,6,3],
+			})
+
+				//- Args: icon, people, text, text_1, imgsrc
+				+general_client({
+					modifier: 'icon',
+					icon: 'icofont icofont-briefcase-alt-2',
+					text:'937',
+					text_1: 'Projects Compleated',
+				})
+			
+			+col({
+				cols: [0,0,6,3],
+			})
+
+				//- Args: icon, people, text, text_1, imgsrc
+				+general_client({
+					modifier: 'icon',
+					icon: 'icofont icofont-brainstorming',
+					text:'438',
+					text_1: 'Business partners',
+				})
+			
+			+col({
+				cols: [0,0,6,3],
+			})
+
+				//- Args: icon, people, text, text_1, imgsrc
+				+general_client({
+					modifier: 'icon',
+					icon: 'icofont icofont-growth',
+					text:'5946',
+					text_1: 'liens of code',
+				})
+				
+
+	
+	+section({
+		id: 'id-b',
+	})
+		+row
+			+col
+				//- Args: subtitle, title, text
+				+title({
+					modifier: 'special',
+					title: 'awesome <br> <span>top features</span>',
+				})
+
+		+row
+			+col({
+				cols: [0,0,6,4],
+			})
+				+post({
+					modifier: 'icon',
+					icon: 'icofont icofont-laptop',
+					addClass: 'border border-left',
+					title: '',
+					people: 'Creative Design',
+					text: "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's"
+				})
+
+			+col({
+				cols: [0,0,6,4],
+			})
+				+post({
+					modifier: 'icon',
+					icon: 'icofont icofont-globe-alt',
+					addClass: 'border border-left',
+					title: '',
+					people: 'User Experience',
+					text: "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's"
+				})
+
+			+col({
+				cols: [0,0,6,4],
+			})
+				+post({
+					modifier: 'icon',
+					icon: 'icofont icofont-rocket-alt-2',
+					addClass: 'border border-left',
+					title: '',
+					people: 'Customizability',
+					text: "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's"
+				})
+
+			+col({
+				cols: [0,0,6,4],
+			})
+				+post({
+					modifier: 'icon',
+					icon: 'icofont icofont-image',
+					addClass: 'border border-left',
+					title: '',
+					people: 'Retina Ready',
+					text: "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's"
+				})
+
+			+col({
+				cols: [0,0,6,4],
+			})
+				+post({
+					modifier: 'icon',
+					icon: 'icofont icofont-samsung-galaxy',
+					addClass: 'border border-left',
+					title: '',
+					people: 'Fully Responsive',
+					text: "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's"
+				})
+
+			+col({
+				cols: [0,0,6,4],
+			})
+				+post({
+					modifier: 'icon',
+					icon: 'icofont icofont-ui-settings',
+					addClass: 'border border-left',
+					title: '',
+					people: 'Custom Support',
+					text: "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's"
+				})
+				
+		
+	+section({
+		css: {
+			'background-image': 'url(img/4.jpg)'
+		},
+		overlay: true,
+		addClass: 'bg-fixed pd0',
+	})
+		//- .overlay
+		+row
+			//- Args: general_description
+			+general_description({
+				modifier: 'super',
+				title: 'our <br> <span> services</span>',
+			})
+			+general_tabs({
+			})
+			
+		+row
+			+col({
+				cols: [0,6,3,0],
+			})
+				//- Args:
+				+general_pills({
+					id: '#tab1',
+					text: 'web design',
+				})
+			+col({
+				cols: [0,6,3,0],
+			})
+				//- Args:
+				+general_pills({
+					id: '#tab2',
+					icon: 'icofont icofont-brand-htc',					
+					text: 'branding',
+				})
+			+col({
+				cols: [0,6,3,0],
+			})
+				//- Args:
+				+general_pills({
+					id: '#tab3',
+					icon: 'icofont icofont-idea',
+					text: 'development',
+				})
+			+col({
+				cols: [0,6,3,0],
+			})
+				//- Args:
+				+general_pills({
+					id: '#tab4',
+					icon: 'icofont icofont-touch',
+					text: 'marketing',
+				})
+
+
+	+section({
+		id: 'id-d',
+	})
+		+row
+			+col
+				//- Args: subtitle, title, text
+				+title({
+					modifier: 'special',
+					title: 'our <br> <span>creative team</span>',
+				})
+				
+				+swiper({
+					nextText: '',
+					prevText: '',
+					addClass: 'mt-50',
+				 	pagination: {
+				    	el: '.swiper-pagination',
+				  	},
+					options: {
+					    slidesPerView: 4,
+					    spaceBetween: 30,
+					    autoplay: 2000,
+					    breakpoints: {
+							991: {
+								slidesPerView: 2,
+							},
+							640: {
+								slidesPerView: 1,
+							}
+						}
+					},
+				})
+					- var i = 0;
+					while i < 9
+						- i ++;
+						//- Args: icon, title, text
+						+new_team({
+							text: 'alex smith.',
+							career: 'Project Manager'
+						})
+						+new_team({
+							img: 'img/bg/2.jpg',
+							text: 'Sam Martin.',
+							career: 'Project Manager'
+						})
+						+new_team({
+							img: 'img/bg/3.jpg',
+							text: 'Johnny Doe',
+							career: 'Project Manager'
+						})
+						+new_team({
+							img: 'img/bg/4.jpg',
+							text: 'Jack Lennon',
+							career: 'Project Manager'
+						})
+					
+	+section({
+		id: 'id-e',
+		addClass:'bg-gray',			
+	})
+		+row
+			+col
+				//- Args: subtitle, title, text
+				+title({
+					modifier: 'special',
+					title: 'our <br> <span>pricing</span>',
+				})
+
+			+col({
+				cols: [0,0,0,4],
+			})
+				+general_percent({
+					addClass: 'border bg-white',
+					title: 'Basic',
+					price: '10',
+				})
+			+col({
+				cols: [0,0,0,4],
+			})
+				+general_percent({
+					addClass: 'border bg-white',
+					title: 'Standard',
+					price: '30',
+				})
+			+col({
+				cols: [0,0,0,4],
+			})
+				+general_percent({
+					addClass: 'border bg-white',
+					title: 'Premium',
+					price: '80',
+				})
+				
+
+
+
+	+section({
+		css: {
+			'background-image': 'url(img/3.jpg)'
+		},
+		overlay: true,
+		skin: 'dark',
+		addClass: 'bg-fixed pd0',
+	})
+		//- .overlay
+		+row
+			+col({
+				cols: [0,0,0,7],
+			})
+				//- Args: general_description
+				+general_description({
+					modifier: 'super',
+					title: 'What <br> <span> Clients</span> Says',
+				})
+		
+
+				+swiper({
+					nextText: '',
+					prevText: '',
+					addClass: 'mt-50',
+				 	pagination: {
+				    	el: '.swiper-pagination',
+				  	},
+					options: {
+					    slidesPerView: 1,
+					    spaceBetween: 30,
+					    autoplay: 2000,
+					    breakpoints: {
+							991: {
+								slidesPerView: 2,
+							},
+							640: {
+								slidesPerView: 1,
+							}
+						}
+					},
+				})
+					- var i = 0;
+					while i < 3
+						- i ++;
+						//- Args: icon, title, text
+						+service({
+							text: "Lorem Ipsum is simply dummy text of the printing and type setting industry has been the industry's standard dummy text ever Lorem Ipsum is simply dummy text of the printing and type setting.",
+							name: 'alex smith',
+							career: 'envato customer'
+						})
+	
+	
+	+section({
 		id: 'id-4',
-		addClass: 'bg-gray'
 	})
 		+row
 			+col
@@ -147,8 +563,9 @@ block content
 			})
 				//- Args: title, text, date
 				+post({
+					addClass: 'border',
 					title: 'WordPress',
-					imgsrc: 'img/blog/' + i + '.jpg',
+					imgsrc: 'img/blog/1.jpg',
 					people: '48 Best Wordpess Themes',
 					text: 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever'
 				})
@@ -157,8 +574,9 @@ block content
 			})
 				//- Args: title, text, date
 				+post({
+					addClass: 'border',
 					title: 'ThemeForest',
-					imgsrc: 'img/blog/' + i + '.jpg',
+					imgsrc: 'img/blog/2.jpg',
 					people: 'Managing Their Own Websites',
 					text: 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever'
 				})
@@ -167,10 +585,59 @@ block content
 			})
 				//- Args: title, text, date
 				+post({
+					addClass: 'border',
 					title: 'Trends',
-					imgsrc: 'img/blog/' + i + '.jpg',
+					imgsrc: 'img/blog/3.jpg',
 					people: 'Master These Awesome Skills',
 					text: 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever'
+				})
+	
+	+section({
+		id: 'id-ff',
+		addClass: 'bg-gray my-custom-padding',
+	})
+		+row
+			+col({
+				cols: [0,6,4,2]
+			})
+				//- Args: imgsrc
+				+general_partner({
+					imgsrc:'img/images/1.png',
+				})
+			+col({
+				cols: [0,6,4,2]
+			})
+				//- Args: imgsrc
+				+general_partner({
+					imgsrc:'img/images/2.png',
+				})
+			+col({
+				cols: [0,6,4,2]
+			})
+				//- Args: imgsrc
+				+general_partner({
+					imgsrc:'img/images/3.png',
+				})
+			+col({
+				cols: [0,6,4,2]
+			})
+				//- Args: imgsrc
+				+general_partner({
+					imgsrc:'img/images/4.png',
+				})
+			+col({
+				cols: [0,6,4,2]
+			})
+				//- Args: imgsrc
+				+general_partner({
+					imgsrc:'img/images/5.png',
+				})
+			+col({
+				cols: [0,6,4,2]
+			})
+				//- Args: imgsrc
+				+general_partner({
+					imgsrc:'img/images/6.png',
 				})
 
 	+section({
@@ -221,22 +688,30 @@ block content
 					//- Args: label, type, class, name, placeholder
 					+form_item({
 						addClass: 'form-item--half',
-						label: 'email,',
-						placeholder: ''
+						label: '',
+						placeholder: 'name'
 					})
 
 					//- Args: label, type, class, name, placeholder
 					+form_item({
 						addClass: 'form-item--half',
-						label: 'Name,',
-						placeholder: ''
+						label: '',
+						placeholder: 'email'
+					})
+
+					+form_item({
+						label: '',
+						placeholder: 'subject'
 					})
 
 					//- Args: label, type, class, name, placeholder
 					+form_item({
-						label: 'message'
+						label: '',
+						name: 'message',
+						placeholder:'message',
 					})
 						textarea(class="form-control")
+
 
 					//- Args: label, type, class, name, placeholder
 					+form_item({

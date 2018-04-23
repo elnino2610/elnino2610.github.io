@@ -36,9 +36,10 @@ module.exports = {
 		'menu/menu.js',
 		'swiper/swiper.css',
 		'typed/typed.min.js',
-		'jquery.waypoints/jquery.waypoints.js'
+		'jquery.waypoints/jquery.waypoints.js',
 		// 'wow/wow.js',
 		// 'wow/animate.css',
+		'iconfont/icofont.css'
 	],
 
 	appJs: [

@@ -1,0 +1,20 @@
+//- demo: true
+mixin general_mean(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- let args = item
+		if (has(args.modifier, 'paragraph'))
+			div(class=css.media)
+				p(class=set(args, 'paragraph', ''))
+			div(class=css.body)
+				h2(class=css.title)
+				div(class=css.meta)
+					span(class="author")
+						p!= set(args, 'text','')
+						
+
+		else
+			p(class=css.price)=set(args, 'price', '')
+			
+		
+		

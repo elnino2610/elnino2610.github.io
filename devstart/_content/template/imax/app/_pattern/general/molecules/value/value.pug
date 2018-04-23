@@ -1,0 +1,15 @@
+//- demo: true
+mixin general_value(args)
+	include cssmodule
+	+module('div', css.module, args)
+		- let args = item
+			ul(class=css.tabs)
+				li(class=css.list)=set(args, 'text', '10 GB Disk Space')
+				li(class=css.list)=set(args, 'text', '15 Domain Names')
+				li(class=css.list)=set(args, 'text', '4 Email Address')
+				li(class=css.list)=set(args, 'text', 'Enhanced Security')
+				li(class=css.list)=set(args, 'text', 'Unlimited Support')
+			
+			a(id= 'order' href='#')(class=css.purchase)=set(args,'title', '')
+				span purchase now
+				

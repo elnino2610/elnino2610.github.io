@@ -1,0 +1,14 @@
+//- demo: true
+mixin new_team(args)
+	include cssmodule
+	+module('div', css.module, args)
+		div(class=css.img)
+			img(src=set(args, 'img', 'img/bg/1.jpg'))
+			div(class=css.info)
+				h6(class=css.text)!= set(args, 'text', '')
+				span(class=css.career)!= set(args, 'career', '')
+					div(class=css.social)
+					i(class='icofont icofont-social-facebook')
+						i(class='icofont icofont-social-twitter')
+							i(class='icofont icofont-brand-linkedin')
+						

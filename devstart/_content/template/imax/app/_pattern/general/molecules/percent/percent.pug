@@ -1,0 +1,19 @@
+//- demo: true
+mixin general_percent(args)
+	include cssmodule
+
+	+module('div', css.module, args)
+		- let args = item
+			div(class=css.body)
+				h2(class=css.title)
+					p!= set(args, 'title', '')
+					//- Args: price
+					h3(class=css.price)=set(args, 'price', '')
+						span $
+					span(class=css.text)=set(args, 'text', 'Per Month')
+						+general_value({
+					})
+				
+				
+				
+		
