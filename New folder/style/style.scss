@@ -1,0 +1,22 @@
+*{
+	box-sizing: border-box;
+}
+
+
+@font-face {
+	font-family: 'playfair_display';
+	src: url(segoeuisl.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: ;
+	font-size: 14px;
+	color: #626262;
+}
+
+ 
+	.navbar-brand {
+			text-transform: uppercase;
+	}
